@@ -1,0 +1,81 @@
+
+
+
+\documentclass[border=2pt,tikz]{standalone}
+\usepackage{tikz-3dplot}
+% Define a point.
+% #1 = name of the point
+% (#2,#3,#4) is the location.
+% Also creates a coordinate node of name #1 at the location.
+\newcommand\definePointByXYZ[4]{
+    \coordinate (#1) at (#2,#3,#4);
+    \expandafter\gdef\csname tsx@point@#1\endcsname{
+        \def\tsx@point@x{#2}
+        \def\tsx@point@y{#3}
+        \def\tsx@point@z{#4}
+    }
+}
+\begin{document}
+\pgfmathsetmacro{\alpha}{55}
+\pgfmathsetmacro{\beta}{60}
+\tdplotsetmaincoords{\alpha}{\beta} % Perspective on the main coordinate system
+\pgfmathsetmacro{\radius}{0.8} % radius of the circle
+
+\begin{tikzpicture}[scale=5,tdplot_main_coords]
+% Draw circle in the un-rotated coordinates
+% \draw[blue,tdplot_screen_coords] (0,0,0) circle (\radius);
+
+% draw coordinate vectors for reference
+\draw[->] (-1,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+\draw[->] (0,-1,0) -- (0,1,0) node[anchor=north west]{$y$};
+\draw[->] (0,0,-1) -- (0,0,1) node[anchor=south]{$z$};
+
+% draw the "visible" and  "hidden" portions of the circumference as a solid and dashed semi-circles, parametrically 
+\draw[red,dashed,domain={-180+\beta}:\beta] plot ({\radius*cos(\x)}, {\radius*sin(\x)});
+\draw[red,dashed,domain=\beta:{180+\beta}] plot ({\radius*cos(\x)}, {\radius*sin(\x)});
+
+\pgfmathsetmacro{\radius}{.75} % radius of the circle
+\draw[red,dashed,domain={-180+\beta}:\beta] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.1);
+\draw[red,dashed,domain=\beta:{180+\beta}] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.1);
+
+\pgfmathsetmacro{\radius}{.65} % radius of the circle
+\draw[red,dashed,domain={-180+\beta}:\beta] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.2);
+\draw[red,dashed,domain=\beta:{180+\beta}] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.2);
+\pgfmathsetmacro{\radius}{.55} % radius of the circle
+\draw[red,dashed,domain={-180+\beta}:\beta] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.3);
+\draw[red,dashed,domain=\beta:{180+\beta}] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.3);
+\pgfmathsetmacro{\radius}{.45} % radius of the circle
+\draw[red,dashed,domain={-180+\beta}:\beta] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.35);
+\draw[red,dashed,domain=\beta:{180+\beta}] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.35);
+\pgfmathsetmacro{\radius}{.3} % radius of the circle
+\draw[red,dashed,domain={-180+\beta}:\beta] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.4);
+\draw[red,dashed,domain=\beta:{180+\beta}] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.4);
+\pgfmathsetmacro{\radius}{.2} % radius of the circle
+\draw[red,dashed,domain={-180+\beta}:\beta] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.45);
+\draw[red,dashed,domain=\beta:{180+\beta}] plot ({\radius*cos(\x)}, {\radius*sin(\x)},0.45);
+
+
+\filldraw[fill=blue,fill opacity=0.6] (0.2,-0.2,0) -- (0.2,0.2,0) --  (-0.2,0.2,0) -- (-0.2,-0.2,0) -- cycle ;
+
+
+  \draw[thin,<-] (0.21,0.21,0) -- (0.8,0.8,0.1) node[right] {Sampled Surface};
+  
+% \draw[thin,<-] (0.05,0.05,0.9) -- (0.7,0.7,0.95) node[right] {Camera Position};
+ 
+ \draw[thin,<-] (.2,.35,0.65) -- (0.8,0.85,.65) node[right] {Camera and Light trajectories};
+  
+%\definePointByXYZ{mypoint}{0}{0}{0.9};
+ %   \draw (mypoint) circle [radius=0.7pt];
+%	\fill (mypoint) circle [radius=0.7pt];
+	
+
+
+	
+%	\fill[ball color=yellow] (-.2,.93) circle (0.051 cm);
+	
+	
+	
+
+\end{tikzpicture}
+
+\end{document}

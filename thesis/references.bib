@@ -1,0 +1,286 @@
+@ARTICLE{webglbtfstreaming,
+    author = {Schwartz, Christopher and Ruiters, Roland and Weinmann, Michael and Klein, Reinhard},
+    editor = {Scopigno, R.},
+     pages = {11:1--11:21},
+     title = {WebGL-based Streaming and Presentation of Objects with Bidirectional Texture Functions},
+   journal = {Journal on Computing and Cultural Heritage (JOCCH)},
+    volume = {6},
+    number = {3},
+      year = {2013},
+     month = jul,
+  keywords = {BTF compression, BTF rendering, BTF streaming, cultural heritage, moulage, progressive transmission,
+              public dissemination, WebGL},
+  abstract = {Museums and Cultural Heritage institutions have a growing interest in presenting their collections
+              to a broader community via the Internet. The photo-realistic presentation of interactively
+              inspectable virtual surrogates is one of the most challenging problems in this field. For this
+              purpose, we seek to employ not only a 3D geometry but also a powerful material representation
+              capable of reproducing the full visual appeal of an object. In this article, we propose a
+              WebGL-based presentation framework in which reflectance information is represented via Bidirectional
+              Texture Functions (BTF). Our approach works out-of-the-box in modern Web browsers and allows for the
+              progressive transmission and interactive rendering of digitized artifacts consisting of 3D geometry
+              and reflectance information. We handle the huge amount of data needed for this representation by
+              employing a novel progressive streaming approach for BTFs, which allows for the smooth interactive
+              inspection of a steadily improving version during the download. We demonstrate an interesting
+              use-case of this technique at a cross section of Cultural Heritage, medical education, and research
+              and provide an evaluation of the capabilities of our framework in the scope of BTF compression and
+              transmission.},
+      issn = {1556-4673},
+       url = {http://doi.acm.org/10.1145/2499931.2499932},
+       doi = {10.1145/2499931.2499932}
+}
+
+@ARTICLE{schwartz-2014-setups,
+    author = {Schwartz, Christopher and Sarlette, Ralf and Weinmann, Michael and Rump, Martin and Klein, Reinhard},
+     title = {Design and Implementation of Practical Bidirectional Texture Function Measurement Devices focusing
+              on the Developments at the University of Bonn},
+   journal = {Sensors},
+    volume = {14},
+    number = {5},
+      year = {2014},
+     month = apr,
+  keywords = {acquisition device, BRDF, BTF, camera calibration, gonioreflectometer, HDR, light field, reflectance},
+  abstract = {Understanding as well as realistic reproduction of the appearance of materials play an important
+              role in computer graphics, computer vision and industry. They enable applications such as digital
+              material design, virtual prototyping and faithful virtual surrogates for entertainment, marketing,
+              education or cultural heritage documentation. A particularly fruitful way to obtain the digital
+              appearance is the acquisition of reflectance from real-world material samples. Therefore, a great
+              variety of devices to perform this task has been proposed. In this work, we investigate their
+              practical usefulness. We first identify a set of necessary attributes and establish a general
+              categorization of different designs that have been realized. Subsequently, we provide an in-depth
+              discussion of three particular implementations by our work group, demonstrating advantages and
+              disadvantages of different system designs with respect to the previously established attributes.
+              Finally, we survey the existing literature to compare our implementation with related approaches.},
+      issn = {1424-8220},
+       url = {http://www.mdpi.com/1424-8220/14/5/7753},
+       doi = {10.3390/s140507753}
+}
+@INPROCEEDINGS{sattler-2003-efficient,
+      author = {Sattler, Mirko and Sarlette, Ralf and Klein, Reinhard},
+       title = {Efficient and Realistic Visualization of Cloth},
+   booktitle = {Eurographics Symposium on Rendering 2003},
+        year = {2003},
+       month = jun,
+    abstract = {Efficient and realistic rendering of cloth is of great interest
+                especially in the context of e-commerce. Aside from the simulation
+                of cloth draping, the rendering has to provide the "look and feel"
+                of the fabric itself. In this paper we present a novel interactive
+                rendering algorithm to preserve this "look and feel" of different
+                fabrics. This is done by using the bidirectional texture function
+                (BTF) of the fabric, which is acquired from a rectangular probe
+                and after synthesis, mapped onto the simulated geometry. Instead
+                of fitting a special type of bidirectional reflection distribution
+                function (BRDF) model to each texel of our BTF, we generate
+                view-dependent texture-maps using a principal component analysis
+                of the original data. These view-dependent texture maps are then
+                illuminated and rendered using either point-light sources or high
+                dynamic range environment maps by exploiting current graphics
+                hardware. In both cases, self-shadowing caused by geometry is
+                taken into account. For point light sources, we also present a
+                novel method to generate smooth shadow boundaries on the geometry.
+                Depending on the geometrical complexity and the sampling density
+                of the environment map, the illumination can be changed
+                interactively. To ensure interactive frame rates for denser
+                samplings or more complex objects, we introduce a principal
+                component based decomposition of the illumination of the geometry.
+                The high quality of the results is demonstrated by several
+                examples. The algorithm is also suitable for materials other than
+                cloth, as far as these materials have a similar reflectance
+                behavior.},
+  conference = {Eurographics Symposium on Rendering 2003}
+}
+
+@misc{curetDataBase,
+  Title = {CuRRET BTF Database},
+  Howpublished = {\url{http://www1.cs.columbia.edu/CAVE/software/curet/index.php}},
+  note = {Accessed on \today}
+}
+@misc{btfBonn,
+  Title = {BTF Database Bonn 2003},
+  Howpublished = {\url{http://cg.cs.uni-bonn.de/en/projects/btfdbb/download/ubo2003/}},
+  note = {Accessed on \today}
+}
+
+@INPROCEEDINGS{mueller-2003-compression,
+      author = {M{\"u}ller, Gero and Meseth, Jan and Klein, Reinhard},
+      editor = {Ertl, T. and Girod, B. and Greiner, G. and Niemann, H. and Seidel, H.-P. and Steinbach, E. and
+                Westermann, R.},
+       pages = {271--280},
+       title = {Compression and Real-Time Rendering of Measured BTFs Using Local PCA},
+   booktitle = {Vision, Modeling and Visualisation 2003},
+        year = {2003},
+       month = nov,
+   publisher = {Akademische Verlagsgesellschaft Aka GmbH, Berlin},
+    keywords = {BTF rendering, data compression, material representation, real-time rendering, textures},
+    abstract = {The Bidirectional Texture Function (BTF) is a suitable representation for the appearance of highly
+                detailed surface structures under varying illumination and viewing conditions. Real-time rendering
+                of measurements from this six-dimensional
+                function requires approximation strategies, because of the huge size of the dataset.
+                
+                In this paper we present a framework for BTF-compression and rendering enabling high-quality
+                real-time rendering using much less memory than other comparable data-driven approaches. Our method
+                exploits a BRDF-wise arrangement of the data and employs a flexible generalization of Principal
+                Component Analysis (PCA) named local PCA for the data compression.},
+        isbn = {3-89838-048-3},
+  conference = {The 8th International Fall Workshop Vision, Modeling and Visualisation 2003}
+}
+
+@INPROCEEDINGS{mueller-2004-environmental,
+      author = {M{\"u}ller, Gero and Meseth, Jan and Klein, Reinhard},
+       pages = {198--205},
+       title = {Fast Environmental Lighting for Local-PCA Encoded BTFs},
+   booktitle = {Computer Graphics International 2004 (CGI 2004)},
+        year = {2004},
+       month = jun,
+   publisher = {IEEE Computer Society},
+    keywords = {BTF rendering, data compression, material representation, real-time rendering, textures},
+    abstract = {Rendering geometric models with complex surface
+                materials in arbitrary lighting environments is a challenging
+                problem. In order to relight and render geometries
+                covered with complex, measured BTFs two
+                problems have to be addressed: The memory problem
+                resulting from the large size of the measured BTF data
+                and the light integration problem resulting from summing
+                up the contributions from all measured lightsources.
+                
+                In this paper we describe how highly efficient BTF
+                compression methods like Local-PCA and suitable
+                representations of environmental light based on
+                Spherical Harmonics can be combined leading to fast
+                environmental lighting for efficiently encoded BTFs.
+                As a side effect the method supports Precomputed Radiance
+                Transfer.},
+        issn = {1530-1052},
+        isbn = {0-7695-2171-1},
+  conference = {Computer Graphics International 2004 (CGI 2004)}
+}
+
+
+@book{gpu_gems,
+    abstract = {{<blockquote> ” The GPU Gems series features a collection of the most essential algorithms required by Next-Generation 3D Engines.”<br><b><i>—Martin Mittring, Lead Graphics Programmer, Crytek</i></b></blockquote><p>This third volume of the best-selling GPU Gems series provides a snapshot of today's latest Graphics Processing Unit (GPU) programming techniques. The programmability of modern GPUs allows developers to not only distinguish themselves from one another but also to use this awesome processing power for non-graphics applications, such as physics simulation, financial analysis, and even virus detection—particularly with the CUDA architecture. Graphics remains the leading application for GPUs, and readers will find that the latest algorithms create ultra-realistic characters, better lighting, and post-rendering compositing effects. </p><p>Major topics include</p><ul><li>Geometry</li><li>Light and Shadows</li><li>Rendering</li><li>Image Effects</li><li>Physics Simulation</li><li>GPU Computing</li></ul><p>Contributors are from the following corporations and universities:</p><p>3Dfacto<br>Adobe Systems<br>Apple<br>Budapest University of Technology and Economics<br>CGGVeritas<br>The Chinese University of Hong Kong<br>Cornell University<br>Crytek<br>Czech Technical University in Prague<br>Dartmouth College<br>Digital Illusions Creative Entertainment<br>Eindhoven University of Technology<br>Electronic Arts<br>Havok<br>Helsinki University of Technology<br>Imperial College London<br>Infinity Ward<br>Juniper Networks<br>LaBRI–INRIA, University of Bordeaux<br>mental images<br>Microsoft Research<br>Move Interactive<br>NCsoft Corporation<br>NVIDIA Corporation<br>Perpetual Entertainment<br>Playlogic Game Factory<br>Polytime<br>Rainbow Studios<br>SEGA Corporation<br>UFRGS (Brazil)<br>Ulm University<br>University of California, Davis<br>University of Central Florida<br>University of Copenhagen<br>University of Girona<br>University of Illinois at Urbana-Champaign<br>University of North Carolina Chapel Hill<br>University of Tokyo<br>University of Waterloo<br></p><p>Section Editors include NVIDIA engineers: Cyril Zeller, Evan Hart, Ignacio Casta\~{n}o, Kevin Bjorke, Kevin Myers, and Nolan Goodnight.</p><p><b>The accompanying DVD includes complementary examples and sample programs.</b></p>}},
+    author = {Nguyen, Hubert},
+    citeulike-article-id = {4873095},
+    day = {02},
+    howpublished = {Hardcover},
+    isbn = {0321515269},
+    keywords = {code, gpu, optimization, rendering, volume},
+    month = aug,
+    posted-at = {2009-06-16 19:44:40},
+    priority = {2},
+    publisher = {Addison-Wesley Professional},
+    title = {{GPU Gems 3}},
+    year = {2007}
+}
+
+@inproceedings{Haindl,
+ author = {Haindl, Michal and Filip, Jiri},
+ title = {Advanced Textural Representation of Materials Appearance},
+ booktitle = {SIGGRAPH Asia 2011 Courses},
+ series = {SA '11},
+ year = {2011},
+ isbn = {978-1-4503-1135-9},
+ location = {Hong Kong, China},
+ pages = {1:1--1:84},
+ articleno = {1},
+ numpages = {84},
+ url = {http://doi.acm.org/10.1145/2077434.2077435},
+ doi = {10.1145/2077434.2077435},
+ acmid = {2077435},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
+
+@article{pca_noise,
+ author = {Salmon, Joseph and Harmany, Zachary and Deledalle, Charles-Alban and Willett, Rebecca},
+ title = {Poisson Noise Reduction with Non-local PCA},
+ journal = {J. Math. Imaging Vis.},
+ issue_date = {February  2014},
+ volume = {48},
+ number = {2},
+ month = feb,
+ year = {2014},
+ issn = {0924-9907},
+ pages = {279--294},
+ numpages = {16},
+ url = {http://dx.doi.org/10.1007/s10851-013-0435-6},
+ doi = {10.1007/s10851-013-0435-6},
+ acmid = {2582782},
+ publisher = {Kluwer Academic Publishers},
+ address = {Norwell, MA, USA},
+ keywords = {Gradient methods, Image denoising, Newton's method, PCA, Signal representations},
+} 
+@inproceedings{btfblender,
+ author = {Hatka, Martin and Haindl, Michal},
+ title = {BTF Rendering in Blender},
+ booktitle = {Proceedings of the 10th International Conference on Virtual Reality Continuum and Its Applications in Industry},
+ series = {VRCAI '11},
+ year = {2011},
+ isbn = {978-1-4503-1060-4},
+ location = {Hong Kong, China},
+ pages = {265--272},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/2087756.2087794},
+ doi = {10.1145/2087756.2087794},
+ acmid = {2087794},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {bidirectional texture function, blender, rendering},
+} 
+
+@book{websockets,
+  title={The Definitive Guide to HTML5 WebSocket},
+  author={Wang, V. and Salim, F. and Moskovits, P.},
+  isbn={9781430247401},
+  series={Apressus Series},
+  url={http://books.google.de/books?id=f7Gyuv-tZE0C},
+  year={2012},
+  publisher={Apress}
+}
+@misc{jblas,
+  Title = {Linear Algebra for Java - jblas},
+  Howpublished = {\url{http://mikiobraun.github.io/jblas/}},
+  note = {Accessed on \today}
+}
+@inproceedings{xml3d,
+ author = {Sons, Kristian and Klein, Felix and Rubinstein, Dmitri and Byelozyorov, Sergiy and Slusallek, Philipp},
+ title = {XML3D: interactive 3D graphics for the web},
+ booktitle = {Web3D '10: Proceedings of the 15th International Conference on Web 3D Technology},
+ year = {2010},
+ isbn = {978-1-4503-0209-8},
+ pages = {175--184},
+ location = {Los Angeles, California},
+ doi = {http://doi.acm.org/10.1145/1836049.1836076},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ }
+@Article {xflow,
+   title = {XML3D and Xflow: Combining Declarative 3D for the Web with Generic Data Flows},
+   journal = {Computer Graphics and Applications, IEEE},
+   year = {2013},
+   volume = {33},
+   number = {5},
+   pages = {38-47},
+   keywords = {Cascading style sheets;Data processing;HTML;Interactive systems;Three-dimensional displays;XML;River Trail;Web3D;WebGL;XML3D;Xflow;computer graphics;data processing;parallel JavaScript},
+   web_url = {https://graphics.cg.uni-saarland.de/2013/xml3d-and-xflow-combining-declarative-3d-for-the-web-with-generic-data-flows/},
+   ISSN = {0272-1716},
+   DOI = {10.1109/MCG.2013.67},
+   author = {Klein, Felix and Sons, Kristian and Rubinstein, Dmitri and Slusallek, Philipp}
+}
+@misc{pngreader,
+  Title = {Pure JavaScript PNG decoder},
+  Howpublished = {\url{https://github.com/arian/pngjs/}},
+  note = {Accessed on \today}
+}
+
+@misc{nodejs,
+  Title = {Node.js websocket platform},
+  Howpublished = {\url{http://nodejs.org/}},
+  note = {Accessed on \today}
+}
+
+@misc{binaryjs,
+  Title = {BinaryJS framework},
+  Howpublished = {\url{http://binaryjs.com/}},
+  note = {Accessed on \today}
+}
+
+

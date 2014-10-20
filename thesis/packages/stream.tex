@@ -1,0 +1,115 @@
+% System Combination
+% Harish K Krishnamurthy <www.ece.neu.edu/~hkashyap/>
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shadows}
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=6.5em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+\usepackage{amsmath,bm,times}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title: System Combination
+:Author: Harish K Krishnamurthy
+
+A block diagram of system combination technique of combining several Automatic Speech Recognition Systems (ASRs) to determine best word sequence outputs is shown here. The training and validation phase are the important phases.
+
+\end{comment}
+
+\newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
+\newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
+
+\begin{document}
+% Define the layers to draw the diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+% Define block styles used later
+
+\tikzstyle{sensor}=[draw, fill=blue!20, text width=7em, 
+    text centered, minimum height=2.5em,drop shadow]
+	\tikzstyle{final}=[draw, fill=green!20, text width=7em, 
+    text centered, minimum height=2.5em,drop shadow]
+\tikzstyle{ann} = [above, text width=5em, text centered]
+\tikzstyle{wa} = [sensor, text width=10em, fill=red!20, 
+    minimum height=6em, rounded corners, drop shadow]
+\tikzstyle{ea} = [sensor, text width=10em, fill=red!20, 
+    minimum height=6em, rounded corners, drop shadow]
+\tikzstyle{sc} = [sensor, text width=10em, fill=red!20, 
+    minimum height=6em, rounded corners, drop shadow]
+
+% Define distances for bordering
+\def\blockdist{2.3}
+\def\edgedist{2.5}
+
+\begin{tikzpicture}
+    \node (wa) [wa]  {Client Browser};
+	\path (wa.west)+(-10.0,0.0) node (ea) [ea] {WebSocket Server};
+    \path (ea.east)+(4.0,1.5) node (asr1) [sensor] {$C_1$};
+    \path (ea.east)+(4.0,0.5) node (asr2)[sensor] {$C_2$};
+    \path (ea.east)+(4.0,-1.0) node (dots)[ann] {$\vdots$}; 
+    \path (ea.east)+(4.0,-2.0) node (asr3)[sensor] {$C_N$};
+	
+	\path (wa.south)+(0.0,-3.0) node (vote) [sensor] {Components Texture};
+	
+	 \path [draw, <-] (vote.north) -- node [below] {Combining \, components} 
+        (wa) ;
+	
+    \path [draw, <-] (asr1.west) -- node [above] {} 
+        (ea.20) ;
+    \path [draw, <-] (asr2.west) -- node [above] {} 
+        (ea.0);
+    \path [draw, <-] (asr3.west) -- node [above] {} 
+        (ea.-10);
+		
+	\path [draw, ->] (asr1.east) -- node [above] {} 
+        (wa.160) ;
+    \path [draw, ->] (asr2.east) -- node [above] {} 
+        (wa.180);
+    \path [draw, ->] (asr3.east) -- node [above] {} 
+        (wa.200);
+		
+		
+		
+   \path (vote.south)+(-6.0,-2.5) node (syscomb) [sc] {Shader};
+
+	
+     \path [draw, ->] (vote.south) -- node [above] {} 
+        (syscomb.90);
+		
+ 
+   
+		
+	\begin{scope}[looseness=1.2]
+        \path [draw, ->] (wa) edge[bend  left=50]  node [below] {Requesting component $C_i$} 
+            (ea);
+    \end{scope}
+
+ 
+
+\end{tikzpicture}
+
+\end{document}

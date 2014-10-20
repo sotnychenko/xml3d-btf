@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <head>
+	 <!-- Style -->
+	 <!-- Style -->
+	<link rel="stylesheet" type="text/css" media="all" href="./style/page.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="./style/jquery-ui.css"/>
+	<link rel="stylesheet" href="./style/normalize.css">
+	<link rel="stylesheet" href="./style/style.css">
+	<script src="./script/jquery.js" type="text/javascript"></script>
+	<script src="./script/modernizr.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./script/jquery.min.js"></script>
+    <script type="text/javascript" src="./script/jquery-ui.js"></script>
+            <!-- Scripts -->
+    <script type="text/javascript" src="./script/xml3d.js"></script>
+    <script type="text/javascript" src="./script/camera.js"></script>
+           <!-- Application Scrips -->
+    <script type="text/javascript" src="./script/btf.js"></script>
+    <script type="text/javascript" src="./script/scaleUV.js" ></script>
+	<script type="text/javascript" src="./script/binary.js"></script>
+	<script type="text/javascript" src="./script/minexflow.js" ></script>
+	<script type="text/javascript" src="./script/png.js"></script>
+	<script type="text/javascript" src="./script/client.js"></script>	 
+    </head>
+	
+  <title>BTF Plane</title>
+</head>
+<body>
+<div id="overall">
+  <div id="content">
+    <h1>CSS Transforms</h1>
+	<select>
+    <optgroup label="BTF Textures">
+        <option>wool/3_8</option>
+        <option>impalla/3_8</option>
+        <option>corduroy/3_8</option>
+</select><br><br>
+  <script type="text/javascript" src="./script/menu.js"></script>	
+  <div style="text-align:left"><font color="green">fps</font> <span id="fpsId">0</span></div>
+  <script type="text/javascript" src="./script/fps.js"></script>	
+    <xml3d id="MyXml3d" class="xml3d"
+           width="600px" height="400px"
+       >
+    <view id="defaultView" position="21666.248046875 999861.9375 10684.98046875" orientation="0.0026980615220963955 0.697016179561615 0.7170503735542297 3.110943842777186"></view>
+      <defs>
+
+      <!-- Shaders -->
+       <transform id="t_Lamp"></transform>
+       <transform id="t_pPlane1" scale="2.284 2.284 2.284" translation="3925.928 0.0 -17085.92"/>
+                    <data id="pPlaneShape1">
+                        <float3 key="0.0" name="position">-109876.0 0.0 76778.38 109876.0 0.0 76778.38 -109876.0 0.0 -76778.38 109876.0 0.0 -76778.38</float3>
+                        <float3 key="0.0" name="normal">0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0</float3>
+                        <float2 key="0.0" name="texcoord">0.0 0.0 1.0 0.0 0.0 1.0 1.0 1.0</float2>
+                        <float3 key="0.0" name="tangent">1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0</float3>
+                        <float3 key="0.0" name="binormal">0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0</float3>
+                        <int name="index">0 1 2 2 1 3</int>
+                    </data>
+					 
+					  <!-- <data src="resource.xml#BTFdata1" compute="diffuseTexture2=xflow.createTexture(slice,num)"/>-->
+	           <lightshader id="ls_directional" script="urn:xml3d:lightshader:point">
+		       <float3 name="intensity">0.8 0.8 1</float3>
+		       <float3 name="position">0.0 1.0 0.5</float3>
+	           </lightshader>
+                 <shader id="material0-fx" script="urn:xml3d:shader:btf">						
+						<float name="numDirections" id="numDirectionsId">0</float>
+						<float name="blockSize" id="blockSizeId">0</float>
+						<float name="numComp" id="numCompId">0</float>
+						<float name="imageSize" id="imageSizeId">0</float>	
+						<float name="LSize" id="LSizeId">0</float>	
+						<float name="RSize" id="RSizeId">0</float>	
+						<int   name="wool/3_8" id="texNameId" >0</int>
+						
+          	        <data id="buffeData" compute="texData=xflow.updateTexture(texData,imageBuffer,iterComp,texSize,numCompBuffer)">					
+                    <int name="texData" id="texDataId" >0</int>					
+				    <int name="iterComp" id="iterCompId">-1</int>
+					<int name="texSize" id="texSizeId" >1</int>
+					<int name="imageBuffer" id="imageBufferId" >0</int> 
+					<int name="numCompBuffer" id="numCompBufferId" >0</int> 
+				     </data>							  
+				
+				    <texture name="textureR"  wrapS="repeat" wrapT="repeat"> <img id="texRId"/>  </texture> 
+						
+                   <data  src ="#buffeData" compute="textureL=xflow.createTexture(texData)"> </data>									 
+                   </shader>
+				   <shader id="material0-fx2" script="urn:xml3d:shader:phong" >						
+	                    <float3 name="emissiveColor">0.0 0.0 0.0</float3>
+					    <float name="ambientIntensity">0.45</float>
+					    <float3 name="specularColor"> 0.1200000 0.1200000 0.1200000 </float3>			  
+                        <float name="shininess">0.158875</float>
+                        <texture name="diffuseTexture"  wrapS="repeat" wrapT="repeat">
+                            <img id="diffuseTexId" src="./textures/wool.png"/>
+                        </texture>							 
+                    </shader>
+                </defs>
+                <group id="VisualSceneNode">
+                    <group class="pPlane1" id="pPlane1"
+                        shader="#material0-fx" transform="#t_pPlane1">
+                        <mesh
+                             compute="texcoord = xflow.scaleUV(texcoord,scaleUV)" type="triangles">  
+                              <float2 name="scaleUV">1.0 1.0</float2>							 
+                            <data src="#pPlaneShape1"/>
+                        </mesh>
+				<group transform="#t_Lamp">
+                        <light shader="#ls_directional"></light>
+                 </group>
+                   </group>
+                </group>
+              
+
+      <!-- Scene Graph -->
+
+    </xml3d>
+	<div class="demo-wrapper html5-progress-bar">
+		<div class="progress-bar-wrapper">
+			<progress id="progressbar" value="0" max="100"></progress>
+			<span class="progress-value">0%</span>
+		</div>
+	</div>
+	 <script>
+		$(function() {
+			$( "#check" ).button();
+			$( "#check" ).click(function(e) {
+				shouldAnimate = e.target.checked;
+				animate();
+			});
+		});
+		var x = new XML3DRotation(new XML3DVec3(0.707,0.707,0),0),
+		    shouldAnimate = false;
+		function animate() {
+				var t = document.getElementById("t_Lamp");
+				x.angle = x.angle + 0.1;
+				t.rotation.set(x);
+				if (shouldAnimate)
+					window.requestAnimFrame(animate);
+		}
+	  </script>
+
+  </div>
+</div>
+</body>
+</html>
