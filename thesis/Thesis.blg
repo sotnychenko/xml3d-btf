@@ -1,10 +1,15 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Thesis.aux
 The style file: plain.bst
 Database file #1: references.bib
+A bad cross reference---entry "statistical_acq"
+refers to entry "EGSR06-proc", which doesn't exist
+Warning--I didn't find a database entry for "EGSR06-proc"
 Warning--to sort, need author or key in curetDataBase
 Warning--to sort, need author or key in btfBonn
 Warning--to sort, need author or key in jblas
-Warning--to sort, need author or key in nodejs
-Warning--to sort, need author or key in binaryjs
 Warning--to sort, need author or key in pngreader
-(There were 6 warnings)
+Warning--empty booktitle in statistical_acq
+Warning--empty year in statistical_acq
+Warning--empty booktitle in Nicodemus
+Warning--empty year in wynn
+(There was 1 error message)

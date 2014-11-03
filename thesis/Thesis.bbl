@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{binaryjs}
-Binaryjs framework.
-\newblock \url{http://binaryjs.com/}.
-\newblock Accessed on \today.
-
 \bibitem{btfBonn}
 Btf database bonn 2003.
 \newblock \url{http://cg.cs.uni-bonn.de/en/projects/btfdbb/download/ubo2003/}.
@@ -20,28 +15,32 @@ Linear algebra for java - jblas.
 \newblock \url{http://mikiobraun.github.io/jblas/}.
 \newblock Accessed on \today.
 
-\bibitem{nodejs}
-Node.js websocket platform.
-\newblock \url{http://nodejs.org/}.
-\newblock Accessed on \today.
-
 \bibitem{pngreader}
 Pure javascript png decoder.
-\newblock \url{https://github.com/arian/pngjs/}.
+\newblock \url{https://github.com/arian/pngjs}.
 \newblock Accessed on \today.
 
-\bibitem{haindl}
-Michal Haindl and Jiri Filip.
-\newblock Advanced textural representation of materials appearance.
-\newblock In {\em SIGGRAPH Asia 2011 Courses}, SA '11, pages 1:1--1:84, New
-  York, NY, USA, 2011. ACM.
+\bibitem{dana}
+K.J. Dana, B.~Van-Ginneken, S.K. Nayar, and J.J. Koenderink.
+\newblock {R}eflectance and {T}exture of {R}eal {W}orld {S}urfaces.
+\newblock {\em ACM Transactions on Graphics (TOG)}, 18(1):1--34, Jan 1999.
 
-\bibitem{btfblender}
-Martin Hatka and Michal Haindl.
-\newblock Btf rendering in blender.
-\newblock In {\em Proceedings of the 10th International Conference on Virtual
-  Reality Continuum and Its Applications in Industry}, VRCAI '11, pages
-  265--272, New York, NY, USA, 2011. ACM.
+\bibitem{dong}
+Y.~Dong, S.~Lin, and B.~Guo.
+\newblock {\em Material Appearance Modeling: A Data-Coherent Approach: A
+  Data-coherent Approach}.
+\newblock SpringerLink : B{\"u}cher. Springer, 2013.
+
+\bibitem{haindl_visual}
+M.~Haindl and J.~Filip.
+\newblock {\em Visual Texture}.
+\newblock Advances in Computer Vision and Pattern Recognition. Springer-Verlag,
+  London, 2013.
+
+\bibitem{Kaleidoscope}
+Jefferson~Y. Han and Ken Perlin.
+\newblock Measuring bidirectional texture reflectance with a kaleidoscope.
+\newblock {\em ACM Trans. Graph.}, 22(3):741--748, July 2003.
 
 \bibitem{xflow}
 Felix Klein, Kristian Sons, Dmitri Rubinstein, and Philipp Slusallek.
@@ -49,41 +48,43 @@ Felix Klein, Kristian Sons, Dmitri Rubinstein, and Philipp Slusallek.
   data flows.
 \newblock {\em Computer Graphics and Applications, IEEE}, 33(5):38--47, 2013.
 
-\bibitem{mueller-2003-compression}
-Gero M{\"u}ller, Jan Meseth, and Reinhard Klein.
-\newblock Compression and real-time rendering of measured btfs using local pca.
-\newblock In T.~Ertl, B.~Girod, G.~Greiner, H.~Niemann, H.-P. Seidel,
-  E.~Steinbach, and R.~Westermann, editors, {\em Vision, Modeling and
-  Visualisation 2003}, pages 271--280. Akademische Verlagsgesellschaft Aka
-  GmbH, Berlin, November 2003.
+\bibitem{Koudelka}
+Melissa~L. Koudelka, Sebastian Magda, Peter~N. Belhumeur, and David~J.
+  Kriegman.
+\newblock Acquisition, compression, and synthesis of bidirectional texture
+  functions.
+\newblock In {\em In ICCV 03 Workshop on Texture Analysis and Synthesis}, 2003.
 
-\bibitem{mueller-2004-environmental}
-Gero M{\"u}ller, Jan Meseth, and Reinhard Klein.
-\newblock Fast environmental lighting for local-pca encoded btfs.
-\newblock In {\em Computer Graphics International 2004 (CGI 2004)}, pages
-  198--205. IEEE Computer Society, June 2004.
+\bibitem{star2004}
+Gero M{\"u}ller, Jan Meseth, Mirko Sattler, Ralf Sarlette, and Reinhard Klein.
+\newblock Acquisition, synthesis and rendering of bidirectional texture
+  functions.
+\newblock In Christophe Schlick and Werner Purgathofer, editors, {\em
+  Eurographics 2004, State of the Art Reports}, pages 69--94. INRIA and
+  Eurographics Association, September 2004.
 
-\bibitem{gpu_gems}
-Hubert Nguyen.
-\newblock {\em {GPU Gems 3}}.
-\newblock Addison-Wesley Professional, August 2007.
+\bibitem{statistical_acq}
+Addy Ngan and Frédo Durand.
+\newblock {Statistical Acquisition of Texture Appearance}.
+\newblock pages 31--40.
 
-\bibitem{pca_noise}
-Joseph Salmon, Zachary Harmany, Charles-Alban Deledalle, and Rebecca Willett.
-\newblock Poisson noise reduction with non-local pca.
-\newblock {\em J. Math. Imaging Vis.}, 48(2):279--294, February 2014.
+\bibitem{Nicodemus}
+F.~E. Nicodemus, J.~C. Richmond, J.~J. Hsia, I.~W. Ginsberg, and T.~Limperis.
+\newblock Radiometry.
+\newblock chapter Geometrical Considerations and Nomenclature for Reflectance,
+  pages 94--145. Jones and Bartlett Publishers, Inc., USA, 1992.
 
 \bibitem{sattler-2003-efficient}
 Mirko Sattler, Ralf Sarlette, and Reinhard Klein.
 \newblock Efficient and realistic visualization of cloth.
 \newblock In {\em Eurographics Symposium on Rendering 2003}, June 2003.
 
-\bibitem{webglbtfstreaming}
-Christopher Schwartz, Roland Ruiters, Michael Weinmann, and Reinhard Klein.
-\newblock Webgl-based streaming and presentation of objects with bidirectional
-  texture functions.
-\newblock {\em Journal on Computing and Cultural Heritage (JOCCH)},
-  6(3):11:1--11:21, July 2013.
+\bibitem{schwartz}
+Christopher Schwartz, Ralf Sarlette, Michael Weinmann, and Reinhard Klein.
+\newblock Dome ii: A parallelized btf acquisition system.
+\newblock In Holly Rushmeier and Reinhard Klein, editors, {\em Eurographics
+  Workshop on Material Appearance Modeling: Issues and Acquisition}, pages
+  25--31. Eurographics Association, June 2013.
 
 \bibitem{xml3d}
 Kristian Sons, Felix Klein, Dmitri Rubinstein, Sergiy Byelozyorov, and Philipp
@@ -92,9 +93,14 @@ Kristian Sons, Felix Klein, Dmitri Rubinstein, Sergiy Byelozyorov, and Philipp
 \newblock In {\em Web3D '10: Proceedings of the 15th International Conference
   on Web 3D Technology}, pages 175--184, New York, NY, USA, 2010. ACM.
 
-\bibitem{websockets}
-V.~Wang, F.~Salim, and P.~Moskovits.
-\newblock {\em The Definitive Guide to HTML5 WebSocket}.
-\newblock Apressus Series. Apress, 2012.
+\bibitem{abrdf}
+Frank Suykens, Karl vom Berge, Ares Lagae, and Philip Dutré.
+\newblock Interactive rendering with bidirectional texture functions.
+\newblock {\em Comput. Graph. Forum}, 22(3):463--472, 2003.
+
+\bibitem{wynn}
+Chris Wynn.
+\newblock An introduction to brdf-based lighting.
+\newblock {\em NVIDIA Corporation}.
 
 \end{thebibliography}

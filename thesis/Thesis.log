@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.18)  28 JUL 2014 13:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.18)  3 NOV 2014 15:57
 entering extended mode
-**C:/sotnychenko/thesis/mine/Thesis.tex
-(C:/sotnychenko/thesis/mine/Thesis.tex
+**C:/Users/Oleksandr/Desktop/thesis/mine/Thesis.tex
+(C:/Users/Oleksandr/Desktop/thesis/mine/Thesis.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(C:\sotnychenko\thesis\mine\Thesis.cls
+(C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.cls
 Document Class: Thesis 2007/22/02 v1.0 LaTeX document class
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\book.cls"
 Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
@@ -793,7 +793,7 @@ LaTeX Info: Redefining \addtolength on input line 77.
 )
 \c@@todonotes@numberoftodonotes=\count158
 )
-(C:\sotnychenko\thesis\mine\packages/algorithm2e.sty
+(C:\Users\Oleksandr\Desktop\thesis\mine\packages/algorithm2e.sty
 
 LaTeX Warning: You have requested package `packages/algorithm2e',
                but the package provides `algorithm2e'.
@@ -921,7 +921,7 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-(C:\sotnychenko\thesis\mine\Thesis.aux)
+(C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
@@ -984,8 +984,10 @@ LaTeX Info: Redefining \ref on input line 32.
 LaTeX Info: Redefining \pageref on input line 32.
 LaTeX Info: Redefining \nameref on input line 32.
 
-(C:\sotnychenko\thesis\mine\Thesis.out) (C:\sotnychenko\thesis\mine\Thesis.out)
+(C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.out)
+(C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.out)
 \@outlinefile=\write4
+
 ABD: EveryShipout initializing macros
 ------------------------------------------------------------------------------
  Title Page
@@ -1010,23 +1012,23 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ------------------------------------------------------------------------------
  Abstract Page
 ------------------------------------------------------------------------------
-(C:\sotnychenko\thesis\mine\chapters/abstract.tex) [5] [6
+(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/abstract.tex) [5] [6
 
 ]
 ------------------------------------------------------------------------------
  Acknowledgements
 ------------------------------------------------------------------------------
-(C:\sotnychenko\thesis\mine\acknowledgements.tex) [7] [8
+(C:\Users\Oleksandr\Desktop\thesis\mine\acknowledgements.tex) [7] [8
 
-] [9] [10
+] [9]
+[10
 
-]
-(C:\sotnychenko\thesis\mine\Thesis.toc [11
+] (C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.toc [11
 
 ])
 \tf@toc=\write5
  [12]
-(C:\sotnychenko\thesis\mine\Thesis.lof)
+(C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.lof)
 \tf@lof=\write6
  [13
 
@@ -1034,176 +1036,197 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-(C:\sotnychenko\thesis\mine\chapters/introduction.tex
+(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/introduction.tex
 Chapter 1.
 ------------------------------------------------------------------------------
  1 Introduction
 ------------------------------------------------------------------------------
-<figures/overview.png, id=231, 1132.98282pt x 699.36281pt>
+<figures/overview.png, id=248, 1132.98282pt x 699.36281pt>
 File: figures/overview.png Graphic file (type png)
 
 <use figures/overview.png>
-Package pdftex.def Info: figures/overview.png used on input line 20.
+Package pdftex.def Info: figures/overview.png used on input line 25.
 (pdftex.def)             Requested size: 417.47307pt x 257.69304pt.
-) [1
-
- <C:/sotnychenko/thesis/mine/figures/overview.png>] (C:\sotnychenko\thesis\mine
-\chapters/methods.tex [2
-
-
-]
-Chapter 2.
-------------------------------------------------------------------------------
- 2 Methods
-------------------------------------------------------------------------------
-[3] <figures/acquisition.jpg, id=260, 1135.99406pt x 653.44125pt>
-File: figures/acquisition.jpg Graphic file (type jpg)
-
-<use figures/acquisition.jpg>
-Package pdftex.def Info: figures/acquisition.jpg used on input line 37.
-(pdftex.def)             Requested size: 417.47307pt x 240.13428pt.
-
-<figures/exampleBTF.png, id=262, 304.13625pt x 121.45375pt>
-File: figures/exampleBTF.png Graphic file (type png)
-
-<use figures/exampleBTF.png>
-Package pdftex.def Info: figures/exampleBTF.png used on input line 55.
-(pdftex.def)             Requested size: 417.47307pt x 166.71863pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <C:/sotnychenko/thesis/mine/figures/acquisition.jpg>] [5 <C:/sotnychenko/the
-sis/mine/figures/exampleBTF.png>] [6]
-<figures/differ0.png, id=305, 1334.9875pt x 513.92pt>
-File: figures/differ0.png Graphic file (type png)
+) [1
 
-<use figures/differ0.png>
-Package pdftex.def Info: figures/differ0.png used on input line 151.
-(pdftex.def)             Requested size: 417.47307pt x 160.70938pt.
- [7 <C:/sotnychenko/thesis/mine/figures/differ0.png>]
-<figures/differ.png, id=315, 1334.9875pt x 512.91624pt>
-File: figures/differ.png Graphic file (type png)
+] [2 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/overview.png>]
+(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/relatedwork.tex
+Chapter 2.
+------------------------------------------------------------------------------
+ 2 Related Work
+------------------------------------------------------------------------------
+) [3
 
-<use figures/differ.png>
-Package pdftex.def Info: figures/differ.png used on input line 185.
-(pdftex.def)             Requested size: 417.47307pt x 160.3955pt.
- [8 <C:/sotnychenko/thesis/mine/figures/differ.png>]
-Overfull \hbox (8.67125pt too wide) in paragraph at lines 228--230
-[]\OT1/cmr/m/n/10.95 Weights de-fined as vol-umes $\OML/cmm/m/it/10.95 V[]; V[]
-; V[]$ \OT1/cmr/m/n/10.95 which cor-re-spond to $\OML/cmm/m/it/10.95 PP[]P[]O$\
-OT1/cmr/m/n/10.95 , $\OML/cmm/m/it/10.95 PP[]P[]O$\OT1/cmr/m/n/10.95 , $\OML/cm
-m/m/it/10.95 PP[]P[]O$
- []
 
-[9] <figures/streampreview.png, id=334, 3327.43124pt x 1490.56876pt>
-File: figures/streampreview.png Graphic file (type png)
-
-<use figures/streampreview.png>
-Package pdftex.def Info: figures/streampreview.png used on input line 263.
-(pdftex.def)             Requested size: 417.47307pt x 187.00296pt.
- [10 <C:/sotnychenko/thesis/mine/figures/streampreview.png>]) [11] (C:\sotnyche
-nko\thesis\mine\chapters/implementation.tex
-[12
+] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/appearance.tex [4
 
 
 ]
 Chapter 3.
 ------------------------------------------------------------------------------
- 3 Implementation
+ 3 A hierarchy of scattering functions
 ------------------------------------------------------------------------------
-[13] <figures/compr.png, id=361, 514.92375pt x 275.0275pt>
-File: figures/compr.png Graphic file (type png)
-
-<use figures/compr.png>
-Package pdftex.def Info: figures/compr.png used on input line 32.
-(pdftex.def)             Requested size: 292.22987pt x 156.08745pt.
- [14 <C:/sotnychenko/thesis/mine/figures/compr.png>]
-<figures/shader.png, id=369, 1137.4997pt x 377.91188pt>
-File: figures/shader.png Graphic file (type png)
-
-<use figures/shader.png>
-Package pdftex.def Info: figures/shader.png used on input line 80.
-(pdftex.def)             Requested size: 417.47307pt x 138.69498pt.
- [15 <C:/sotnychenko/thesis/mine/figures/shader.png>]
-<figures/streaming.png, id=381, 727.21687pt x 469.755pt>
-File: figures/streaming.png Graphic file (type png)
-
-<use figures/streaming.png>
-Package pdftex.def Info: figures/streaming.png used on input line 107.
-(pdftex.def)             Requested size: 417.47307pt x 269.67696pt.
-
-Overfull \hbox (3.1814pt too wide) in paragraph at lines 121--124
-[]\OT1/cmr/m/n/10.95 Then, on a client side we de-code PNG im-age us-ing PNG de
--coder writ-ten in JavaScript
+[5]
+Overfull \hbox (1.50969pt too wide) in paragraph at lines 61--62
+[]\OT1/cmr/m/n/10.95 After men-tioned as-sump-tions we get a 8-D bidi-rec-tiona
+l scattering-surface re-flectance
  []
 
-) [16 <C:/sotnychenko/thesis/mine/figures/streaming.png>]
-(C:\sotnychenko\thesis\mine\chapters/evaluation.tex
+[6] [7] [8] [9]) [10]
+(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/acquisition.tex
 Chapter 4.
 ------------------------------------------------------------------------------
- 4 Evaluation
+ 4 BTF acquisition
 ------------------------------------------------------------------------------
-) [17
+[11
 
 
-] (C:\sotnychenko\thesis\mine\chapters/conclusions.tex [18
+] <figures/acquisition.jpg, id=341, 1135.99406pt x 653.44125pt>
+File: figures/acquisition.jpg Graphic file (type jpg)
+
+<use figures/acquisition.jpg>
+Package pdftex.def Info: figures/acquisition.jpg used on input line 36.
+(pdftex.def)             Requested size: 417.47307pt x 240.13428pt.
+ [12 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/acquisition.jpg>]
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no Å in font cmr10!
+ [13]
+<figures/exampleBTF.png, id=363, 304.13625pt x 121.45375pt>
+File: figures/exampleBTF.png Graphic file (type png)
+
+<use figures/exampleBTF.png>
+Package pdftex.def Info: figures/exampleBTF.png used on input line 111.
+(pdftex.def)             Requested size: 417.47307pt x 166.71863pt.
+) [14 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/exampleBTF.png>]
+(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/data_representation.tex
+Chapter 5.
+------------------------------------------------------------------------------
+ 5 BTF data representation
+------------------------------------------------------------------------------
+) [15
+
+
+] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/btf_modelling.tex
+[16
 
 
 ]
-Chapter 5.
+Chapter 6.
 ------------------------------------------------------------------------------
- 5 Conclusions and Future Work
+ 6 BTF modelling
 ------------------------------------------------------------------------------
-) [19] (C:\sotnychenko\thesis\mine\Thesis.bbl [20
+) [17] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/interpolation.tex
+[18
 
 
-] [21]) [22]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
+]
+Chapter 7.
+------------------------------------------------------------------------------
+ 7 Viewing and Illumination Angle Interpolation
+------------------------------------------------------------------------------
+) [19] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/streaming.tex [20
 
-(C:\sotnychenko\thesis\mine\Thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
+
+]
+Chapter 8.
+------------------------------------------------------------------------------
+ 8 BTF streaming
+------------------------------------------------------------------------------
+) [21] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/implementation.tex
+[22
+
+
+]
+Chapter 9.
+------------------------------------------------------------------------------
+ 9 Implementation
+------------------------------------------------------------------------------
+<figures/compr.png, id=406, 514.92375pt x 275.0275pt>
+File: figures/compr.png Graphic file (type png)
+ <use figures/compr.png>
+Package pdftex.def Info: figures/compr.png used on input line 28.
+(pdftex.def)             Requested size: 292.22987pt x 156.08745pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[23] <figures/shader.png, id=416, 1137.4997pt x 377.91188pt>
+File: figures/shader.png Graphic file (type png)
+
+<use figures/shader.png>
+Package pdftex.def Info: figures/shader.png used on input line 58.
+(pdftex.def)             Requested size: 417.47307pt x 138.69498pt.
+
+
+LaTeX Warning: Reference `section:streaming' on page 24 undefined on input line
+ 73.
+
+[24 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/compr.png> <C:/Users/Oleksa
+ndr/Desktop/thesis/mine/figures/shader.png>]) [25]
+(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/conclusions.tex [26
+
+
+]
+Chapter 10.
+------------------------------------------------------------------------------
+ 10 Conclusions and Future Work
+------------------------------------------------------------------------------
+) [27] (C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.bbl [28
+
+
+]
+Missing character: There is no √ in font cmr10!
+Missing character: There is no © in font cmr10!
+ [29]
+Missing character: There is no √ in font cmr10!
+Missing character: There is no © in font cmr10!
+) [30]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
+
+(C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D503356038F97E9221B40C5C939ED9BC;3749.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 175.
+(rerunfilecheck)             Checksum: 84AD7DB88569B0CF23B10AF2A8125E71;6062.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 192.
  ) 
 Here is how much of TeX's memory you used:
- 24288 strings out of 493921
- 421059 string characters out of 3144864
- 473481 words of memory out of 3000000
- 27055 multiletter control sequences out of 15000+200000
- 16225 words of font info for 60 fonts, out of 3000000 for 9000
+ 24295 strings out of 493921
+ 421709 string characters out of 3144864
+ 473721 words of memory out of 3000000
+ 27044 multiletter control sequences out of 15000+200000
+ 15526 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 62i,12n,75p,477b,499s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,12n,75p,501b,499s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Oleksandr\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
-600\tcrm1095.pk> <C:\Users\Oleksandr\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
-knappen\ec\dpi600\tcbx1000.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmbxti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cmextra/cmex8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmmi6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-r12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17
-.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb
-><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (36 pages, 14186995 bytes).
+600\tcrm1095.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+ex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.
+pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Thesis.pdf (44 pages, 858279 bytes).
 PDF statistics:
- 521 PDF objects out of 1000 (max. 8388607)
- 95 named destinations out of 1000 (max. 500000)
- 274 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 533 PDF objects out of 1000 (max. 8388607)
+ 105 named destinations out of 1000 (max. 500000)
+ 294 words of extra memory for PDF output out of 10000 (max. 10000000)
 

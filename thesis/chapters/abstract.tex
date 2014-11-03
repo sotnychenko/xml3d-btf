@@ -1,12 +1,14 @@
-Bidirectional Texture Function (BTF) is a 6-dimensional function that depends on spatial position on a texture surface and on light and camera views.
-An appearance of realistic materials drastically changes with light and camera variations.
- BTF can model reliable presentation of such materials and capture reflectance properties with a wide range of illumination variations.
+Bidirectional Texture Functions (BTF) are 6-dimensional functions that depend on the spatial position on a surface, light and camera directions.
+ Due to changes either of light or camera directions the appearance of real-world materials can severely change.
+ BTF can represent such materials by capturing important material properties for a wide range of illumination changes.
 
-In this work we present WebGL-based rendering of BTF in a web-browser. 
-An ever-growing number of mobile devices that use web-browser implies that rendering must be possible for hardware with very limited capabilities.
-Also, due to enormous size of BTF - compression step is inevitable. 
-We employ a principal component analysis to compress the data, which allows for rendering of BTF with interactive frame rates. 
-To provide immediate feedback to the user we provide a solution to stream the BTF data and to progressively enhance the rendering quality while the data downloads. 
+In this work we present a technique to render BTFs at real-time within a web-browser using WebGL. 
+The ever-growing number of mobile devices that use web-browsers imply constraints on the hardware capabilities.
+Thus, rendering has to be efficient to be possible on such devices and the fact that all data has to be transferred to the client - compression is inevitable.  
+We employ a principal component analysis to compress the data, which allows for rendering of BTFs with interactive frame rates. 
+To provide immediate feedback to the user we provide additionally streaming that allows to progressive enhance the rendering quality
+while still transferring the remaining data to the client. 
+
 
 
 

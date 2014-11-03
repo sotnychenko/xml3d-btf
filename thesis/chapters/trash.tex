@@ -1,0 +1,93 @@
+
+\section{Surface Light Field}
+\label{section:slf}
+If we take BTF and assume
+
+\begin{itemize}
+\item fixed illumination direction $\theta_{i} = const$, $\phi_{i}=const$
+\end{itemize}
+we will get a 4-D Surface Light Field model (SLF)
+ \begin{center}
+$SLF(x,\theta_{o} ,\phi_{o})$.
+ \end{center}
+ 
+ SLF model is a simple a textural model and is a subset of BTF. 
+ SLF is used when illumination direction is not varying in the rendering scene, but the view direction varies.
+ Thus, such model is favoured for its greater computational efficiency for such cases.
+
+\section{Surface Reflectance Field}
+\label{section:srf}
+Analogously as for SLF, if we take BTF and assume
+
+\begin{itemize}
+\item fixed view direction $\theta_{o} = const$, $\phi_{o}=const$
+\end{itemize}
+we will get a 4-D Surface Reflectance Field model (SRF)
+ \begin{center}
+$SRF(x,\theta_{i} ,\phi_{i})$.
+ \end{center}
+ 
+
+ SRF is another very popular variant of image-based rendering and is also a subset of BTF. 
+ In this case many images are taken under varying light directions with fixed view point\cite{star2004}. 
+ For instance, Debevec et al. \cite{debevec} recorded the appearance of human face while a
+light source was rotating around the face. Rendering the human face realistically is always a struggle in computer graphics.
+Due to complex reflectance characteristics of the human face, common texture mapping usually fails under varying illumination.
+ Debevec et al. acquired approximately two thousand images under different light positions and could render the face under arbitrary lighting for original point views. 
+ Also, in the second part of the paper Debevec et al. present a technique to extrapolate a complete reflectance field from the acquired data, i.e. extrapolation allows them to render the face from novel viewpoints.
+
+
+\section{2-D Texture/Bump-Maps}
+\label{section:2dtexture}
+By getting rid of the dependence both on light and viewing directions, we are left with a 2D texture map (TM) or bump map (BM)
+ \begin{center}
+$TM(x)$,
+ \end{center}
+ which represents spatial variations of surface color or surface
+normal orientation, respectively\cite{dong}. 
+These 2D functions do not explicitly represent light scattering, but instead provide appearance attributes that are typically used in conjunction with BRDFs in rendering \cite{dong}. 
+As for BMs, they consist of an array of normals that are used instead of the normals of the given geometry and can be used to simulate a bumpy surface.
+
+
+
+
+\subsection{Advantages}
+\label{section:Advantages}
+
+
+\begin{tabular}{ |l|l| }
+  \hline
+  \multicolumn{2}{|c|}{Advantages} \\
+  \hline
+  GRF &  most descriptive and physically correct representation  \\
+  BSSRDF & the best approximation of GRF \\
+  BTF & currently the best approximation of GRF in practice \\
+  BSSDF & best for homogeneous materials for which subsurface scattering is very important feature \\
+  BRDF &  an optimal representation with many developed models \\
+  SVBRDF & measurement, compression, and modelling are simpler than for the BTF \\
+  SLF & a simplified function, which accounts for view direction variance (BTF subset) \\
+  SRF & a simplified function, which accounts for light direction variance (BTF subset) \\
+  TM/BM & the simplest visual texture function, widely used in a computer graphics\\
+  \hline
+\end{tabular}
+
+
+\subsection{Disadvantages}
+\label{section:Disadvantages}
+
+
+\begin{tabular}{ |l|l| }
+  \hline
+  \multicolumn{2}{|c|}{Disadvantages} \\
+  \hline
+  GRF &  so far infeasible to measure, model\\
+  BSSRDF &  difficulties in reliable measurement and in modeling \\
+  BTF &  expensive measurement, demanding on computing resources and mathematical tools \\
+  BSSDF & represent only homogeneous materials\\
+  BRDF & suits best for nearly flat, opaque materials, breaks physical laws \\
+  SVBRDF & worse visual quality than BTF and suits for nearly flat, opaque materials \\
+  SLF & illumination variation is not present \\
+  SRF & viewing variation is not present  \\
+  TM/BM & a sketchy textural approximation, which ignores most important appearance features\\
+  \hline
+\end{tabular}
