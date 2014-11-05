@@ -1,2 +1,37 @@
-\chapter{BTF data representation}
-\label{chapter:representation}
+\chapter{BTF data representations}
+\label{chapter:representations}
+
+
+
+
+Before doing any compression step it is important to chose a suitable data representation for BTF data.
+Suitable presentation can enormously influence the final result of BTF rendering.
+ Basically, there are two common arrangements for BTF, i.e. as a set of original rectified and registered textures (\emph{image-wise} representation) and a set of ABRDFs (\emph{pixel-wise} representation).
+ ABRDF was defined in chapter \ref{section:brdf}. In this case it is called \emph{apparent},
+ because BTF includes effects such self-occlusions, sub-surface scattering and other complex effects which violate two basic properties of BRDF.
+Both representations can be mathematically expressed as
+
+{\centering $\,\,\,\,\,\,\,BTF_{Texture}=\left \{I_{(\theta_{i} ,\phi_{i},\theta_{o} ,\phi_{o}) }  \mid  (\theta_{i},\phi_{i},\theta_{o} ,\phi_{o})\in M \right \}$\\}
+{\centering $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,BTF_{ABRDF}=\left \{P_{(x) } \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\mid  (x)\in I_{(\theta_{i} ,\phi_{i},\theta_{o} ,\phi_{o})}\subset \mathbb{N}^{2}\right \}$ \\}
+
+
+where $M$ denotes a set of images $I_{(\theta_{i} ,\phi_{i},\theta_{o} ,\phi_{o})}$ measured for different light and camera directions $(i,o)$ accordingly.
+$BTF_{ABRDF}$ denotes a set of $P_{(x)}$ images, where each of them stores light intensity for a fixed spatial position $x$ for all possible light and camera directions, 
+i.e. a domain for a $P_{(x)}$ image is $(n_{i}\times n_{o})\subset \mathbb{N}^{2}$, where $n_{i}$ and $n_{o}$ are number of light and camera directions accordingly.
+In our case with Bonn datasets the images are given with $256\times256$ resolution for $81\times81$ directions, 
+then the size of one single image for both representations are $\left | I \right | = 3\times256\times256$ and $\left | P \right | = 3\times81\times81$, where $3$ stands for RGB channels.
+
+Basically, one representation, i.e. $BTF_{Texture}$ is used for compression methods that do analysis on the whole sample plane, 
+while $BTF_{ABRDF}$ representation allows better pixel-to-pixel comparisons, which can give a big advantage for methods that employ pixel-wise compression, e.g. BRDF based models.
+Also, such arrangement provides images with lower variance \cite{haindl}, which can allow better compression results in certain scenarios.
+But, anyway both representations posses the same information, and any compression method can use either of them.
+
+ 
+M{\"u}ller et. al. \cite{mueller-2003-compression, haindl} claim that ABRDF representation works slightly better in comparison to image-wise representation. 
+The advantage of ABRDF is that a compression ratio can be 10 times better and reconstruction error is slightly smaller than the image-wise representation.
+Also, Borshukov et. al. \cite[Ch.\ 15]{gpu_gems} chose ABRDF representation, claiming that it provides better compression ratio.
+The reason why ABRDF provides better compression ratio is because it provides better pixel-to-pixel comparison than image-wise. 
+Each variable vector of ABRDF arrangement depends only on a surface complexity \cite{mueller-2003-compression}, i.e. 
+on a variation of reflection properties at a spatial point of the surface.
+On the contrary, image-wise variable depends on the whole measured image plane, thus it is logical that it may provide lower compression rate due to stronger variations.
+After all, we have chosen to imply ABRDF data representation based on such reasons, with which we have achieved $1:100$ compression ratio. 

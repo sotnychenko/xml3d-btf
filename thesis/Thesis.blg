@@ -4,8 +4,8 @@ Database file #1: references.bib
 A bad cross reference---entry "statistical_acq"
 refers to entry "EGSR06-proc", which doesn't exist
 Warning--I didn't find a database entry for "EGSR06-proc"
-Warning--to sort, need author or key in curetDataBase
 Warning--to sort, need author or key in btfBonn
+Warning--to sort, need author or key in curetDataBase
 Warning--to sort, need author or key in jblas
 Warning--to sort, need author or key in pngreader
 Warning--empty booktitle in statistical_acq

@@ -57,11 +57,13 @@ The last step is image \emph{registration}, a process of getting pixel-to-pixel 
  As, all transformation were done, it is only enough to rescale all images to some equal resolution.
 
 
-Even after the proper rectiﬁcation and registering of the measured data, registration errors can be still present between individual camera directions \cite{haindl_visual}. 
-Those errors usually caused both by inaccurate camera and material sample positions.
-One way to avoid artifacts in rendering caused by registration errors is to employ a compression step for subsets of BTF data. 
-Subsets contain images that were obtained at a certain fixed camera position. For instance, Sattler et. al. \cite{sattler-2003-efficient} has done this approach.
-
+Even after the proper rectification and registering of the measured data, registration errors can be still present between individual camera directions \cite{haindl_visual}. 
+ This happens due to structural occlusions of the material surface. Because, of such self-occlusions some geometry structures are not captured by certain camera directions, 
+ but can be captured with other camera directions.
+ That is why even after rectiﬁcation images captured from completely different directions are not correctly mutually align. 
+Also, registration errors can be caused both by inaccurate camera and material sample positions happened during the measurement processes.
+One way to avoid artifacts in rendering caused by registration errors is to employ a compression step separately for each fixed camera positions, i.e. subsets of BTF data. 
+ For instance, Sattler et. al. \cite{sattler-2003-efficient} has done this approach.
 
 
 If needed, further processing steps can be done, for instance \emph{linear edger blending} to reduce tiling artifacts \cite{sattler-2003-efficient}.
@@ -70,6 +72,17 @@ Also, typical image processing steps may be employed, e.g. noise reduction filte
 
 \section{Publicly available BTF datasets}
 \label{section:Publicly_datasets}	
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=1.0\textwidth]{figures/exampleBTF}
+ \caption[Example of BTF measurement] {
+ 	{\bf BTF example of Bonn Database \cite{btfBonn}.}
+
+	Example how BTF catches rich appearance of the material due to dependencies on light and camera directions. 
+	Upper row is a knitted wool, lower is a graved granite stone.}
+ \label{fig:exampleBTF}
+\end{figure}
 
 
 The accurate rendering of the material surface is highly depended on the quality of acquired data, especially for BTF.
@@ -106,15 +119,5 @@ Typically, the size of one uncompressed BTF is around $1.2$ Gb.
 
 
 
-\begin{figure}[h]
- \centering
- \includegraphics[width=1.0\textwidth]{figures/exampleBTF}
- \caption[Example of BTF measurement] {
- 	{\bf BTF example of Bonn Database \cite{btfBonn}.}
-
-	Example how BTF catches rich appearance of the material due to dependencies on light and camera directions. 
-	Upper row is a knitted wool, lower is a graved granite stone.}
- \label{fig:exampleBTF}
-\end{figure}
 
 

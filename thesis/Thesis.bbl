@@ -37,6 +37,12 @@ M.~Haindl and J.~Filip.
 \newblock Advances in Computer Vision and Pattern Recognition. Springer-Verlag,
   London, 2013.
 
+\bibitem{haindl}
+Michal Haindl and Jiri Filip.
+\newblock Advanced textural representation of materials appearance.
+\newblock In {\em SIGGRAPH Asia 2011 Courses}, SA '11, pages 1:1--1:84, New
+  York, NY, USA, 2011. ACM.
+
 \bibitem{Kaleidoscope}
 Jefferson~Y. Han and Ken Perlin.
 \newblock Measuring bidirectional texture reflectance with a kaleidoscope.
@@ -55,6 +61,14 @@ Melissa~L. Koudelka, Sebastian Magda, Peter~N. Belhumeur, and David~J.
   functions.
 \newblock In {\em In ICCV 03 Workshop on Texture Analysis and Synthesis}, 2003.
 
+\bibitem{mueller-2003-compression}
+Gero M{\"u}ller, Jan Meseth, and Reinhard Klein.
+\newblock Compression and real-time rendering of measured btfs using local pca.
+\newblock In T.~Ertl, B.~Girod, G.~Greiner, H.~Niemann, H.-P. Seidel,
+  E.~Steinbach, and R.~Westermann, editors, {\em Vision, Modeling and
+  Visualisation 2003}, pages 271--280. Akademische Verlagsgesellschaft Aka
+  GmbH, Berlin, November 2003.
+
 \bibitem{star2004}
 Gero M{\"u}ller, Jan Meseth, Mirko Sattler, Ralf Sarlette, and Reinhard Klein.
 \newblock Acquisition, synthesis and rendering of bidirectional texture
@@ -67,6 +81,11 @@ Gero M{\"u}ller, Jan Meseth, Mirko Sattler, Ralf Sarlette, and Reinhard Klein.
 Addy Ngan and Frédo Durand.
 \newblock {Statistical Acquisition of Texture Appearance}.
 \newblock pages 31--40.
+
+\bibitem{gpu_gems}
+Hubert Nguyen.
+\newblock {\em {GPU Gems 3}}.
+\newblock Addison-Wesley Professional, August 2007.
 
 \bibitem{Nicodemus}
 F.~E. Nicodemus, J.~C. Richmond, J.~J. Hsia, I.~W. Ginsberg, and T.~Limperis.
