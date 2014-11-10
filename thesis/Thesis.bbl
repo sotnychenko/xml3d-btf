@@ -31,6 +31,14 @@ Y.~Dong, S.~Lin, and B.~Guo.
   Data-coherent Approach}.
 \newblock SpringerLink : B{\"u}cher. Springer, 2013.
 
+\bibitem{plm}
+J.~Filip and Michal Haindl.
+\newblock Non-linear reflectance model for bidirectional texture function
+  synthesis.
+\newblock In J.~Kittler, M.~Petrou, and M.~Nixon, editors, {\em Proceedings of
+  the 17th IAPR International Conference on Pattern Recognition}, pages 80--83,
+  Los Alamitos, August 2004. IEEE, IEEE.
+
 \bibitem{haindl_visual}
 M.~Haindl and J.~Filip.
 \newblock {\em Visual Texture}.
@@ -60,6 +68,13 @@ Melissa~L. Koudelka, Sebastian Magda, Peter~N. Belhumeur, and David~J.
 \newblock Acquisition, compression, and synthesis of bidirectional texture
   functions.
 \newblock In {\em In ICCV 03 Workshop on Texture Analysis and Synthesis}, 2003.
+
+\bibitem{PTM}
+Tom Malzbender, Tom Malzbender, Dan Gelb, Dan Gelb, Hans Wolters, and Hans
+  Wolters.
+\newblock Polynomial texture maps.
+\newblock In {\em In Computer Graphics, SIGGRAPH 2001 Proceedings}, pages
+  519--528, 2001.
 
 \bibitem{mueller-2003-compression}
 Gero M{\"u}ller, Jan Meseth, and Reinhard Klein.
@@ -97,6 +112,13 @@ F.~E. Nicodemus, J.~C. Richmond, J.~J. Hsia, I.~W. Ginsberg, and T.~Limperis.
 Mirko Sattler, Ralf Sarlette, and Reinhard Klein.
 \newblock Efficient and realistic visualization of cloth.
 \newblock In {\em Eurographics Symposium on Rendering 2003}, June 2003.
+
+\bibitem{webglbtfstreaming}
+Christopher Schwartz, Roland Ruiters, Michael Weinmann, and Reinhard Klein.
+\newblock Webgl-based streaming and presentation of objects with bidirectional
+  texture functions.
+\newblock {\em Journal on Computing and Cultural Heritage (JOCCH)},
+  6(3):11:1--11:21, July 2013.
 
 \bibitem{schwartz}
 Christopher Schwartz, Ralf Sarlette, Michael Weinmann, and Reinhard Klein.

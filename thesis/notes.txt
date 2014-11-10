@@ -1,0 +1,9 @@
+ 
+note that PCA better than pixelwise methods:
+
+As expected, the visual performance of the tested PCA-based methods was quite similar due to sample-dedicated parameters set by the experiment. 
+The PTM RF method apparently misses specular highlights and PLM RF slightly increases contrast, which is in accordance with Fig. 10 and Table 5.
+
+
+possible improvement of compression:
+quantization of parameter values, which are floating points

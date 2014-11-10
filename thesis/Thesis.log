@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.18)  5 NOV 2014 16:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.18)  10 NOV 2014 17:49
 entering extended mode
 **C:/Users/Oleksandr/Desktop/thesis/mine/Thesis.tex
 (C:/Users/Oleksandr/Desktop/thesis/mine/Thesis.tex
@@ -1041,7 +1041,7 @@ Chapter 1.
 ------------------------------------------------------------------------------
  1 Introduction
 ------------------------------------------------------------------------------
-<figures/overview.png, id=248, 1132.98282pt x 699.36281pt>
+<figures/overview.png, id=263, 1132.98282pt x 699.36281pt>
 File: figures/overview.png Graphic file (type png)
 
 <use figures/overview.png>
@@ -1085,7 +1085,7 @@ Chapter 4.
 [11
 
 
-] <figures/acquisition.jpg, id=341, 1135.99406pt x 653.44125pt>
+] <figures/acquisition.jpg, id=356, 1135.99406pt x 653.44125pt>
 File: figures/acquisition.jpg Graphic file (type jpg)
 
 <use figures/acquisition.jpg>
@@ -1096,7 +1096,7 @@ Missing character: There is no Ô in font cmr10!
 Missing character: There is no ¨ in font cmr10!
 Missing character: There is no Å in font cmr10!
 
-<figures/exampleBTF.png, id=350, 304.13625pt x 121.45375pt>
+<figures/exampleBTF.png, id=365, 304.13625pt x 121.45375pt>
 File: figures/exampleBTF.png Graphic file (type png)
 
 <use figures/exampleBTF.png>
@@ -1116,16 +1116,17 @@ Chapter 5.
 ------------------------------------------------------------------------------
  5 BTF data representations
 ------------------------------------------------------------------------------
-) [17] [18] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/btf_modelling.tex
+) [17] [18]
+(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/btf_compression.tex
 Chapter 6.
 ------------------------------------------------------------------------------
- 6 BTF modelling
+ 6 BTF compression methods
 ------------------------------------------------------------------------------
-) [19
+[19
 
 
-] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/interpolation.tex
-[20
+] [20]) [21]
+(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/interpolation.tex [22
 
 
 ]
@@ -1133,7 +1134,7 @@ Chapter 7.
 ------------------------------------------------------------------------------
  7 Viewing and Illumination Angle Interpolation
 ------------------------------------------------------------------------------
-) [21] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/streaming.tex [22
+) [23] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/streaming.tex [24
 
 
 ]
@@ -1141,8 +1142,8 @@ Chapter 8.
 ------------------------------------------------------------------------------
  8 BTF streaming
 ------------------------------------------------------------------------------
-) [23] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/implementation.tex
-[24
+) [25] (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/implementation.tex
+[26
 
 
 ]
@@ -1150,7 +1151,7 @@ Chapter 9.
 ------------------------------------------------------------------------------
  9 Implementation
 ------------------------------------------------------------------------------
-<figures/compr.png, id=426, 514.92375pt x 275.0275pt>
+<figures/compr.png, id=465, 514.92375pt x 275.0275pt>
 File: figures/compr.png Graphic file (type png)
  <use figures/compr.png>
 Package pdftex.def Info: figures/compr.png used on input line 28.
@@ -1159,7 +1160,7 @@ Package pdftex.def Info: figures/compr.png used on input line 28.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[25] <figures/shader.png, id=435, 1137.4997pt x 377.91188pt>
+[27] <figures/shader.png, id=474, 1137.4997pt x 377.91188pt>
 File: figures/shader.png Graphic file (type png)
 
 <use figures/shader.png>
@@ -1167,12 +1168,12 @@ Package pdftex.def Info: figures/shader.png used on input line 58.
 (pdftex.def)             Requested size: 417.47307pt x 138.69498pt.
 
 
-LaTeX Warning: Reference `section:streaming' on page 26 undefined on input line
+LaTeX Warning: Reference `section:streaming' on page 28 undefined on input line
  73.
 
-[26 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/compr.png> <C:/Users/Oleksa
-ndr/Desktop/thesis/mine/figures/shader.png>]) [27]
-(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/conclusions.tex [28
+[28 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/compr.png> <C:/Users/Oleksa
+ndr/Desktop/thesis/mine/figures/shader.png>]) [29]
+(C:\Users\Oleksandr\Desktop\thesis\mine\chapters/conclusions.tex [30
 
 
 ]
@@ -1180,15 +1181,15 @@ Chapter 10.
 ------------------------------------------------------------------------------
  10 Conclusions and Future Work
 ------------------------------------------------------------------------------
-) [29] (C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.bbl [30
+) [31] (C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.bbl [32
 
 
-] [31]
+] [33]
 Missing character: There is no √ in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no © in font cmr10!
-) [32]
+) [34]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
 
@@ -1196,7 +1197,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: DF7D806FBA766B61AA05FAE9F3C28942;6067.
+(rerunfilecheck)             Checksum: 422D485D8E40F4B604798AADBE6225B1;6631.
 
 
 LaTeX Warning: There were undefined references.
@@ -1204,13 +1205,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 192.
  ) 
 Here is how much of TeX's memory you used:
- 24303 strings out of 493921
- 421821 string characters out of 3144864
- 473829 words of memory out of 3000000
- 27047 multiletter control sequences out of 15000+200000
+ 24320 strings out of 493921
+ 422054 string characters out of 3144864
+ 474065 words of memory out of 3000000
+ 27056 multiletter control sequences out of 15000+200000
  15526 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 62i,12n,75p,501b,499s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,12n,75p,501b,497s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Oleksandr\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
 600\tcrm1095.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
@@ -1229,9 +1230,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files
 (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (46 pages, 883868 bytes).
+Output written on Thesis.pdf (48 pages, 901620 bytes).
 PDF statistics:
- 560 PDF objects out of 1000 (max. 8388607)
- 110 named destinations out of 1000 (max. 500000)
- 294 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 600 PDF objects out of 1000 (max. 8388607)
+ 118 named destinations out of 1000 (max. 500000)
+ 318 words of extra memory for PDF output out of 10000 (max. 10000000)
 
