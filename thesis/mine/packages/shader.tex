@@ -1,0 +1,158 @@
+% System Combination
+% Harish K Krishnamurthy <www.ece.neu.edu/~hkashyap/>
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shadows}
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=6.5em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+\usepackage{amsmath,bm,times}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title: System Combination
+:Author: Harish K Krishnamurthy
+
+A block diagram of system combination technique of combining several Automatic Speech Recognition Systems (ASRs) to determine best word sequence outputs is shown here. The training and validation phase are the important phases.
+
+\end{comment}
+
+\newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
+\newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
+
+\begin{document}
+% Define the layers to draw the diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+% Define block styles used later
+
+\tikzstyle{sensor}=[draw, fill=blue!20, text width=7em, 
+    text centered, minimum height=2.5em,drop shadow]
+	\tikzstyle{final}=[draw, fill=green!20, text width=7em, 
+    text centered, minimum height=2.5em,drop shadow]
+	
+	
+\tikzstyle{trigl}=[
+   isosceles triangle,  
+   draw, 
+   shape border rotate=90, 
+   inner sep=3, 
+   font=\small\sffamily\bfseries,
+   isosceles triangle apex angle=60,
+   isosceles triangle stretches]
+
+\tikzstyle{ann} = [above, text width=5em, text centered]
+\tikzstyle{wa} = [sensor,text width=10em, fill=cyan!20, 
+    minimum height=4em,drop shadow]
+	\tikzstyle{txt} = [above,text width=0.7em, fill=white!20, 
+    minimum height=0.7em, minimum width=1em,]
+	\tikzstyle{txtBig} = [above,text width=8.0em, fill=white!20, 
+    minimum height=0.1em, minimum width=1em,]
+\tikzstyle{ea} = [sensor, text width=10em, fill=red!20, 
+    minimum height=6em, rounded corners, drop shadow]
+\tikzstyle{sc} = [sensor, text width=10em, fill=red!20, 
+    minimum height=6em, rounded corners, drop shadow]
+\tikzstyle{isa} = [top color=white, bottom color=green!20, 
+                         draw=green!50!black!100, drop shadow]
+\tikzstyle{cir} = [circle,text width=3em, fill=cyan!20, 
+    minimum height=2em,drop shadow,inner sep=0pt]
+
+% Define distances for bordering
+\def\blockdist{2.3}
+\def\edgedist{2.5}
+
+\begin{tikzpicture}
+
+
+    \node (ep) [wa]  {Eye Position $P_{o}$};
+
+
+ 	\path (ep.north)+(0.0,1.0) node (lp) [wa] {Light Position $P_{i}$};
+	\path (ep.north)+(0.0,-3.95) node (tc) [wa] {Texture Coordinates};
+	
+	\path (ep.east)+(5.0,0.0) node (tr1) [trigl] { $P_{o}$};
+	
+	\path (tr1.east)+(-0.4,0.8) node (Al) [txt] {$A_{o}$};
+	\path (tr1.south)+(0.9,-0.2) node (Cl) [txt] {$C_{o}$};
+    \path (tr1.west)+(-0.45,-0.4) node (Bl) [txt] {$B_{o}$};
+	
+	\path (lp.east)+(5.0,0.0) node (tr2) [trigl] { $P_{i}$};
+	
+	\path (tr2.east)+(-0.4,0.8) node (Ae) [txt] {$A_{i}$};
+	\path (tr2.south)+(0.9,-0.2) node (Ce) [txt] {$C_{i}$};
+    \path (tr2.west)+(-0.45,-0.4) node (Be) [txt] {$B_{i}$};
+	
+	
+	 \path [draw, ->] (ep.east) -- node [above] {finding bounding triangle} 
+        (Bl.150) ;
+	 \path [draw, ->] (lp.east) -- node [above] {finding bounding triangle} 
+        (Be.150) ;
+		
+
+	\path (tr1.east)+(8.5,1.2) node (interp) [wa] {Interpolation weights};
+	
+	
+	 \path [draw, ->] (Ce.110) -- node [below] {} 
+        (interp.179) ;
+	 \path [draw, ->] (Cl.100) -- node [above] {} 
+        (interp.182) ;
+		
+	\path (tr1.east)+(2.7,0.8) node (weights) [txtBig] { calculating weights};
+	
+
+	\path (tr1.south)+(0.0,-3.0) node (color) [wa] {PCA weights};
+	\path [draw, ->] (tc.east) -- node [above] {} 
+        (color.west) ;
+	
+		 \path [draw, ->] (tr1.south) -- node [above] {calculating uniterpolated colors for triangles} 
+        (color.north) ;
+		
+		\path (color.east)+(3.0,0.0) node (sum1) [cir] {$\,\,\,\,\,\,\,\Sigma$};
+		 \path [draw, ->] (color.east) -- node [above] {weighted sum} 
+        (sum1.west) ;
+		
+		
+		\path (interp.south)+(0.0,-3.735) node (final) [cir] {$\,\,\,\,\,\,\,\Sigma$};
+		
+		
+	   \path [draw, ->] (interp.south) -- node [right] {$w_{o}$} 
+        (final.north) ;
+		
+		  \path [draw, ->] (sum1.east) -- node [above] {weighted sum} 
+        (final.west) ;
+		
+		\path (final.east)+(2.0,-.25) node (txtcolor) [txtBig] {Final Color};
+		 \path [draw, ->] (final.east) -- node [above] {} 
+        (txtcolor.west) ;
+		
+		
+		
+		  \path [draw, ->] (interp.south) -- node [above] {$w_{i}$} 
+        (sum1.north) ;
+
+\end{tikzpicture}
+
+\end{document}

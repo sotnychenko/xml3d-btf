@@ -1,2 +1,19 @@
-\chapter{Viewing and Illumination Angle Interpolation}
+\chapter{Interpolation of Unmeasured Directions}
 \label{chapter:interpolation}
+
+
+BTF datasets are measured for discrete number of angles, thus we would need to perform interpolation for unknown not measured angels.
+We will employ barycentric coordinates interpolation. 
+However, it is very computational heavy, so the following approximation algorithm proposed by Hatka and Haindl \cite{btfblender} will be used.
+
+Assume that we have found triangle $P_{1}P_{2}P_{3}$ which bounds our point P, which we want to interpolate. Figure \ref{fig:acquisition_example} demonstrates hemisphere on which triangle $P_{1}P_{2}P_{3}$ lies.
+$Y_{P}$ denotes desired pixel color. 
+So, generally speaking linearly interpolation of that pixel will be $Y_{P}=w_{1}Y_{P1} + w_{2}Y_{P2} + w_{1}Y_{P2}$, 
+where $Y_{P1},Y_{P2},Y_{P3}$ correspond to measured pixel color of positions $P_{1},P_{2},P_{3}$ accordingly. Weights $w_{1},w_{2},w_{3}$ are normalized and sum up to $1$.
+
+Weights defined as volumes $V_{1},V_{2},V_{3}$ which correspond to $PP_{2}P_{3}O$, $PP_{3}P_{1}O$, $PP_{1}P_{2}O$ tetrahedrons, where $O=(0,0,0)$.
+All volumes are normalized, which means $V_{i}=\frac{V_{i}}{\sum_{i=1}^{3}V_{i}}$. Volumes calculated as determinates of $4\times 4$ vectors
+
+{\centering $V_{1}=\frac{1}{6}\left | det(PP_{2}P_{3}O) \right |$ \\}
+{\centering $V_{2}=\frac{1}{6}\left | det(PP_{3}P_{1}O) \right |$ \\}
+{\centering $V_{3}=\frac{1}{6}\left | det(PP_{1}P_{2}O) \right |$ \\}

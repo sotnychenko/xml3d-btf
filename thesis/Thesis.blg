@@ -1,6 +1,11 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Thesis.aux
 The style file: plain.bst
 Database file #1: references.bib
+I was expecting a `,' or a `}'---line 537 of file references.bib
+ :   
+ :   url      = {\url{http://www.cs.utah.edu/~lifeifei/cis5930/lecture12-a.pdf}}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 A bad cross reference---entry "statistical_acq"
 refers to entry "EGSR06-proc", which doesn't exist
 Warning--I didn't find a database entry for "EGSR06-proc"
@@ -12,4 +17,4 @@ Warning--empty booktitle in statistical_acq
 Warning--empty year in statistical_acq
 Warning--empty booktitle in Nicodemus
 Warning--empty year in wynn
-(There was 1 error message)
+(There were 2 error messages)

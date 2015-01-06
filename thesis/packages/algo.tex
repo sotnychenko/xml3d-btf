@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\begin{document}
+\begin{algorithm}
+\caption{Find  bounding points }
+\label{array-sum}
+\begin{algorithmic}[1]
+\Procedure{FindBound}{$angle,step$}
+    \State $lowerBound = step * floor(angle/step)$
+	\State $upperBound = lowerBound+step$
+
+	\State Return $(lowerBound,upperBound)$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\end{document} 

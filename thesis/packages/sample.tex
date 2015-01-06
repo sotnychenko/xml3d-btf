@@ -1,0 +1,55 @@
+% Scanning electron microscopy
+% Author: Eric Jensen
+\documentclass[a4paper,10pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{%
+	calc,%
+	decorations.pathmorphing,%
+	fadings,%
+	shadings%
+}
+\renewcommand*{\familydefault}{\sfdefault}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[gray,fill=gray,path fading=south] (0.5,-2) rectangle +(5,-2);% sample
+    \begin{scope}[decoration={snake,amplitude=.5mm,
+        segment length=2mm,post length=1mm}]
+     \draw[decorate,blue,->] (1,-.5) to (2.0,-2);% auger	
+	  \draw[decorate,blue,->] (7,-1) to (8,-1);% auger
+      \draw[decorate, decoration={snake, segment length=1.5mm, amplitude=.7mm,post length=1mm},red,->] (2,-2) to  [bend right](4.5,-2);% auger
+	   \draw[decorate, decoration={snake, segment length=1.5mm, amplitude=.7mm,post length=1mm},red,->] (7,-1.5) to (8,-1.5);% auger
+      \draw[decorate,decoration={snake, segment length=2.5mm, amplitude=.6mm,post length=1mm},orange,->] (4.5,-2) to (6,0);% cathodlimuescence
+	  \draw[decorate,decoration={snake, segment length=2.5mm, amplitude=.6mm,post length=1mm},orange,->] (7,-2) to (8,-2);% cathodlimuescence
+	   \draw[decorate,decoration={snake, segment length=2.5mm, amplitude=.6mm,post length=1mm},green,->] (4.5,-2) to (6,-3);% cathodlimuescence
+	   \draw[decorate,decoration={snake, segment length=2.5mm, amplitude=.6mm,post length=1mm},green,->] (7,-2.5) to (8,-2.5);% cathodlimuescence
+	  \begin{tikzpicture}[scale=0.1,x=0.5cm,y=0.5cm,line width=4pt,draw=yellow]
+\draw (1,0) node[draw,circle,minimum size=5cm,scale=0.08] (TheSun) {};
+    \foreach \angle in { 0,45,...,359  }
+    {
+        \draw [rotate around={\angle:(TheSun.center)}]
+            ($(TheSun.center) + (5.5,0)$)
+                   -- +(0,-1.5)
+                   -- +(3,0)
+                   -- +(0,1.5)
+                   -- cycle;
+     }
+
+\end{tikzpicture}
+    \end{scope}
+
+
+		
+  %labels
+  \draw (0.5,-4) node[above right] {\footnotesize Material};
+  \draw (8.1,-1.25) node[above right] {\footnotesize -incoming light};
+  \draw (8.1,-1.75) node[above right] {\footnotesize -penetrated light};
+   \draw (8.1,-2.25) node[above right] {\footnotesize -reflected light};
+    \draw (8.1,-2.75) node[above right] {\footnotesize -transmitted light};
+   \draw (2,-2) node[above right] {\footnotesize $(t_{i},x_{i},\lambda_{i})$};
+    \draw (4.85,-2) node[above right] {\footnotesize $(t_{0},x_{0},\lambda_{0})$};
+   \draw (0.5,-4) node[above right] {\footnotesize Material};
+  \draw (3.5,0) ++(145:2) ++(255:0.3) ++(125:0.8) node[left]
+    {\footnotesize Light Source};
+\end{tikzpicture}
+\end{document}

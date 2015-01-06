@@ -1,8 +1,8 @@
-\chapter{A hierarchy of scattering functions}
+\chapter{A Brief Review of Scattering Functions}
 \label{chapter:appearance}
 
 In this chapter we will review a hierarchy of scattering functions. 
-Scattering functions describe for a surface how incoming and outgoing directions of the light are related \cite{dong}.
+Scattering functions describe how incoming and outgoing directions of the light are related for a surface at which light-material interaction occurs \cite{dong}.
 Such functions are possible to measure for a given object.
 After obtaining the data, scattering functions can provide all the necessary information to render the material appearance. 
 Due to diversity of material properties, different functions were introduced.  
@@ -10,7 +10,7 @@ In order to chose suitable scattering function for capturing certain scattering 
 it is important to be aware of the hierarchy of scattering functions.
 
 	
-\section{Light material interaction}
+\section{Light-Material Interaction}
 \label{section:light}	
 Before defining any scattering functions of light the basics light-material interaction.
 Generally speaking, when light hits a material's surface, a sophisticated light-matter process happens.
@@ -22,7 +22,7 @@ For instance, an opaque surface such as wool will reflect light differently than
  Light \emph{absorption} is a process when a light is being taken up by a material and transformed into internal energy of the material, for instance thermal energy.
  When a material is transparent, light \emph{transmittance} can occur.
  It means, that the light travels through the material and exits on the opposite side of the object. 
-  Figure 2 demonstrates these 3 types of interactions.
+   Figure \ref{fig:light_example} demonstrates these 3 types of interactions.
   
  Because light is a form of energy, conservation of energy says that \cite{wynn}
  \begin{center} 
@@ -37,14 +37,28 @@ For instance, an opaque surface such as wool will reflect light differently than
 To define the general scattering function(GSF) imagine the light-wave hitting the surface at time $t_{i}$ and position $x_{i}$ and with wavelength $\lambda_{i}$\cite{star2004}.
  With a given local coordinate system at a surface point, the incoming direction of light can be defined as $(\theta_{i} ,\phi_{i})$.
  Light travels inside the material and exits the surface at position $x_{o}$ and time $t_{o}$, with possibly changed wavelength $\lambda_{o}$ in the outgoing direction $(\theta_{o} ,\phi_{o})$.
-  
+ Figure  \ref{fig:light_example} illustrates the process.
+ 
+ 
+  \begin{figure}[h]
+ \centering
+ \includegraphics[width=1.0\textwidth]{figures/light}
+ \caption[Example of Light-Material interaction] {
+ 	{\bf Example of Light-Material interaction.}
+
+ }
+ \label{fig:light_example}
+\end{figure}
 According to the description we get a GSF
  \begin{center} 
+ 
 $GSF(t_{i},t_{o},x_{i},x_{0,}\theta_{i} ,\phi_{i},\theta_{o},\phi_{o},\lambda_{i},\lambda_{o})$
  \end{center}
 in which  spatial positions $x_{i,o}$ are 2-D variables.
 This function describes light interaction for each surface point for any incoming light and outgoing direction at certain time.
-The function has 12 parameters! Note that we neglected light transmittance, which would even further complicate the function.
+Such function compromise 12 parameters. Also, note that we neglected light transmittance, which would even further complicate the function.
+
+
 
 
 \section{Bidirectional Scattering-Surface Reflectance Distribution Function}
@@ -154,22 +168,61 @@ On the other side, the spatial dependence of a SVBRDF describes variations in th
 A SVBRDF represents structures at micro-scale level, which corresponds to near flat opaque materials. On the other side, a BTF capture structure both at macro and micro scales.
  That means that the BTF takes into account influences from local neighbourhood structures. Even though measurement, compression, rendering are more efficient for the SVBRDF, 
  the BTF can produce better visual results. \cite{haindl_visual}
+ 
+ 
+\section{Surface Light Field}
+\label{section:slf}
+Consider BTF and assume
 
-\section{Summary of scattering functions}
+\begin{itemize}
+\item fixed light direction $\theta_{i} = const$, $\phi_{i}=const$
+\end{itemize}
+we will get a 4-D Surface Light Field model (SLF)
+ \begin{center}
+$SLF(x,\theta_{o} ,\phi_{o})$.
+ \end{center}
+ 
+ SLF model is a simple a textural model and is a subset of BTF. 
+ SLF is used when illumination direction is not varying in the rendering scene, but the view direction varies.
+ Thus, such model is favoured for its greater computational efficiency for such cases.
+
+\section{Surface Reflectance Field}
+\label{section:srf}
+Analogously as for SLF, consider BTF and assume
+
+\begin{itemize}
+\item fixed camera direction $\theta_{o} = const$, $\phi_{o}=const$
+\end{itemize}
+we will get a 4-D Surface Reflectance Field model (SRF)
+ \begin{center}
+$SRF(x,\theta_{i} ,\phi_{i})$.
+ \end{center}
+ 
+
+ SRF is another very popular variant of image-based rendering and is also a subset of BTF. 
+ In this case many images are taken under varying light directions with fixed view point\cite{star2004}. 
+ For instance, Debevec et al. \cite{debevec} recorded the appearance of human face while a
+light source was rotating around the face. Rendering the human face realistically is always a struggle in computer graphics.
+Due to complex reflectance characteristics of the human face, common texture mapping usually fails under varying illumination.
+ Debevec et al. acquired approximately two thousand images under different light positions and could render the face under arbitrary lighting for original camera directions. 
+
+
+\section{Summary of Scattering Functions}
 \label{section:attrib}
 In practice, an advantage of simpler scattering function is a computation efficiency, 
 while a disadvantage is a reduction of visual quality. 
 But, development of the graphics hardware is always improving and 
 as a result this encourages to use sophisticated scattering functions, which provide improvement in realistic material rendering. 
  
-However, a complex material representation introduces additional constraints on the data measurement as well as modeling becomes more challenging.
-For instance, till now a GRF has not been measured and still stays as a state-of-the-art problem.
+However, a complex material representation requires sophisticated data measurement and modeling.
+For instance, till now a GRF has not been measured and still stays as a state-of-the-art problem \cite{haindl_visual}.
 In practice, the appropriate scattering function depends on the specific application.
 For instance, a scene with various textures can be rendered with different scattering functions. 
-Simpler materials that do not have complex scattering features can be rendered with a 2-D textures in conjunction with BRDFs model. 
-If the material cannot be presented realistic without subsurface scattering, masking, self-reflections then typically such materials require high quality representations (BTF,SVBRDF).
+Simpler materials that do not have complex scattering features can be rendered with a 2-D textures in combination with BRDFs model, such as Phong model.
+If the material cannot be represented realistic without subsurface scattering, masking, self-reflections then typically such materials require high quality representations, e.g. BTF.
 However, these advanced material representations are very complex.
-In practice a tradeoff between visual quality, measurement, data size and rendering cost is inevitable. 
-Ideally high visual quality is preferred with low rendering computational cost.
+In practice a tradeoff between visual quality and rendering cost is inevitable. 
+
+
 
 

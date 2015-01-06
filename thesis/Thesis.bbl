@@ -20,10 +20,22 @@ Pure javascript png decoder.
 \newblock \url{https://github.com/arian/pngjs}.
 \newblock Accessed on \today.
 
+\bibitem{Bishop}
+Christopher~M. Bishop.
+\newblock {\em Pattern Recognition and Machine Learning (Information Science
+  and Statistics)}.
+\newblock Springer-Verlag New York, Inc., Secaucus, NJ, USA, 2006.
+
 \bibitem{dana}
 K.J. Dana, B.~Van-Ginneken, S.K. Nayar, and J.J. Koenderink.
 \newblock {R}eflectance and {T}exture of {R}eal {W}orld {S}urfaces.
 \newblock {\em ACM Transactions on Graphics (TOG)}, 18(1):1--34, Jan 1999.
+
+\bibitem{debevec}
+Paul Debevec, Tim Hawkins, Chris Tchou, Haarm-Pieter Duiker, and Westley
+  Sarokin.
+\newblock Acquiring the reﬂectance field of a human face.
+\newblock In {\em {SIGGRAPH}}, New Orleans, {LA}, July 2000.
 
 \bibitem{dong}
 Y.~Dong, S.~Lin, and B.~Guo.
@@ -45,16 +57,45 @@ M.~Haindl and J.~Filip.
 \newblock Advances in Computer Vision and Pattern Recognition. Springer-Verlag,
   London, 2013.
 
+\bibitem{car_model}
+Michal Haindl and J.~Filip.
+\newblock A fast probabilistic bidirectional texture function model.
+\newblock In A.~J.~C. Campilho and M.~Kamel, editors, {\em Image Analysis and
+  Recognition}, pages 298--305, Heidelberg, September 2004. Springer, Springer.
+
 \bibitem{haindl}
 Michal Haindl and Jiri Filip.
 \newblock Advanced textural representation of materials appearance.
 \newblock In {\em SIGGRAPH Asia 2011 Courses}, SA '11, pages 1:1--1:84, New
   York, NY, USA, 2011. ACM.
 
+\bibitem{btfroller}
+Michal Haindl and M.~Hatka.
+\newblock Btf roller.
+\newblock In M.~Chantler and O.~Drbohlav, editors, {\em Texture 2005:
+  Proceedings of 4th Internatinal Workshop on Texture Analysis and Synthesis},
+  pages 89--94, Edinburgh, October 2005. Heriot-Watt University, Heriot-Watt
+  University.
+
 \bibitem{Kaleidoscope}
 Jefferson~Y. Han and Ken Perlin.
 \newblock Measuring bidirectional texture reflectance with a kaleidoscope.
 \newblock {\em ACM Trans. Graph.}, 22(3):741--748, July 2003.
+
+\bibitem{btfblender}
+Martin Hatka and Michal Haindl.
+\newblock Btf rendering in blender.
+\newblock In {\em Proceedings of the 10th International Conference on Virtual
+  Reality Continuum and Its Applications in Industry}, VRCAI '11, pages
+  265--272, New York, NY, USA, 2011. ACM.
+
+\bibitem{gmrf_model}
+Michal Havl{\'\i}{\v c}ek.
+\newblock Bidirectional texture function three dimensional pseudo gaussian
+  markov random field model.
+\newblock In {\em Doktorandsk{\'e} dny 2012}, pages 53--62, Praha, 11/2012
+  2012. {\v C}esk{\'e} vysok{\'e} u{\v c}en{\'\i} technick{\'e} v Praze, {\v
+  C}esk{\'e} vysok{\'e} u{\v c}en{\'\i} technick{\'e} v Praze.
 
 \bibitem{xflow}
 Felix Klein, Kristian Sons, Dmitri Rubinstein, and Philipp Slusallek.
@@ -68,6 +109,11 @@ Melissa~L. Koudelka, Sebastian Magda, Peter~N. Belhumeur, and David~J.
 \newblock Acquisition, compression, and synthesis of bidirectional texture
   functions.
 \newblock In {\em In ICCV 03 Workshop on Texture Analysis and Synthesis}, 2003.
+
+\bibitem{Lecture12A}
+Feifei Li.
+\newblock Advanced topics in data management.
+\newblock University Lecture, 2008.
 
 \bibitem{PTM}
 Tom Malzbender, Tom Malzbender, Dan Gelb, Dan Gelb, Hans Wolters, and Hans
@@ -113,6 +159,12 @@ Mirko Sattler, Ralf Sarlette, and Reinhard Klein.
 \newblock Efficient and realistic visualization of cloth.
 \newblock In {\em Eurographics Symposium on Rendering 2003}, June 2003.
 
+\bibitem{schneider2004}
+Martin Schneider.
+\newblock Real-time btf rendering.
+\newblock In {\em The 8th Central European Seminar on Computer Graphics}, pages
+  79--86, April 2004.
+
 \bibitem{webglbtfstreaming}
 Christopher Schwartz, Roland Ruiters, Michael Weinmann, and Reinhard Klein.
 \newblock Webgl-based streaming and presentation of objects with bidirectional
@@ -138,6 +190,21 @@ Kristian Sons, Felix Klein, Dmitri Rubinstein, Sergiy Byelozyorov, and Philipp
 Frank Suykens, Karl vom Berge, Ares Lagae, and Philip Dutré.
 \newblock Interactive rendering with bidirectional texture functions.
 \newblock {\em Comput. Graph. Forum}, 22(3):463--472, 2003.
+
+\bibitem{websockets}
+V.~Wang, F.~Salim, and P.~Moskovits.
+\newblock {\em The Definitive Guide to HTML5 WebSocket}.
+\newblock Apressus Series. Apress, 2012.
+
+\bibitem{eigendecompostion}
+Eric~W. Weisstein.
+\newblock Eigen decomposition theorem. {From MathWorld---A Wolfram Web
+  Resource}.
+
+\bibitem{svd}
+Eric~W. Weisstein.
+\newblock Singular value decomposition.{From MathWorld---A Wolfram Web
+  Resource}.
 
 \bibitem{wynn}
 Chris Wynn.

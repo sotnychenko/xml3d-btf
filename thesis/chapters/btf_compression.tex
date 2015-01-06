@@ -1,4 +1,4 @@
-\chapter{BTF compression methods}
+\chapter{BTF Compression Methods}
 \label{chapter:compression_methods}
 
 
@@ -34,12 +34,12 @@ However, these group of methods can suffer from decreased quality \cite{haindl}.
  Each texel of BTF, i.e. spatial position of surface are represented as ABRDF. Each of these ABRDFs can be modeled and compressed by any BRDF model.
  
 One of the possible ways to model ABRDF is to use \emph{Polynomial Texture  Mapping} (PTM) approach.
-Malzbender et. al. \cite{PTM} used this approach which allows for high compression rates and generally good quality. 
+Malzbender  \emph{et. al.} \cite{PTM} used this approach which allows for high compression rates and generally good quality. 
 However, PTM requires to compute specular and diffuse effects separately. 
 PTM model assumes that the input surfaces has to be either diffuse or their specular contribution is separated beforehand.
 For BTF it can be quite difficult to separate specular highlights \cite{haindl}.
 
-Haindl et. al. \cite{haindl} applied PTM for a fixed camera positions of BTF, i.e. for reflectance fields (RF).
+Haindl  \emph{et. al.} \cite{haindl} applied PTM for a fixed camera positions of BTF, i.e. for reflectance fields (RF).
 General formula looks the following way (PTM RF):
 
 {\centering$R_{o}(r,i)\approx a_{0}(r)u_{x}^2+a_{1}(r)u_{y}^2+a_{2}(r)u_{x}u_{y}+a_{3}(r)u_{x}+a_{4}(r)u_{y}+a_{5}(r)$\\}
@@ -48,10 +48,10 @@ General formula looks the following way (PTM RF):
  Set of all possible $R_{o}$ is the number of all camera positions, i.e. $n_{o}$. 
  Coefficients $a_{p}$ are fitted by the use of \emph{singular value decomposition} SVD for each $R_{o}$ and parameters stored as a spatial map referred to as a PTM.
  
- However, Malzbender et. al. \cite{PTM} claims that this method produce considerable errors for high grazing angles. 
+ However, Malzbender  \emph{et. al.} \cite{PTM} claims that this method produce considerable errors for high grazing angles. 
  But, nevertheless this method enables fast rendering and generally suited for smooth material surfaces.
  
- Another model which produces slightly better visual quality is the polynomial extension of one-lobe Lafortune model (PLM).
+ Another model which produces slightly better visual quality is the polynomial extension of one-lobe Lafortune model (PLM) \cite{haindl}.
 One-lobe Lafortune model (LM) looks the following way \cite{plm}:
 
 {\centering$Y_{o} (r,i) = \rho_{o,r}(C_{o,r,x}u_{x}+C_{o,r,y}u_{y}+C_{o,r,z}u_{z})_{ }^{n_{o,r}}$\\}
@@ -66,13 +66,21 @@ During testing of this model Filip and Haindl \cite{plm} claim that LM produce u
 
 
 PLM RF solves the problem of bad quality for grazing angles and improves the rendering quality compared to PTM RF.
-However, statistic based methods produce even better quality compared to above methods but with lower compression rates.
+However, statistic based methods produce even better quality compared to above methods but with lower compression rates \cite{haindl}.
 
 
 
   \section{Statistic methods}
 \label{section:stat_methods}
+ Statistic methods group belong to the context of pattern recognition and aimed to make benefit from the statistical properties of the BTF \cite{schneider2004}.
+This group of methods based on an idea of dimensionality reduction of the data, while preserving the actual information with minimal loss.
+The goal is to find the new basis which would represent the data with less dimensions, thus the size of the data with the new basis will be decreased.
+
+One of the popular methods is PCA based method. Sattler  \emph{et. al.} \cite{sattler-2003-efficient} applies separately PCA for each $n$ camera directions.
+
 
 
  \section{Probabilistic models}
 \label{section:prob_methods}
+
+Compression merthods based on probabilistic models \cite{car_model,gmrf_model,haindl}

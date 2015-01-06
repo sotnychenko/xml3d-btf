@@ -1,0 +1,38 @@
+% Intersection of
+% Author: Rasmus Pank Roulund
+\documentclass{minimal}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage[active,tightpage,pdftex]{preview}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\begin{document}
+\tikzstyle{arrow}=[draw, -latex]
+
+\begin{tikzpicture}
+
+\node[mark size=3pt,color=red] (A) at (0,-1) {\pgfuseplotmark{*}};
+\node[mark size=3pt,color=black] at (0,-.78) {$A$};
+
+\node[mark size=3pt,color=red] at (3,-1) {\pgfuseplotmark{*}};
+\node[mark size=3pt,color=black] at (3,-.77) {$B$};
+
+\node[mark size=3pt,color=red] at (0.25,-2.5) {\pgfuseplotmark{*}};
+\node[mark size=3pt,color=black] at (0.25,-2.25) {$C$};
+
+\node[mark size=3pt,color=red] (D) at (2.5,-2.52) {\pgfuseplotmark{*}};
+\node[mark size=3pt,color=black] at (2.5,-2.25) {$D$};
+
+\node[mark size=3pt,color=olive] (P) at (1.1,-1.80) {\pgfuseplotmark{*}};
+\node[mark size=3pt,color=black] at (1.1,-1.6) {$P$};
+
+
+\path [arrow] (A) -- (P);
+\path [arrow] (P) -- (A);
+\path [arrow] (D) -- (P);
+\path [arrow] (P) -- (D);
+
+\end{tikzpicture}
+
+\end{document}
