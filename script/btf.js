@@ -11,16 +11,18 @@ XML3D.shaders.register("btf", {
         "varying vec3 fragNormal;",
         "varying vec3 fragVertexPosition;",
         "varying vec3 fragEyeVector;",
+		"varying vec3 fragLightVector;",
         "varying vec2 fragTexCoord;",
         "varying vec3 fragVertexColor;",
-        "varying vec3 fragTangent;",
-		"varying vec3 fragBinormal;",
+
 		
         "uniform mat4 modelViewProjectionMatrix;",
         "uniform mat4 modelViewMatrix;",
         "uniform mat3 normalMatrix;",
         "uniform vec3 eyePosition;",
-
+		
+        "uniform vec3 pointLightPosition[MAX_POINTLIGHTS];",
+		
         "void main(void) {",
 		
         "    gl_Position = modelViewProjectionMatrix * vec4(position, 1.0);",
@@ -28,17 +30,8 @@ XML3D.shaders.register("btf", {
         "    fragVertexPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;",
         "    fragEyeVector = -1.0*normalize(fragVertexPosition);",
         "    fragTexCoord = texcoord;",
-      //"    fragVertexColor = color;",
-
-      /*"    vec3 c1 = cross(fragNormal, vec3(0.0, 0.0, 1.0));", 
-        "    vec3 c2 = cross(fragNormal, vec3(0.0, 1.0, 0.0));",
-        "    if (length(c1) > length(c2))   fragTangent = c1;",	
-        "    else",           
-        "        fragTangent = c2;",	
-        "    fragTangent = normalize(fragTangent);",
-        "    fragBinormal = normalize(cross(fragNormal, fragTangent)); ",*/
-	    "    fragTangent  = normalize(normalMatrix * tangent);",
-	    "    fragBinormal = normalize(normalMatrix * binormal);",
+	    "    vec4 lPosition = modelViewMatrix * vec4(pointLightPosition[0], 1.0);",
+        "    fragLightVector = normalize(lPosition.xyz - fragVertexPosition);",
         "}"
     ].join("\n"),
 
@@ -56,28 +49,14 @@ XML3D.shaders.register("btf", {
 		"#ifndef EPS",
 		"#define EPS 0.001",
 		"#endif",
-		"#ifndef tettaStep",
-		"#define tettaStep 15.0",
-		"#endif",
 		"#ifndef degree",
 		"#define degree 57.296",
 		"#endif",
 		"#ifndef numOfIter",
 		"#define numOfIter 2", // numComp/4
 		"#endif",
-		"#if MAX_POINTLIGHTS > 0",
-        "uniform vec3 pointLightAttenuation[MAX_POINTLIGHTS];",
-        "uniform vec3 pointLightPosition[MAX_POINTLIGHTS];",
-        "uniform vec3 pointLightIntensity[MAX_POINTLIGHTS];",
-        "uniform bool pointLightOn[MAX_POINTLIGHTS];",
-        "#endif",
-		"#if MAX_DIRECTIONALLIGHTS > 0",
-        "uniform vec3 directionalLightDirection[MAX_DIRECTIONALLIGHTS];",
-        "uniform vec3 directionalLightIntensity[MAX_DIRECTIONALLIGHTS];",
-        "uniform bool directionalLightOn[MAX_DIRECTIONALLIGHTS];",
-        "#endif",
-
-		
+		"varying vec3 fragLightVector;",
+	
 		       
         "precision highp float;",
         "varying vec3 fragNormal;",
@@ -96,11 +75,13 @@ XML3D.shaders.register("btf", {
         "uniform float imageSize;",
 		"uniform float LSize;",
 		"uniform float RSize;",
-
+		"uniform float ambient;",
+        "uniform float steps[numSteps];",
+		
         "vec2 vertexA;",
         "vec2 vertexB;",
         "vec2 vertexC;",
-		"const vec3 lightPosEc = vec3(0.0,1.0,0.5);",
+	
 		
 	    "float composeSigma(vec2 s){", 	
 	    "return (s[0]*255.0)*10.0 + (s[1]*255.0)*0.1;",
@@ -115,8 +96,6 @@ XML3D.shaders.register("btf", {
         "     vec4 color = vec4(0.0,0.0,0.0,1.0);",
         "     vec4 sig= vec4(1.0);",
         "     float comp = numComp/4.0;",
-        //"     float LSize =8192.0;", // current fixed size of L matrix
-       // "     float RSize =512.0;",  
         "     float j = floor(fract(fragTexCoord[0])*(imageSize-1.0)+.5);",
         "     float i = floor(fract(fragTexCoord[1])*(imageSize-1.0)+.5);",
         "     float indexL = (blockN)*(imageSize*imageSize)*(comp)+ (i*imageSize+j)*(comp)-1.0;",
@@ -177,8 +156,6 @@ XML3D.shaders.register("btf", {
 		"      if(dir[1] == 360.0) dir[1]=0.0;",
 		"      float offset = 0.0;",
 		"      float twoPi = 360.0;",
-	    "      float steps[10];",
-	    "      steps[0]=15.0; steps[1]=60.0; steps[2]=30.0; steps[3]=30.0; steps[4]=45.0; steps[5]=20.0; steps[6]=60.0; steps[7]=18.0; steps[8]=75.0; steps[9]=15.0;",
 		"      for (int i=0; i<numSteps/2; i++) {",
 	    "          if(steps[2*i]==dir[0]){ offset += dir[1] / steps[2*i+1] + 1.0; break;}",
 		"	       offset+= twoPi /steps[2*i+1];",
@@ -196,11 +173,11 @@ XML3D.shaders.register("btf", {
 			
 		//getValue
 		"float getValue(int pos){",
-		"      if(pos==1) return 60.0;",
-		"      if(pos==3) return 30.0;",
-		"      if(pos==5) return 20.0;",
-		"      if(pos==7) return 18.0;",
-		"      if(pos==9) return 15.0;",
+		"      if(pos==1) return steps[1];",
+		"      if(pos==3) return steps[3];",
+		"      if(pos==5) return steps[5];",
+		"      if(pos==7) return steps[7];",
+		"      if(pos==9) return steps[9];",
 		"return -1.0;",
 		"}",
 		
@@ -240,8 +217,8 @@ XML3D.shaders.register("btf", {
 		"void getTriangle(vec2 P){",
 		"     vertexC = vec2(-1.0);",
 	    "     P-=EPS;",
-	    "     vec2 NeighboursTetta = getBound(P[0],tettaStep);",
-	    "     int index= int(floor(NeighboursTetta.x/tettaStep)*2.0-1.0);",
+	    "     vec2 NeighboursTetta = getBound(P[0],steps[0]);",
+	    "     int index= int(floor(NeighboursTetta.x/steps[0])*2.0-1.0);",
 	    "     bool bottom = false;",
 	    "     vec2 NeighboursPhiUpper =  getNeighboursPhi(P[1],index);",
 	    "     vec2 NeighboursPhiBottom;",
@@ -290,18 +267,6 @@ XML3D.shaders.register("btf", {
 		"     }",
 		"return coef;",
 		"}",
-
-		 //getNearestDir
-		"vec2 getNearestDir(vec3 coef){",
-		"     int index = 0;",
-		"     float value = 0.0;",
-		"     for(int i=0; i<3; i++)",
-		"         if(coef[i]>value) { value = coef[i]; index = i;}",
-		"     if(index==0) return vertexA;",
-		"     if(index==1) return vertexB;",
-		"     if(index==2) return vertexC;",
-		"return vec2(0.0,0.0);",
-		"}",
 		
         //computeAngles
 	    "vec2 computeAngles(vec3 vector,vec3 normal,vec3 X, vec3 Y){",
@@ -322,61 +287,32 @@ XML3D.shaders.register("btf", {
         "     resultColor.xyz+=coef[2]*decompressTexture( camViewIndex+getIndexOffset(vertexC)).xyz;",
 		"return resultColor;",
 	    "}",
-		"float visible(vec3 vector,vec3 normal){",	
-	    "     float tetta = acos(dot(vector,normal))*degree;",
-		"     if(tetta+EPS>90.0) return 1.0-fract((tetta-EPS)/90.0);",
-	    "return 1.0;",
-	    "}",
+		
 	
         "void main(void){",
-		/*
-        "     vec2 camDir = vec2(0.0,0.0);",
-	    "     vec2 lightDir = vec2(0.0,0.0);",
-		"     vec4 resultColor = vec4(0.0,0.0,0.0,1.0);",
-        "     vec3 X = normalize(dFdx(fragVertexPosition));",
-        "     vec3 Y = normalize(dFdy(fragVertexPosition));",
-	    "     vec3 lightDirection = normalize( pointLightPosition[ 0] - fragVertexPosition);",
-	    "     lightDir =computeAngles(lightDirection,fragNormal,X,Y);",
-        "     camDir =computeAngles(fragEyeVector,fragNormal,X,Y);",
-		"    float atten = visible(lightDirection,fragNormal);",
-	    "     getTriangle(camDir);",	
-	    "     vec3 coefCam = getCoef(camDir);",
-	  //"     camDir =getNearestDir(coefCam);",
-	    "     vec2 camVerA = vertexA;",
-	    "     vec2 camVerB = vertexB;",
-	    "     vec2 camVerC = vertexC;",
-		
-	    "     getTriangle(lightDir);",
-	    "     vec3 coef = getCoef(lightDir);",
 	
-	    "     resultColor.xyz+=coefCam[0]*getColor(camVerA,coef).xyz;",
-        "     resultColor.xyz+=coefCam[1]*getColor(camVerB,coef).xyz;",
-        "     resultColor.xyz+=coefCam[2]*getColor(camVerC,coef).xyz;",	   
-		"     resultColor.xyz*=atten;",
-      //"     resultColor =getColor(camDir,coef);",
-        "     gl_FragColor = resultColor;",  
-     */
 		"	 vec2 camDir = vec2(0.0,0.0);",
 	    "    vec2 lightDir = vec2(0.0,0.0);",
 		"    vec4 resultColor = vec4(0.0,0.0,0.0,1.0);",
-        "#if MAX_POINTLIGHTS > 0",
-        "  for (int i=0; i<MAX_POINTLIGHTS; i++) {",
-     //  "      if(!pointLightOn[i])",
-      //  "      continue;",
-	  //"    vec4 lPosition = viewMatrix * vec4( pointLightPosition[ i ], 1.0 );",
-      //"    vec3 L = lPosition.xyz - fragVertexPosition;",
-
-      //"    vec4 lDirection = viewMatrix * vec4(directionalLightDirection[i], 0.0);",
-	    "    vec3 lightDirection = normalize(pointLightPosition[i] - fragVertexPosition);",
-      //"    vec3 lightDirection =  normalize(-lDirection.xyz);",
-	    "    float atten = visible(lightDirection,fragNormal);",
-		"    vec3 X = normalize(dFdx(fragVertexPosition));",
-        "    vec3 Y = normalize(dFdy(fragVertexPosition));",
-        "    lightDir =computeAngles(lightDirection,fragNormal,X,Y);",
-        "    camDir =computeAngles(fragEyeVector,fragNormal,X,Y);",
+	
+	    "    float atten = dot(fragLightVector,fragNormal);",
+		"    vec3 p_dx = dFdx(fragVertexPosition);",
+        "    vec3 p_dy = dFdy(fragVertexPosition);",
+		"    vec2 tc_dx = dFdx(fragTexCoord);",
+        "    vec2 tc_dy = dFdy(fragTexCoord);",
+		"    vec3 t = normalize( (tc_dy.y * p_dx - tc_dx.y * p_dy ));",
+        "    vec3 b = normalize( (tc_dy.x * p_dx - tc_dx.x * p_dy )); ",
+		"    vec3 x = cross(fragNormal, t);",
+        "    t = cross(x, fragNormal);",
+        "    t = normalize(t);",
+		"    x = cross(b, fragNormal);",
+        "    b = cross(fragNormal, x);",
+        "    b = normalize(b);",
+		
+        "    lightDir =computeAngles(fragLightVector,fragNormal,t,b);",
+        "    camDir =computeAngles(fragEyeVector,fragNormal,t,b);",
         "    getTriangle(camDir);",	
 	    "    vec3 coefCam = getCoef(camDir);",
-	  //"    camDir =getNearestDir(coefCam);",
 	    "    vec2 camVerA = vertexA;",
 	    "    vec2 camVerB = vertexB;",
 	    "    vec2 camVerC = vertexC;",
@@ -387,13 +323,10 @@ XML3D.shaders.register("btf", {
 	    "    resultColor.xyz+=coefCam[0]*getColor(camVerA,coef).xyz;",
         "    resultColor.xyz+=coefCam[1]*getColor(camVerB,coef).xyz;",
         "    resultColor.xyz+=coefCam[2]*getColor(camVerC,coef).xyz;",	   
-		"    resultColor.xyz*=atten;",
-      //"    resultColor =getColor(camDir,coef);",
-	  
-        "  }",
-        "#endif",
+		"    resultColor.xyz*=clamp((atten+ambient),0.0,1.0);",
+
 		
-		"	gl_FragColor = resultColor;", 
+		"	 gl_FragColor = resultColor;", 
         "}"
 	
     ].join("\n"),
@@ -416,6 +349,8 @@ XML3D.shaders.register("btf", {
 		imageSize       : 0.0,
 		LSize           : 0.0,
 		RSize           : 0.0,
+		ambient         : 0.0,
+		steps           : [],
     },
     samplers: {
 		textureR : null,
