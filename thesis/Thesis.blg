@@ -1,7 +1,19 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Thesis.aux
 The style file: plain.bst
 Database file #1: references.bib
-I was expecting a `,' or a `}'---line 537 of file references.bib
+I was expecting a `,' or a `}'---line 154 of file references.bib
+ : 
+ : @misc{nodejs,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 161 of file references.bib
+ : 
+ : @INPROCEEDINGS{mueller-2003-compression,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--string name "j-cacm" is undefined
+--line 240 of file references.bib
+I was expecting a `,' or a `}'---line 587 of file references.bib
  :   
  :   url      = {\url{http://www.cs.utah.edu/~lifeifei/cis5930/lecture12-a.pdf}}
 (Error may have been on previous line)
@@ -11,10 +23,13 @@ refers to entry "EGSR06-proc", which doesn't exist
 Warning--I didn't find a database entry for "EGSR06-proc"
 Warning--to sort, need author or key in btfBonn
 Warning--to sort, need author or key in curetDataBase
+Warning--to sort, need author or key in tutorialWebSocket
+Warning--to sort, need author or key in nodejs
 Warning--to sort, need author or key in jblas
 Warning--to sort, need author or key in pngreader
 Warning--empty booktitle in statistical_acq
 Warning--empty year in statistical_acq
 Warning--empty booktitle in Nicodemus
+Warning--empty journal in Phong
 Warning--empty year in wynn
-(There were 2 error messages)
+(There were 4 error messages)

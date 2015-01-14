@@ -10,10 +10,19 @@ Curret btf database.
 \newblock \url{http://www1.cs.columbia.edu/CAVE/software/curet/index.php}.
 \newblock Accessed on \today.
 
+\bibitem{tutorialWebSocket}
+Introducing websockets: Bringing sockets to the web.
+\newblock \url{http://www.html5rocks.com/en/tutorials/websockets/basics/}, note
+  = {Accessed on \today}.
+
 \bibitem{jblas}
 Linear algebra for java - jblas.
 \newblock \url{http://mikiobraun.github.io/jblas/}.
 \newblock Accessed on \today.
+
+\bibitem{nodejs}
+Node.js websocket server implementation.
+\newblock \url{http://http://nodejs.org/}, note = {Accessed on \today}.
 
 \bibitem{pngreader}
 Pure javascript png decoder.
@@ -30,6 +39,11 @@ Christopher~M. Bishop.
 K.J. Dana, B.~Van-Ginneken, S.K. Nayar, and J.J. Koenderink.
 \newblock {R}eflectance and {T}exture of {R}eal {W}orld {S}urfaces.
 \newblock {\em ACM Transactions on Graphics (TOG)}, 18(1):1--34, Jan 1999.
+
+\bibitem{webgl}
+Brian Danchilla.
+\newblock {\em Beginning WebGL for HTML5}.
+\newblock Apress, Berkely, CA, USA, 1st edition, 2012.
 
 \bibitem{debevec}
 Paul Debevec, Tim Hawkins, Chris Tchou, Haarm-Pieter Duiker, and Westley
@@ -154,6 +168,11 @@ F.~E. Nicodemus, J.~C. Richmond, J.~J. Hsia, I.~W. Ginsberg, and T.~Limperis.
 \newblock chapter Geometrical Considerations and Nomenclature for Reflectance,
   pages 94--145. Jones and Bartlett Publishers, Inc., USA, 1992.
 
+\bibitem{Phong}
+Bui-Tuong Phong.
+\newblock {I}llumination for {C}omputer {G}enerated {P}ictures.
+\newblock 18(6):311--317, 1975.
+
 \bibitem{sattler-2003-efficient}
 Mirko Sattler, Ralf Sarlette, and Reinhard Klein.
 \newblock Efficient and realistic visualization of cloth.
@@ -191,7 +210,7 @@ Frank Suykens, Karl vom Berge, Ares Lagae, and Philip Dutré.
 \newblock Interactive rendering with bidirectional texture functions.
 \newblock {\em Comput. Graph. Forum}, 22(3):463--472, 2003.
 
-\bibitem{websockets}
+\bibitem{WebSockets}
 V.~Wang, F.~Salim, and P.~Moskovits.
 \newblock {\em The Definitive Guide to HTML5 WebSocket}.
 \newblock Apressus Series. Apress, 2012.

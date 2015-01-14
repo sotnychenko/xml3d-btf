@@ -244,7 +244,7 @@
       \bigskip
       \bigskip 
       {\large betreut von / advised by \par}
-      {\LARGE M. Sc. Kristian Sons \par}
+      {\LARGE M. Sc. Jan Sutter \par}
 	  {\LARGE ... \par}
       
       \bigskip

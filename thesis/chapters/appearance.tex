@@ -5,19 +5,19 @@ In this chapter we will review a hierarchy of scattering functions.
 Scattering functions describe how incoming and outgoing directions of the light are related for a surface at which light-material interaction occurs \cite{dong}.
 Such functions are possible to measure for a given object.
 After obtaining the data, scattering functions can provide all the necessary information to render the material appearance. 
-Due to diversity of material properties, different functions were introduced.  
+ Depending on the material there were introduced less computational functions without losing rendering quality.
 In order to chose suitable scattering function for capturing certain scattering effects for a particular type of material,
-it is important to be aware of the hierarchy of scattering functions.
+it is important to know which functions already exist. 
 
 	
 \section{Light-Material Interaction}
 \label{section:light}	
-Before defining any scattering functions of light the basics light-material interaction.
+
 Generally speaking, when light hits a material's surface, a sophisticated light-matter process happens.
 Such process depends on physical properties of the material as well as on physical properties of light\cite{wynn}. 
 For instance, an opaque surface such as wool will reflect light differently than a smooth surface with high specularities such as metal. 
 
- When light makes a contact with a material, three types of interactions may occur: light \emph{reflection}, light \emph{absorption} and light \emph{transmittance}. 
+ When light makes contact with a material, three types of interactions may occur: light \emph{reflection}, light \emph{absorption} and light \emph{transmittance}. 
  Light \emph{reflection} is the change in direction of light at an interface between two different media so that light returns into the medium from which it originated.
  Light \emph{absorption} is a process when a light is being taken up by a material and transformed into internal energy of the material, for instance thermal energy.
  When a material is transparent, light \emph{transmittance} can occur.
@@ -36,7 +36,7 @@ For instance, an opaque surface such as wool will reflect light differently than
  
 To define the general scattering function(GSF) imagine the light-wave hitting the surface at time $t_{i}$ and position $x_{i}$ and with wavelength $\lambda_{i}$\cite{star2004}.
  With a given local coordinate system at a surface point, the incoming direction of light can be defined as $(\theta_{i} ,\phi_{i})$.
- Light travels inside the material and exits the surface at position $x_{o}$ and time $t_{o}$, with possibly changed wavelength $\lambda_{o}$ in the outgoing direction $(\theta_{o} ,\phi_{o})$.
+ Light travels inside the material and exits the surface at position $x_{o}$ and time $t_{o}$, with a possibly changed wavelength $\lambda_{o}$ in the outgoing direction $(\theta_{o} ,\phi_{o})$.
  Figure  \ref{fig:light_example} illustrates the process.
  
  
@@ -138,12 +138,13 @@ Nicodemus et al. \cite{Nicodemus} was the one who proposed the BRDF.
 Two principal properties of the BRDF were introduced, i.e. \emph{energy conservation} and \emph{reciprocity}. 
 \emph{Energy conservation} law states that the total amount of outgoing light from a surface cannot exceed the
 original amount of light that arrives at the surface \cite{wynn}. 
- \emph{Reciprocity} says that if we swap incoming and outgoing directions BRDF stays the same.
+ \emph{Reciprocity} says that if we swap incoming and outgoing directions the BRDF stays the same.
 If either of these conditions are not satisfied then such BRDF is called \emph{apparent} BRDF (ABRDF) \cite{abrdf}.
 
 It is quite difficult to create a mathematical model for a BRDF that satisfies reciprocity,
-energy conservation and the same time produces realistic images. However, most BRDF's models do not satisfy these conditions and still get plausible rendering results.
-For instance, Phong model is the most well-known shading model in computer graphics. 
+energy conservation and at the same time produces realistic images.
+ However, most BRDF models do not satisfy these conditions and still get plausible rendering results.
+For instance, the Phong model \cite{Phong} is the most used shading model in computer graphics. 
 The traditional Phong model satisfy neither energy conservation nor reciprocity, but can still render many materials realistically plausible.
 Usually, such materials are of opaque and flat nature, for example plastic materials.
 The Phong model is an empirical model and is designed to fit the original function, often based on simple formulas which were derived from observations.
@@ -159,18 +160,18 @@ $SVBRDF(x,\theta_{i} ,\phi_{i},\theta_{o} ,\phi_{o})$.
  \end{center}
  Assumptions are the same as for the BRDF, except now spatial dependence is present.
  
-A SVBRDF is closely related to a BTF. The SVBRDF and the BTF almost the same scattering function, the difference is in scattering process. 
+A SVBRDF is closely related to a BTF. The difference is in the scattering process. 
 Changes in scattering at local position $x$ for the BTF are influenced from neighbouring 3D surface geometry, as a result the self-shadowing, masking and inter-reflections are captured by the BTF.
 On the other side, the spatial dependence of a SVBRDF describes variations in the optical properties of a surface \cite{haindl_visual}.
 
 
  
 A SVBRDF represents structures at micro-scale level, which corresponds to near flat opaque materials. On the other side, a BTF capture structure both at macro and micro scales.
- That means that the BTF takes into account influences from local neighbourhood structures. Even though measurement, compression, rendering are more efficient for the SVBRDF, 
- the BTF can produce better visual results. \cite{haindl_visual}
+ That means that the BTF takes into account influences from local neighbourhood structures. Even though measurement, compression and rendering are more efficient for the SVBRDF, 
+  BTFs can produce better visual results. \cite{haindl_visual}
  
  
-\section{Surface Light Field}
+\section{Surface Light Field and Surface Reflectance Field}
 \label{section:slf}
 Consider BTF and assume
 
@@ -186,42 +187,30 @@ $SLF(x,\theta_{o} ,\phi_{o})$.
  SLF is used when illumination direction is not varying in the rendering scene, but the view direction varies.
  Thus, such model is favoured for its greater computational efficiency for such cases.
 
-\section{Surface Reflectance Field}
-\label{section:srf}
-Analogously as for SLF, consider BTF and assume
 
-\begin{itemize}
-\item fixed camera direction $\theta_{o} = const$, $\phi_{o}=const$
-\end{itemize}
-we will get a 4-D Surface Reflectance Field model (SRF)
- \begin{center}
-$SRF(x,\theta_{i} ,\phi_{i})$.
- \end{center}
- 
-
+ If we fix camera directions for BTF, we end up with SRF(Surface Reflectance Field).
  SRF is another very popular variant of image-based rendering and is also a subset of BTF. 
  In this case many images are taken under varying light directions with fixed view point\cite{star2004}. 
  For instance, Debevec et al. \cite{debevec} recorded the appearance of human face while a
 light source was rotating around the face. Rendering the human face realistically is always a struggle in computer graphics.
 Due to complex reflectance characteristics of the human face, common texture mapping usually fails under varying illumination.
- Debevec et al. acquired approximately two thousand images under different light positions and could render the face under arbitrary lighting for original camera directions. 
+ Debevec et al. acquired approximately two thousand images under different light positions and could render the face under arbitrary lighting for the original camera directions. 
 
 
 \section{Summary of Scattering Functions}
 \label{section:attrib}
-In practice, an advantage of simpler scattering function is a computation efficiency, 
-while a disadvantage is a reduction of visual quality. 
-But, development of the graphics hardware is always improving and 
-as a result this encourages to use sophisticated scattering functions, which provide improvement in realistic material rendering. 
+In practice, the advantage of a simpler scattering function is the computational efficiency, 
+while the disadvantage is the reduction of visual quality. 
+The constant improvement of graphics hardware, however, encourages the use of more sophisticated scattering functions, which provide even more realistic material renderings. 
  
 However, a complex material representation requires sophisticated data measurement and modeling.
-For instance, till now a GRF has not been measured and still stays as a state-of-the-art problem \cite{haindl_visual}.
+For instance, untill now a GRF has not been measured and still stays as a state-of-the-art problem \cite{haindl_visual}.
 In practice, the appropriate scattering function depends on the specific application.
 For instance, a scene with various textures can be rendered with different scattering functions. 
-Simpler materials that do not have complex scattering features can be rendered with a 2-D textures in combination with BRDFs model, such as Phong model.
-If the material cannot be represented realistic without subsurface scattering, masking, self-reflections then typically such materials require high quality representations, e.g. BTF.
+Simpler materials that do not have complex scattering features can be rendered with a 2-D textures in combination with BRDF models, such as the Phong model.
+If the material cannot be represented realistic without subsurface scattering, masking, self-reflections then typically such materials require a high quality representations, e.g. BTF.
 However, these advanced material representations are very complex.
-In practice a tradeoff between visual quality and rendering cost is inevitable. 
+In practice, a tradeoff between visual quality and rendering cost is inevitable. 
 
 
 
