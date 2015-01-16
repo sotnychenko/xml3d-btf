@@ -43,10 +43,10 @@ We implemented WebGL demo web-application and \emph{Web-Sockets} server for stre
 Nowadays, Web technologies are able to support WebGL \cite{webgl}, which is a JavaScript API for rendering 3D content.
 WebGL provides  vertex and fragment shaders  for creating highly realistic rendering results.
 New standards for 3D graphics in context of HTML domain are evolving, for instance such as XML3D \cite{xml3d}.
-XML3D allows for embedding 3D graphics into HTML pages. XML3D is based both on XML and WebGL.
+XML3D allows for embedding 3D graphics into HTML pages. XML3D uses JavaScript and WebGL.
 It allows for declaring 3D scenes elements in the context of HTML pages.
 Web programmers can apply their existing knowledge (i.e. about DOM, XML, CSS) to include 3D graphics in the HTML content by using XML3D.
-Currently XML3D  natively supported by  Firefox and Google Chrome browsers on Linux and Windows.
+Currently XML3D  is a polyfill, because browsers do not support XML3D natively.
  
 Most of previous work that used BTFs for realistic rendering were primarily intended  for offline applications.
 However, their approach is not suitable in the context of the Web, due to the data transfer between the server and a client.
