@@ -5,8 +5,11 @@
 In this chapter we explain the derivation of PCA and the algorithm for compressing and decompressing the BTF.
 We have chosen PCA for BTF compression, which belong to statistical methods, see Chapter \ref{section:stat_methods}.
 PCA compression method allows for easy regulation of trade-off between rendering quality and compression ratio.
-While probabilistic methods have better compression ratio, but they are generally suited for flat materials \cite{haindl}.
-As for analytical methods they can produce errors at gazing angles and generally have bigger decompression error than PCA \cite{haindl}.
+While probabilistic methods have better compression ratio, however they are generally suited for flat materials \cite{haindl}.
+Analytical methods can produce errors at gazing angles and generally have bigger decompression error than PCA \cite{haindl}.
+Also, the PCA is suitable for the streaming very well, because the components are sorted in the order of the importance.
+This means there is no need to do additional analysis to decide in which order to send the components, as it was done by Schwartz \emph{et. al.} \cite{webglbtfstreaming}.
+Based on the above reasons, we chose PCA over other methods.
 
 
  \section{Derivation of PCA}
@@ -100,8 +103,8 @@ We apply PCA per $k$ neighbour camera directions.
  If $k=1$ proposed method becomes equal to the PCA RF method \cite{haindl}. 
 If we take the whole number of camera directions it becomes PCA BTF method \cite{haindl}.
 PCA RF requires less principal components to store per camera direction and performs better in real-time rendering. 
-While PCA BTF has better compression ratio, but it is slower than PCA RF in real-time rendering (See Chapter \ref{section:stat_methods}).
-Our proposed method is flexible and gives possibility to chose in between of these methods, i.e. regulate trade-off between compression ratio and real-time computational performance.
+While PCA BTF has better compression ratio, but is slower than PCA RF in real-time rendering (See Chapter \ref{section:stat_methods}).
+Our proposed method is flexible and gives the possibility to chose in between of these methods, i.e. regulate the trade-off between compression ratio and real-time computational performance.
 
 \subsection{Compression}
 \label{section:compression}

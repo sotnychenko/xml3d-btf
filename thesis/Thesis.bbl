@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{binaryjs}
+Binaryjs library for realtime binary streaming.
+\newblock \url{http://binaryjs.com/}, note = {Accessed on \today}.
+
 \bibitem{btfBonn}
 Btf database bonn 2003.
 \newblock \url{http://cg.cs.uni-bonn.de/en/projects/btfdbb/download/ubo2003/}.
@@ -24,6 +28,12 @@ Linear algebra for java - jblas.
 Node.js websocket server implementation.
 \newblock \url{http://http://nodejs.org/}, note = {Accessed on \today}.
 
+\bibitem{glsl}
+The opengl es® shading language 2013.
+\newblock
+  \url{https://www.khronos.org/registry/gles/specs/3.0/GLSL_ES_Specification_3.00.4.pdf}.
+\newblock Accessed on \today.
+
 \bibitem{pngreader}
 Pure javascript png decoder.
 \newblock \url{https://github.com/arian/pngjs}.
@@ -34,6 +44,12 @@ Christopher~M. Bishop.
 \newblock {\em Pattern Recognition and Machine Learning (Information Science
   and Statistics)}.
 \newblock Springer-Verlag New York, Inc., Secaucus, NJ, USA, 2006.
+
+\bibitem{rmse}
+T.~Chai and R.~R. Draxler.
+\newblock Root mean square error (rmse) or mean absolute error (mae)? â€“
+  arguments against avoiding rmse in the literature.
+\newblock {\em Geoscientific Model Development}, 7(3):1247--1250, 2014.
 
 \bibitem{dana}
 K.J. Dana, B.~Van-Ginneken, S.K. Nayar, and J.J. Koenderink.
@@ -64,6 +80,13 @@ J.~Filip and Michal Haindl.
 \newblock In J.~Kittler, M.~Petrou, and M.~Nixon, editors, {\em Proceedings of
   the 17th IAPR International Conference on Pattern Recognition}, pages 80--83,
   Los Alamitos, August 2004. IEEE, IEEE.
+
+\bibitem{resampling}
+Ji\v{r}\'{\i} Filip, Michael~J. Chantler, and Michal Haindl.
+\newblock On optimal resampling of view and illumination dependent textures.
+\newblock In {\em Proceedings of the 5th Symposium on Applied Perception in
+  Graphics and Visualization}, APGV '08, pages 131--134, New York, NY, USA,
+  2008. ACM.
 
 \bibitem{haindl_visual}
 M.~Haindl and J.~Filip.
@@ -167,6 +190,11 @@ F.~E. Nicodemus, J.~C. Richmond, J.~J. Hsia, I.~W. Ginsberg, and T.~Limperis.
 \newblock Radiometry.
 \newblock chapter Geometrical Considerations and Nomenclature for Reflectance,
   pages 94--145. Jones and Bartlett Publishers, Inc., USA, 1992.
+
+\bibitem{cielab}
+Marius Pedersen and Jon~Yngve Hardeberg.
+\newblock Full-reference image quality metrics: Classification and evaluation.
+\newblock {\em Found. Trends. Comput. Graph. Vis.}, 7(1):1--80, January 2012.
 
 \bibitem{Phong}
 Bui-Tuong Phong.

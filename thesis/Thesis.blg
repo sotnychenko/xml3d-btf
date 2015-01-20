@@ -6,14 +6,19 @@ I was expecting a `,' or a `}'---line 154 of file references.bib
  : @misc{nodejs,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 161 of file references.bib
+I was expecting a `,' or a `}'---line 160 of file references.bib
  : 
- : @INPROCEEDINGS{mueller-2003-compression,
+ : @misc{binaryjs,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 167 of file references.bib
+ : 
+ : @misc{glsl,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--string name "j-cacm" is undefined
---line 240 of file references.bib
-I was expecting a `,' or a `}'---line 587 of file references.bib
+--line 268 of file references.bib
+I was expecting a `,' or a `}'---line 644 of file references.bib
  :   
  :   url      = {\url{http://www.cs.utah.edu/~lifeifei/cis5930/lecture12-a.pdf}}
 (Error may have been on previous line)
@@ -26,10 +31,12 @@ Warning--to sort, need author or key in curetDataBase
 Warning--to sort, need author or key in tutorialWebSocket
 Warning--to sort, need author or key in nodejs
 Warning--to sort, need author or key in jblas
+Warning--to sort, need author or key in glsl
+Warning--to sort, need author or key in binaryjs
 Warning--to sort, need author or key in pngreader
 Warning--empty booktitle in statistical_acq
 Warning--empty year in statistical_acq
 Warning--empty booktitle in Nicodemus
 Warning--empty journal in Phong
 Warning--empty year in wynn
-(There were 4 error messages)
+(There were 5 error messages)

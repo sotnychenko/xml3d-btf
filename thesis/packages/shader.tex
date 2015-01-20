@@ -127,11 +127,11 @@ A block diagram of system combination technique of combining several Automatic S
 	\path [draw, ->] (tc.east) -- node [above] {} 
         (color.west) ;
 	
-		 \path [draw, ->] (tr1.south) -- node [above] {calculating uniterpolated colors for triangles} 
+	 \path [draw, ->] (tr1.south) -- node [above] { positions of triangles} 
         (color.north) ;
 		
-		\path (color.east)+(3.0,0.0) node (sum1) [cir] {$\,\,\,\,\,\,\,\Sigma$};
-		 \path [draw, ->] (color.east) -- node [above] {weighted sum} 
+		\path (color.east)+(3.8,0.0) node (sum1) [cir] {$\,\,\,\,\,\,\,\Sigma$};
+		 \path [draw, ->] (color.east) -- node [above] {decompressing colors} 
         (sum1.west) ;
 		
 		

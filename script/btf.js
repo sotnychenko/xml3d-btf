@@ -121,7 +121,7 @@ XML3D.shaders.register("btf", {
 		
 		"         indexS+=1.0;",
 		"         x = floor(indexS/RSize);",
-		"	      y = indexS-x*RSize;",
+		"	      y += 1.0;",
 		"         s=texture2D(textureR,vec2(0.5+y,RSize-0.5-x)/RSize);",	
 	
 		"         sig[2] = composeSigma(s.rg);",
