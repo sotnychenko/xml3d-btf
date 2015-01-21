@@ -8,10 +8,10 @@ In this chapter we evaluate the decompression error, compression ratio and image
 
 
 
-We evaluate our compression approach on the Bonn's University BTF Database \cite{btfBonn} and compare the results to other related PCA methods \cite{haindl}.
+We evaluate our compression approach on the Bonn's BTF Database \cite{btfBonn} and compare the results to other related PCA methods \cite{haindl}.
 We tested different configurations for BTF's compression and decided that the optimal configuration for our method is when $k=3$ and $C=8$, where $k$ is the number of neighbour directions and $C$ is the number of principal components. (See Chapter \ref{section:algorithm_step}).
 Figure \ref{fig:compression_example} shows an example of the wool material decompressed with various number of components. The Mean Average Error (MAE) in CIELAB color space is computed for each of them.
-The CIELAB metrics accounts for human visual sensitivity, i.e. is consistent with human perception \cite{cielab}.
+The CIELAB metrics accounts for the human visual sensitivity, i.e. is consistent with human perception \cite{cielab}.
 MAE is calculated for each of the channels separately and then the final result is averaged among them.
 
 {\centering $MAE = \frac{1}{N}\sum_{i=1}^{N}(\left | y_i-\hat{y_i} \right |)$\\}
@@ -65,10 +65,10 @@ Haindl \cite{haindl} claims to have the MAE equal to $3.16$ in CIELAB color spac
  We can see that even for $32$ components the decompression errors improves only a bit, but the compression ratio becomes worse.
  If we use $k$ bigger than $3$, then we would need to use more components to have good decompression error.
  For intance, our method becomes equal to the PCA BTF \cite{haindl} method when $k=81$ (all camera directions). 
- In this case we would need approximately $41$ components \cite{haindl}, which is the heavy computational task for the GPU.
+ In this case we would need approximately $41$ components \cite{haindl}, which is the intensive computational task for the GPU.
  
- Also, the LPCA BTF \cite{haindl} method has the MAE equal to $2.42$, which is practically equal to our method. 
- However, we use $8$ components, while the LPCA BTF method uses $19$ on average.
+ Also,the LPCA BTF \cite{haindl} method has the MAE equal to $2.42$, which is a bit higher than ours method. 
+ The LPCA BTF uses $19$ components, while our method uses only $8$.
  
  
 
@@ -98,4 +98,21 @@ Rendering starts as soon as the first component transfers to the client side.
 With further components the overall quality of the image improves, i.e. specularities are increasing, small micro-structures become more visible and emphasized.
 After all components are transmitted, the viewer hits the maximum available frame-rate on the average GPU.
 The demo-viewer works well even on the mobile devices.
+
+\section{Comparison with the Phong Shader}
+\label{section:eval_streaming}
+
+Figure \ref{fig:phongvsbtf} shows the tremendous difference between the BTF shader and conventional 2-D texture in combination with the Phong shader.
+Both images were taken under the same camera and light directions. The BTF introduces high varying specularities and the realistic depth in the images.
+The Phong shader with the combination of the 2-D texture provides the impression that the material looks flat, while the BTF makes the material look very bumpy and shiny.
+The BTF shader shows the correct inner-reflections, sub-surface scattering and shadows under varying light conditions.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=1.1\textwidth]{figures/phongVsBTF}
+ \caption[The Phong shader vs The BTF shader ] {
+ 	{\bf The Phong shader vs The BTF shader }
+	}
+ \label{fig:phongvsbtf}
+\end{figure}
 

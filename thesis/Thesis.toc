@@ -48,7 +48,8 @@
 \contentsline {chapter}{\numberline {7}Evaluation}{41}{chapter.59}
 \contentsline {section}{\numberline {7.1}Compression}{41}{section.60}
 \contentsline {section}{\numberline {7.2}Real-time performance}{43}{section.63}
-\contentsline {chapter}{\numberline {8}Conclusions and Future Work}{45}{chapter.65}
-\contentsline {section}{\numberline {8.1}Summary}{45}{section.66}
-\contentsline {section}{\numberline {8.2}Future work}{45}{section.67}
-\contentsline {chapter}{Bibliography}{47}{chapter*.68}
+\contentsline {section}{\numberline {7.3}Comparison with the Phong Shader}{43}{section.65}
+\contentsline {chapter}{\numberline {8}Conclusions and Future Work}{45}{chapter.67}
+\contentsline {section}{\numberline {8.1}Summary}{45}{section.68}
+\contentsline {section}{\numberline {8.2}Future work}{45}{section.69}
+\contentsline {chapter}{Bibliography}{47}{chapter*.70}
