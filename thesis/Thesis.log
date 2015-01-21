@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.18)  21 JAN 2015 18:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.18)  21 JAN 2015 19:59
 entering extended mode
 **C:/Users/Oleksandr/Desktop/thesis/mine/Thesis.tex
 (C:/Users/Oleksandr/Desktop/thesis/mine/Thesis.tex
@@ -1228,23 +1228,14 @@ File: figures/streampreview.png Graphic file (type png)
 <use figures/streampreview.png>
 Package pdftex.def Info: figures/streampreview.png used on input line 86.
 (pdftex.def)             Requested size: 417.47307pt x 187.00296pt.
-
-<figures/phongVsBTF.png, id=792, 1440.88312pt x 1829.33438pt>
+ [43 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/streampreview.png>]
+<figures/phongVsBTF.png, id=797, 1440.88312pt x 1829.33438pt>
 File: figures/phongVsBTF.png Graphic file (type png)
 
 <use figures/phongVsBTF.png>
-Package pdftex.def Info: figures/phongVsBTF.png used on input line 112.
-(pdftex.def)             Requested size: 459.22292pt x 583.02634pt.
-
-Overfull \hbox (41.74985pt too wide) in paragraph at lines 112--115
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [43 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/streampreview.png>]
-[44 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/phongVsBTF.png>]
+Package pdftex.def Info: figures/phongVsBTF.png used on input line 118.
+(pdftex.def)             Requested size: 417.47307pt x 530.01886pt.
+) [44 <C:/Users/Oleksandr/Desktop/thesis/mine/figures/phongVsBTF.png>]
 (C:\Users\Oleksandr\Desktop\thesis\mine\chapters/conclusions.tex
 Chapter 8.
 ------------------------------------------------------------------------------
@@ -1320,7 +1311,7 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (64 pages, 21077059 bytes).
+Output written on Thesis.pdf (64 pages, 21077450 bytes).
 PDF statistics:
  949 PDF objects out of 1000 (max. 8388607)
  179 named destinations out of 1000 (max. 500000)

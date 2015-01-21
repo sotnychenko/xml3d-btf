@@ -67,7 +67,7 @@ Haindl \cite{haindl} claims to have the MAE equal to $3.16$ in CIELAB color spac
  For intance, our method becomes equal to the PCA BTF \cite{haindl} method when $k=81$ (all camera directions). 
  In this case we would need approximately $41$ components \cite{haindl}, which is the intensive computational task for the GPU.
  
- Also,the LPCA BTF \cite{haindl} method has the MAE equal to $2.42$, which is a bit higher than ours method. 
+ Also, the LPCA BTF \cite{haindl} method has the MAE equal to $2.42$, which is a bit higher than ours method. 
  The LPCA BTF uses $19$ components, while our method uses only $8$.
  
  
@@ -96,8 +96,14 @@ The parameters for the compression are $k=3$ and $C=8$.
 Rendering starts as soon as the first component transfers to the client side.
  The overall appearance of the the material is already visible even with the first the component, which has the size on average about $0.7$Mb.
 With further components the overall quality of the image improves, i.e. specularities are increasing, small micro-structures become more visible and emphasized.
-After all components are transmitted, the viewer hits the maximum available frame-rate on the average GPU.
-The demo-viewer works well even on the mobile devices.
+After all components are transmitted, the demo-viewer hits the maximum available frame-rate of the monitor, i.e. 60Hz or even 144Hz.
+The tests were done on the NVIDIA GeForce GTX 480 videocard. Also, the demo-viewer works smoothly on other average GPUs.
+
+We performed a test of the demo-viewer  on the mobile device Sony Xperia SL.
+The real time frame rate was approximately 10-15 FPS (frames per second), which is relatively good result.
+With newer mobile devices it possible to achieve even better results.
+
+
 
 \section{Comparison with the Phong Shader}
 \label{section:eval_streaming}
@@ -109,7 +115,7 @@ The BTF shader shows the correct inner-reflections, sub-surface scattering and s
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=1.1\textwidth]{figures/phongVsBTF}
+ \includegraphics[width=1\textwidth]{figures/phongVsBTF}
  \caption[The Phong shader vs The BTF shader ] {
  	{\bf The Phong shader vs The BTF shader }
 	}
