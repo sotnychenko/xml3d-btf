@@ -1,8 +1,6 @@
 \chapter{Evaluation}
 \label{chapter:Evaluation}
-In this chapter we evaluate the decompression error, compression ratio and visual quality of the image during the streaming.
-
-
+In this chapter we evaluate the decompression error, compression ratio and image quality during the streaming.
 
 
 \section{Compression}
@@ -11,8 +9,8 @@ In this chapter we evaluate the decompression error, compression ratio and visua
 
 
 We evaluate our compression approach on the Bonn's University BTF Database \cite{btfBonn} and compare the results to other related PCA methods \cite{haindl}.
-We tested different configurations for BTFs and decided that the optimal configuration for our methods is when $k=3$ and $C=8$, where $k$ is the number of neighbour directions and $C$ is the number of principal components. (See Chapter \ref{section:algorithm_step}).
-Figure \ref{fig:compression_example} shows an example of the wool material decompressed with different number of components. The Mean Average Error (MAE) in CIELAB color space is computed for each of them.
+We tested different configurations for BTF's compression and decided that the optimal configuration for our method is when $k=3$ and $C=8$, where $k$ is the number of neighbour directions and $C$ is the number of principal components. (See Chapter \ref{section:algorithm_step}).
+Figure \ref{fig:compression_example} shows an example of the wool material decompressed with various number of components. The Mean Average Error (MAE) in CIELAB color space is computed for each of them.
 The CIELAB metrics accounts for human visual sensitivity, i.e. is consistent with human perception \cite{cielab}.
 MAE is calculated for each of the channels separately and then the final result is averaged among them.
 
@@ -33,7 +31,7 @@ MAE is calculated for each of the channels separately and then the final result 
 
 
  Figure \ref{fig:compression_example} shows that the decompression error is not improved enormously for $16$ or even for $32$ components.
- That is why the reasonable choice is $8$ components, while for $4$ components the image getting blurred. Also, Haindl claims that $8$ components is the optimal number of components for the PCA RF \cite{haindl}, which is close to our method.
+ That is why the reasonable choice is $8$ components, while for $4$ components the image is getting blurred. Haindl \cite{haindl} also claims that $8$ components is the optimal number of components for the PCA RF method, which is related to our method.
 
 
 
@@ -52,26 +50,25 @@ wool & 3                      & 32                     & 2.22                   
 
 
  Table \ref{table:mytable} provides the evaluation for the whole BTF space of the wool sample, i.e. for all possible camera and light directions.
- MAE is also computed in RGB color space and in addition Root Mean Square Error
+ The MAE is also computed in RGB color space along with Root Mean Square Error to measure the variance in the errors
  
  {\centering $RMSE = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(y_i-\hat{y_i} )^2}$\\}
 
- RMSE gives large weights to big errors, thus we can evaluate the variance of the errors \cite{rmse}.
- The bigger the RMSE the bigger the variance. We can see that in our case the RMSE is close to the MAE, which means that the variance of the errors is relatively small.
+ RMSE gives large weights to big errors, thus we can evaluate if big errors are present \cite{rmse}.
+ The bigger the RMSE the bigger the variance of the errors. We can see that in our case the RMSE is close to the MAE, which means that the variance of the errors is relatively small.
  
 In the first row of the  Table \ref{table:mytable} where $k=1$ our method becomes equal to the PCA RF \cite{haindl} method.
-Haindl claims to have the MAE equal to $3.16$ in CIELAB color space for the same sample \cite{haindl}.
+Haindl \cite{haindl} claims to have the MAE equal to $3.16$ in CIELAB color space for the same sample.
  Our method produces a bit better result, i.e. $2.14$. 
  The second row shows that for  $k=3$ MAE stays practically the same. 
  However, the compression ratio improves in three times!
  We can see that even for $32$ components the decompression errors improves only a bit, but the compression ratio becomes worse.
  If we use $k$ bigger than $3$, then we would need to use more components to have good decompression error.
- For intance, our method becomes equal to PCA BTF \cite{haindl} when $k=81$ (all the camera directions). In this case we would need approximately $41$ components \cite{haindl}.
- Haindl has the MAE equal to 2.85 for the PCA BTF and compression ratio $1:23$ \cite{haindl}. 
- This means  $k=81$ and $C=41$ is not the optimal configuration too, because it would be computational heavy task for the GPU to do computation for $41$ components.
+ For intance, our method becomes equal to the PCA BTF \cite{haindl} method when $k=81$ (all camera directions). 
+ In this case we would need approximately $41$ components \cite{haindl}, which is the heavy computational task for the GPU.
  
- Also, LPCA BTF \cite{haindl} has MAE equal to $2.42$, which is practically equal to our method. 
- However, we use $8$ components, while LPCA BTF uses $19$ on average.
+ Also, the LPCA BTF \cite{haindl} method has the MAE equal to $2.42$, which is practically equal to our method. 
+ However, we use $8$ components, while the LPCA BTF method uses $19$ on average.
  
  
 
@@ -80,9 +77,9 @@ Haindl claims to have the MAE equal to $3.16$ in CIELAB color space for the same
 
 We evaluate the rendering quality during the streaming and the real-time performance.
 Our demo viewer is available at  http://btf.mywebcommunity.org. 
-Figure \ref{fig:streamPreview} depicts the results of the evaluation.
+Figure \ref{fig:streamPreview} depicts the intermediate images during the streaming.
 We tested our approach on three materials: wool, impalla and corduroy.
-The configuration of the compression is $k=3$ and $C=8$.
+The parameters for the compression are $k=3$ and $C=8$.
 
 \begin{figure}[h]
  \centering
