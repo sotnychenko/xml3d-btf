@@ -29,6 +29,7 @@ The implementation of the singular value decomposition (SVD) is the main part of
  We use \emph{jblas} \cite{jblas} library developed by Mikio Braun. 
  This is a linear algebra library written in Java language, which provides very high performance  \cite{jblas}.
  
+ 
 The compressed BTFs  have to be sent to the shader. 
   OpenGL Shading Language (GLSL) version 1.0 support uniform arrays, however, they do not fully support dynamic indexing  \cite{glsl}.
 Fortunately, it is possible to send arrays of data which are mapped to textures. 
@@ -74,44 +75,63 @@ We do this by  multiplying each time $\Sigma$ values by the factor $\tfrac{1}{fa
 \section{Streaming}
 \label{section:impl_streaming}
 
+When rendering BTFs in a web-browser, all data has to be transferred before rendering.
+Even compressed BTF data can be tens of megabytes in size and can take a considerable amount of time for transmission.
+We propose to stream the BTF data to reduce the delay before rendering can start.
+ The user will be able to see a low quality preview of the original BTF in just a few seconds. 
+In our case, principal components are streamed one by one using WebSockets \cite{WebSockets}.
+Each principal component covers the full angular domain, so that the BTF can be rendered for any camera and light direction at any time during the streaming process.
+The rendering quality is enhanced whenever a new component arrives.
+
+
+ WebSockets are an efficient way of real-time client server communication.
+ WebSockets are widely supported by desktop as well as mobile browsers.
+This technology has several advantages over HTTP Polling, Long Polling, Streaming approaches \cite[Ch.\ 1]{WebSockets}.  
+Full-duplex connection using WebSockets allow the client to reuse the same connection with the server.
+In contrast Polling requires the client to regularly check for new information.
+ This single connection dramatically reduces the latency.
+HTTP Streaming also uses a single connection but only from the server to the client and is currently only available for ascii  data. 
+Firewalls may additionally buffer the HTTP response, which can result in increased latency.
+All in all WebSockets save bandwidth, CPU time and reduce  latency compared to HTTP streaming or polling approaches.
 
 We use Node.js \cite{nodejs} as a server side platform, which enables realtime streaming using WebSockets. On top of that, we use BinaryJS \cite{binaryjs} for the binary streaming.
-BinaryJS is a framework that uses WebSockets to stream the binary data to the client from the Node.js server.
-The server and the client applications are written in JavaScript.
+BinaryJS is a framework that uses WebSockets to stream  binary data.
+The server and the client streaming applications are written in JavaScript.
 
 
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=1.0\textwidth]{figures/progress-bar}
- \caption[The streaming progress on the client side] {
- 	{\bf The streaming progress on the client side }
-
- }
- \label{fig:progress-bar}
+ \includegraphics[width=1.0\textwidth]{figures/streaming}
+ \caption[Streaming process illustration ] {
+ 	{\bf Streaming process illustration}
+	}
+ \label{fig:streaming}
 \end{figure}
 
-We also use Xflow \cite{xflow}, which is a declarative language for data flow processing in realtime.
-Xflow is a part of XML3D implementation. We use Xflow for gathering all the transferred principal components and storing them in one common texture $L$. (See Chapter  \ref{section:decompression}).
 
-Consider Figure \ref{fig:streaming} from the Chapter \ref{chapter:streaming} that depicts how the streaming works on practice.
-When the user connects to the streaming server and the HTML page loads completely, i.e. all the 3D objects are on the client side, the JavaScript client side sends the message to the Node.js server to start streaming the BTF data.
+We also use Xflow \cite{xflow}, which is a declarative language for data flow processing in realtime.
+Xflow is a part of XML3D implementation. We use Xflow for gathering all transferred principal components and storing them in one common texture $L$. (See Chapter  \ref{section:decompression}).
+
+Consider Figure \ref{fig:streaming} that depicts how the streaming works on practice.
+When the user connects to the streaming server and the HTML page loads completely, 
+i.e. all the 3D objects are on the client side, the JavaScript client side sends the message to the Node.js server to start streaming BTF data.
 All the compressed BTFs are located on the Node.js server.
 At the start of the stream, we first send texture $R$ and meta data. (See Chapter  \ref{section:decompression}).
-Afterwards, each principal component $C_{i}$ are streamed in chunks one by one as PNG images.
-Each $C_{i}$ covers all the angular domain, i.e. all the possible camera and light directions.
+Afterwards, indiviual principal components $C_{i}$ are streamed in chunks one by one as PNG images.
+Each principal component $C_{i}$ covers all the angular domain of the BTF, i.e. all possible camera and light directions.
 
-We decode PNG images using PNG decoder written by Arian Stolwijk \cite{pngreader}. PNG images are decoded to the array of RGB colors and saved to the common texture $L$ in canvas format using Xflow.
+We decode PNG images using PNG decoder written by Arian Stolwijk \cite{pngreader}. PNG images are decoded to the array of RGB colors and stored to the texture $L$.
 Each time the texture $L$ updates the rendering also refreshes.
-Even with the first principal component the resulted image looks plausible.
-With further components the overall quality of the image improves, i.e. specularities are increasing, small micro-structures become more visible and emphasized.
-The user also  able to see the progress-bar of the streaming progress as shown in  Figure \ref{fig:progress-bar}.
+Even with the first principal component the resulted rendering looks plausible.
+With further components the overall quality of the image improves, i.e. specularities are increasing, small micro-structures become more visible.
 
 
-
-Currently the limitation of such streaming approach is the drop of the frame rate when the assembling of the principal components occurs on the client side.
-This is caused by the update of the canvas element (texture $L$) each time new component is transmitted to the client.
-Also, we did not test the performance of multiple streaming, i.e. if there are several 3D objects that request BTFs at the same time.
+Currently a limitation of such streaming approach is the drop of the frame rate when the assembling of principal components occurs.
+This is caused by the update of the texture $L$ whenever a new component is transmitted to the client.
+This can be can fixed sending each  principal component as indivudial textures to the shader.
+However, the number of textures are limited by the specifications of the GPU.
+Also, we did not test the performance streaming multiple BTFs, i.e. if there are several 3D objects in one scene that request BTFs at the same time.
  Our current implementation does not support this.
 This can be included to the future work. 
 
@@ -165,7 +185,7 @@ In a final step we combine nine decompressed colors and early found interpolatio
 
 The implemented shader has it's own limitations. First of all, the number of principal components has to be fixed for a shader, because GLSL version 1.0 does not allow for dynamic looping \cite{glsl}.
 Secondly, the number of principal components are bound by a size of the texture $L$. It means that not all GPUs can handle very big textures. The problem can be fixed by using multiple textures.
-But anyway these limitations does not directly influence the performance of the shader, which provides real-time frame rate and performs well even on the mobile devices. (See Figure \ref{fig:progress-bar}).
+But anyway these limitations does not directly influence the performance of the shader, which provides real-time frame rate and performs well even on the mobile devices. 
 
 
 

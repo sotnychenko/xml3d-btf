@@ -9,10 +9,17 @@ In this chapter we evaluate the decompression error, compression ratio and image
 
 
 We evaluate our compression approach on the Bonn's BTF Database \cite{btfBonn} and compare the results to other related PCA methods \cite{haindl}.
+The statistical analysis of the large data is very computational and memory intensive task.
+The processing time of the data in our case depends on the number of the neighbour camera directions used.
+For instance, performing analysis for three neighbour directions at once can take approximately five minutes.
+However, doing analysis on the whole set of camera directions at once can take up to 24 hours.
+Thus, we chose to have less number of camera directions as possible.
+
+
 We tested different configurations for BTF's compression and decided that the optimal configuration for our method is when $k=3$ and $C=8$, where $k$ is the number of neighbour directions and $C$ is the number of principal components. (See Chapter \ref{section:algorithm_step}).
 Figure \ref{fig:compression_example} shows an example of the wool material decompressed with various number of components. The Mean Average Error (MAE) in CIELAB color space is computed for each of them.
 The CIELAB metrics accounts for the human visual sensitivity, i.e. is consistent with human perception \cite{cielab}.
-MAE is calculated for each of the channels separately and then the final result is averaged among them.
+MAE is calculated for each of the channels separately and then the final result is averaged over them.
 
 {\centering $MAE = \frac{1}{N}\sum_{i=1}^{N}(\left | y_i-\hat{y_i} \right |)$\\}
 
@@ -99,7 +106,7 @@ With further components the overall quality of the image improves, i.e. specular
 After all components are transmitted, the demo-viewer hits the maximum available frame-rate of the monitor, i.e. 60Hz or even 144Hz.
 The tests were done on the NVIDIA GeForce GTX 480 videocard. Also, the demo-viewer works smoothly on other average GPUs.
 
-We performed a test of the demo-viewer  on the mobile device Sony Xperia SL.
+We also tested the demo application on the mobile device Sony Xperia SL.
 The real time frame rate was approximately 10-15 FPS (frames per second), which is relatively good result.
 With newer mobile devices it possible to achieve even better results.
 

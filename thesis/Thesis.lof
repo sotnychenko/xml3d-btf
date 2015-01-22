@@ -7,13 +7,11 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Closest Directions }}{28}{figure.caption.45}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Streaming process illustration }}{33}{figure.caption.51}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Model Overview }}{31}{figure.caption.49}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Streaming process illustration }}{34}{figure.caption.52}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Shader Design}}{35}{figure.caption.54}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Model Overview }}{35}{figure.caption.53}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces The streaming progress on the client side}}{37}{figure.caption.56}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Shader Design}}{39}{figure.caption.58}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Example of decompression errors }}{42}{figure.caption.61}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Example of Progressive Streaming }}{43}{figure.caption.64}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces The Phong shader vs The BTF shader }}{44}{figure.caption.66}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Example of decompression errors }}{38}{figure.caption.57}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Example of Progressive Streaming }}{39}{figure.caption.60}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces The Phong shader vs The BTF shader }}{40}{figure.caption.62}
 \addvspace {10\p@ }
