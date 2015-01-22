@@ -25,6 +25,7 @@ Finally, visual quality, memory usage and computational effort can be be balance
 
 \section{Future work}
 \label{section:future_work}
+
 Based on our results several directions for the future work can be made.
 First of all, improvement can be made in regards of the scenes that involve several BTFs.
 The multiple streaming of BTFs can be implemented. We showed that we can render 3 BTFs at the same time with real-time frame rate.
@@ -34,6 +35,5 @@ They can be precomputed and stored in a cube-map \cite{haindl}.
 Other calculations such as computation of the bidirectional normals can be precomputed and stored along with a 3D mesh.
 
 Last but not least, there is a room for further compression.
- For instance, it can be achieved by compressing the PCA weights with the following techniques: wavelet compression \cite{webglbtfstreaming}, entropy encoding \cite{gpu_gems} and 
- vector quantization \cite{vectorquantization}.
-However, the decompression cost can grow, but it can be worth if the memory savings are inevitable. 
+ For instance, it can be achieved by compressing the PCA parameters with wavelet compression \cite{webglbtfstreaming} or with entropy encoding \cite{gpu_gems}. 
+However, the decompression cost will grow, but it can be worth if further memory savings are necessary. 
