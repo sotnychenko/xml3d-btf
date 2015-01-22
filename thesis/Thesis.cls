@@ -245,13 +245,13 @@
       \bigskip 
       {\large betreut von / advised by \par}
       {\LARGE M. Sc. Jan Sutter \par}
-	  {\LARGE ... \par}
+
       
       \bigskip
       \bigskip
       \bigskip 
       {\large begutachtet von / reviewers \par}
-      {\LARGE ... \par}
+      {\LARGE Prof. Dr. Philipp Slusallek \par}
       {\LARGE ... \par}
       
       %\vfill

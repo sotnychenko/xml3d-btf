@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.18)  22 JAN 2015 17:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.7.18)  22 JAN 2015 18:42
 entering extended mode
 **C:/Users/Oleksandr/Desktop/thesis/mine/Thesis.tex
 (C:/Users/Oleksandr/Desktop/thesis/mine/Thesis.tex
@@ -1229,10 +1229,10 @@ Chapter 7.
 ------------------------------------------------------------------------------
  7 Conclusions and Future Work
 ------------------------------------------------------------------------------
-) [41
+[41
 
 
-] [42] (C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.bbl
+]) [42] (C:\Users\Oleksandr\Desktop\thesis\mine\Thesis.bbl
 Missing character: There is no Â in font cmr10!
 Missing character: There is no ® in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -1271,8 +1271,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 184.
  ) 
 Here is how much of TeX's memory you used:
  24452 strings out of 493921
- 423766 string characters out of 3144864
- 477898 words of memory out of 3000000
+ 423768 string characters out of 3144864
+ 477915 words of memory out of 3000000
  27137 multiletter control sequences out of 15000+200000
  15526 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -1299,9 +1299,9 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (60 pages, 20672533 bytes).
+Output written on Thesis.pdf (60 pages, 20673886 bytes).
 PDF statistics:
- 909 PDF objects out of 1000 (max. 8388607)
+ 911 PDF objects out of 1000 (max. 8388607)
  172 named destinations out of 1000 (max. 500000)
  468 words of extra memory for PDF output out of 10000 (max. 10000000)
 

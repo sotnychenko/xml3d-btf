@@ -14,11 +14,6 @@ Curret btf database.
 \newblock \url{http://www1.cs.columbia.edu/CAVE/software/curet/index.php}.
 \newblock Accessed on \today.
 
-\bibitem{tutorialWebSocket}
-Introducing websockets: Bringing sockets to the web.
-\newblock \url{http://www.html5rocks.com/en/tutorials/websockets/basics/}, note
-  = {Accessed on \today}.
-
 \bibitem{jblas}
 Linear algebra for java - jblas.
 \newblock \url{http://mikiobraun.github.io/jblas/}.
@@ -133,6 +128,12 @@ Michal Havl{\'\i}{\v c}ek.
 \newblock In {\em Doktorandsk{\'e} dny 2012}, pages 53--62, Praha, 11/2012
   2012. {\v C}esk{\'e} vysok{\'e} u{\v c}en{\'\i} technick{\'e} v Praze, {\v
   C}esk{\'e} vysok{\'e} u{\v c}en{\'\i} technick{\'e} v Praze.
+
+\bibitem{vectorquantization}
+V.~Havran, J.~Filip, and K.~Myszkowski.
+\newblock Bidirectional texture function compression based on multi-level
+  vector quantization.
+\newblock {\em Computer Graphics Forum}, 29(1):175--190, jan 2010.
 
 \bibitem{xflow}
 Felix Klein, Kristian Sons, Dmitri Rubinstein, and Philipp Slusallek.
