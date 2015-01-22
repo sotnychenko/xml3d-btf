@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.1)  22 JAN 2015 14:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.1)  22 JAN 2015 15:39
 entering extended mode
 **Thesis.tex
 (C:\Users\Alex\Desktop\thesis\mine\Thesis.tex
@@ -1145,8 +1145,16 @@ Chapter 6.
 File: figures/differ.png Graphic file (type png)
 
 <use figures/differ.png>
-Package pdftex.def Info: figures/differ.png used on input line 28.
+Package pdftex.def Info: figures/differ.png used on input line 22.
 (pdftex.def)             Requested size: 417.47307pt x 160.3955pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (2.328pt too wide) in paragraph at lines 42--49
+[][] 
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1154,24 +1162,19 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [37
 
 
-]
-Overfull \hbox (2.328pt too wide) in paragraph at lines 47--54
-[][] 
- []
-
-[38 <C:/Users/Alex/Desktop/thesis/mine/figures/differ.png>]
+] [38 <C:/Users/Alex/Desktop/thesis/mine/figures/differ.png>]
 <figures/streampreview.png, id=745, 3327.43124pt x 1490.56876pt>
 File: figures/streampreview.png Graphic file (type png)
 
 <use figures/streampreview.png>
-Package pdftex.def Info: figures/streampreview.png used on input line 93.
+Package pdftex.def Info: figures/streampreview.png used on input line 86.
 (pdftex.def)             Requested size: 417.47307pt x 187.00296pt.
  [39 <C:/Users/Alex/Desktop/thesis/mine/figures/streampreview.png>]
 <figures/phongVsBTF.png, id=752, 1440.13031pt x 1699.09781pt>
 File: figures/phongVsBTF.png Graphic file (type png)
 
 <use figures/phongVsBTF.png>
-Package pdftex.def Info: figures/phongVsBTF.png used on input line 125.
+Package pdftex.def Info: figures/phongVsBTF.png used on input line 114.
 (pdftex.def)             Requested size: 417.47307pt x 492.54427pt.
 ) [40 <C:/Users/Alex/Desktop/thesis/mine/figures/phongVsBTF.png>] (C:\Users\Ale
 x\Desktop\thesis\mine\chapters/conclusions.tex
@@ -1222,7 +1225,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 184.
 Here is how much of TeX's memory you used:
  24447 strings out of 493921
  419311 string characters out of 3147285
- 477871 words of memory out of 3000000
+ 477877 words of memory out of 3000000
  27134 multiletter control sequences out of 15000+200000
  15526 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -1248,7 +1251,7 @@ onts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on Thesis.pdf (60 pages, 20305672 bytes).
+Output written on Thesis.pdf (60 pages, 20304740 bytes).
 PDF statistics:
  904 PDF objects out of 1000 (max. 8388607)
  171 named destinations out of 1000 (max. 500000)

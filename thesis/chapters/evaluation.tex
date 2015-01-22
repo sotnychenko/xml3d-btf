@@ -1,22 +1,16 @@
 \chapter{Evaluation}
 \label{chapter:Evaluation}
-In this chapter we evaluate the decompression error, compression ratio and image quality during the streaming.
+In this chapter we will evaluate the presented solution in regard to the decompression error, compression ratio and image quality and real-time performance during the streaming.
 
 
 \section{Compression}
 \label{section:eval_compression}
 
 
+We evaluate our compression approach using the Bonn's BTF Database \cite{btfBonn} and compare the results to other related PCA methods \cite{haindl}.
 
-We evaluate our compression approach on the Bonn's BTF Database \cite{btfBonn} and compare the results to other related PCA methods \cite{haindl}.
-The statistical analysis of the large data is very computational and memory intensive task.
-The processing time of the data in our case depends on the number of the neighbour camera directions used.
-For instance, performing analysis for three neighbour directions at once can take approximately five minutes.
-However, doing analysis on the whole set of camera directions at once can take up to 24 hours.
-Thus, we chose to have less number of camera directions as possible.
-
-
-We tested different configurations for BTF's compression and decided that the optimal configuration for our method is when $k=3$ and $C=8$, where $k$ is the number of neighbour directions and $C$ is the number of principal components. (See Chapter \ref{section:algorithm_step}).
+We tested different configurations for the BTF compression and decided that the optimal configuration for our method is when $k=3$ and $C=8$, 
+where $k$ is the number of neighbour directions and $C$ is the number of principal components. (See Chapter \ref{section:algorithm_step}).
 Figure \ref{fig:compression_example} shows an example of the wool material decompressed with various number of components. The Mean Average Error (MAE) in CIELAB color space is computed for each of them.
 The CIELAB metrics accounts for the human visual sensitivity, i.e. is consistent with human perception \cite{cielab}.
 MAE is calculated for each of the channels separately and then the final result is averaged over them.
@@ -29,7 +23,7 @@ MAE is calculated for each of the channels separately and then the final result 
  \caption[Example of decompression errors ] {
  	{\bf Example of decompression errors }
 
-	\textbf{First row} from the left to the right: original image, \textbf{32} components (MAE:2.17), \textbf{16} components (MAE:1.83), \textbf{8} components (MAE:2.21), \textbf{4} components (MAE:3.04). 
+	\textbf{First row} from the left to the right: ground truth, \textbf{32} components (MAE:2.17), \textbf{16} components (MAE:1.83), \textbf{8} components (MAE:2.21), \textbf{4} components (MAE:3.04). 
 	\textbf{Second row}: the difference between the original and the decompressed images, \emph{red} color denotes how big the error, \emph{green} denotes that the error is absent or very small.}
  \label{fig:compression_example}
 \end{figure}
@@ -37,8 +31,9 @@ MAE is calculated for each of the channels separately and then the final result 
 
 
 
- Figure \ref{fig:compression_example} shows that the decompression error is not improved enormously for $16$ or even for $32$ components.
- That is why the reasonable choice is $8$ components, while for $4$ components the image is getting blurred. Haindl \cite{haindl} also claims that $8$ components is the optimal number of components for the PCA RF method, which is related to our method.
+ Figure \ref{fig:compression_example} shows that the decompression error is not significantly improved for $16$ or even $32$ components.
+4 Components on the other hand result in a blurred image. This shows that our choice for 8 components is reasonable.
+ Haindl \cite{haindl} also claims that $8$ components is the optimal number of components for the PCA RF method, which is related to our method.
 
 
 
@@ -57,7 +52,7 @@ wool & 3                      & 32                     & 2.22                   
 
 
  Table \ref{table:mytable} provides the evaluation for the whole BTF space of the wool sample, i.e. for all possible camera and light directions.
- The MAE is also computed in RGB color space along with Root Mean Square Error to measure the variance in the errors
+ The MAE is also computed in RGB color space along with the Root Mean Square Error to measure the variance in the errors
  
  {\centering $RMSE = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(y_i-\hat{y_i} )^2}$\\}
 
@@ -66,16 +61,15 @@ wool & 3                      & 32                     & 2.22                   
  
 In the first row of the  Table \ref{table:mytable} where $k=1$ our method becomes equal to the PCA RF \cite{haindl} method.
 Haindl \cite{haindl} claims to have the MAE equal to $3.16$ in CIELAB color space for the same sample.
- Our method produces a bit better result, i.e. $2.14$. 
+ Our method produces better result, i.e. $2.14$. 
  The second row shows that for  $k=3$ MAE stays practically the same. 
- However, the compression ratio improves in three times!
- We can see that even for $32$ components the decompression errors improves only a bit, but the compression ratio becomes worse.
- If we use $k$ bigger than $3$, then we would need to use more components to have good decompression error.
- For intance, our method becomes equal to the PCA BTF \cite{haindl} method when $k=81$ (all camera directions). 
- In this case we would need approximately $41$ components \cite{haindl}, which is the intensive computational task for the GPU.
+ However, the compression ratio improves by a factor of three.
+ We can see that even for $32$ components the decompression errors improves only insignificantly, but the compression ratio becomes worse.
+ If we use $k>3$, more components would be necessary to reduce decompression errors.
+ For intance, our method becomes equal to the PCA BTF \cite{haindl} method if $k=81$ (all camera directions). 
+ In this case approximately $41$ components are necessary \cite{haindl}.
  
- Also, the LPCA BTF \cite{haindl} method has the MAE equal to $2.42$, which is a bit higher than ours method. 
- The LPCA BTF uses $19$ components, while our method uses only $8$.
+ Also, the LPCA BTF \cite{haindl} method uses $19$ components on average and has the MAE equal to $2.42$, while our method uses $8$ components.
  
  
 
@@ -83,8 +77,7 @@ Haindl \cite{haindl} claims to have the MAE equal to $3.16$ in CIELAB color spac
 \label{section:eval_streaming}
 
 We evaluate the rendering quality during the streaming and the real-time performance.
-Our demo viewer is available at  http://btf.mywebcommunity.org. 
-Figure \ref{fig:streamPreview} depicts the intermediate images during the streaming.
+Figure \ref{fig:streamPreview} depicts intermediate images during the streaming.
 We tested our approach on three materials: wool, impalla and corduroy.
 The parameters for the compression are $k=3$ and $C=8$.
 
@@ -94,37 +87,33 @@ The parameters for the compression are $k=3$ and $C=8$.
  \caption[Example of Progressive Streaming ] {
  	{\bf Example of Progressive Streaming}
 
-	\textbf{From left to right}: \emph{1}, \emph{2}, \emph{4}, \emph{6}, \emph{8}  components rendered at the same accordingly.
+	\textbf{From left to right}: \emph{1}, \emph{2}, \emph{4}, \emph{6}, \emph{8}  components rendered accordingly.
 	}
  \label{fig:streamPreview}
 \end{figure}
 \label{chapter:implementation}
 
 Rendering starts as soon as the first component transfers to the client side.
- The overall appearance of the the material is already visible even with the first the component, which has the size on average about $0.7$Mb.
+ The overall appearance of the the material is already visible even with the first the component, which has an average size of about $0.7$Mb.
 With further components the overall quality of the image improves, i.e. specularities are increasing, small micro-structures become more visible and emphasized.
-After all components are transmitted, the demo-viewer hits the maximum available frame-rate of the monitor, i.e. 60Hz or even 144Hz.
-The tests were done on the NVIDIA GeForce GTX 480 videocard. Also, the demo-viewer works smoothly on other average GPUs.
+On a desktop computer with a NVIDIA GeForce GTX 480 graphics card 3 BTFs can be rendered at 60 frames per second.
 
-We also tested the demo application on the mobile device Sony Xperia SL.
-The real time frame rate was approximately 10-15 FPS (frames per second), which is relatively good result.
-With newer mobile devices it possible to achieve even better results.
-
+On a Sony Xperia SL 15 frames per second are achieved on average.
 
 
 \section{Comparison with the Phong Shader}
 \label{section:eval_streaming}
 
-Figure \ref{fig:phongvsbtf} shows the tremendous difference between the BTF shader and conventional 2-D texture in combination with the Phong shader.
+Figure \ref{fig:phongvsbtf} shows the tremendous difference between the BTF and a conventional 2-D texture in combination with the Phong shader.
 Both images were taken under the same camera and light directions. The BTF introduces high varying specularities and the realistic depth in the images.
-The Phong shader with the combination of the 2-D texture provides the impression that the material looks flat, while the BTF makes the material look very bumpy and shiny.
-The BTF shader shows the correct inner-reflections, sub-surface scattering and shadows under varying light conditions.
+The Phong shader with the combination of the 2-D texture provides the impression that the material looks flat.
+The BTF shows the correct inner-reflections, sub-surface scattering and shadows under varying light conditions.
 
 \begin{figure}[h]
  \centering
  \includegraphics[width=1\textwidth]{figures/phongVsBTF}
- \caption[The Phong shader vs The BTF shader ] {
- 	{\bf The Phong shader vs The BTF shader }
+ \caption[The Phong model in comparison to the BTF ] {
+ 	{\bf The Phong model in comparison to the BTF  }
 	}
  \label{fig:phongvsbtf}
 \end{figure}
