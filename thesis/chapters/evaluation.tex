@@ -76,6 +76,7 @@ Haindl \cite{haindl} claims to have the MAE equal to $3.16$ in CIELAB color spac
 \section{Real-time performance}
 \label{section:eval_streaming}
 
+
 We evaluate the rendering quality during the streaming and the real-time performance.
 Figure \ref{fig:streamPreview} depicts intermediate images during the streaming.
 We tested our approach on three materials: wool, impalla and corduroy.
@@ -83,7 +84,7 @@ The parameters for the compression are $k=3$ and $C=8$.
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=1.0\textwidth]{figures/streampreview}
+ \includegraphics[width=.87\textwidth]{figures/streampreview}
  \caption[Example of Progressive Streaming ] {
  	{\bf Example of Progressive Streaming}
 
@@ -93,12 +94,27 @@ The parameters for the compression are $k=3$ and $C=8$.
 \end{figure}
 \label{chapter:implementation}
 
+
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=.65\textwidth]{figures/3BTFs}
+ \caption[Example of 3 BTFs rendered at the same time ] {
+ 	{\bf Example of 3 BTFs rendered at the same time }
+
+	\textbf{From left to right}: corduroy, impalla and wool materials are rendered under dynamic light.
+	}
+ \label{fig:3BTFs}
+\end{figure}
+\label{chapter:implementation}
+
 Rendering starts as soon as the first component transfers to the client side.
  The overall appearance of the the material is already visible even with the first the component, which has an average size of about $0.7$Mb.
 With further components the overall quality of the image improves, i.e. specularities are increasing, small micro-structures become more visible and emphasized.
 On a desktop computer with a NVIDIA GeForce GTX 480 graphics card 3 BTFs can be rendered at 60 frames per second.
+Figure \ref{fig:3BTFs} shows an example of this.
 
-On a Sony Xperia SL 15 frames per second are achieved on average.
+On a Sony Xperia SL 15 frames per second are achieved on average for one BTF at a time.
 
 
 \section{Comparison with the Phong Shader}
@@ -109,9 +125,9 @@ Both images were taken under the same camera and light directions. The BTF intro
 The Phong shader with the combination of the 2-D texture provides the impression that the material looks flat.
 The BTF shows the correct inner-reflections, sub-surface scattering and shadows under varying light conditions.
 
-\begin{figure}[h]
+\begin{figure}[hb]
  \centering
- \includegraphics[width=1\textwidth]{figures/phongVsBTF}
+ \includegraphics[width=.73\textwidth]{figures/phongVsBTF}
  \caption[The Phong model in comparison to the BTF ] {
  	{\bf The Phong model in comparison to the BTF  }
 	}
