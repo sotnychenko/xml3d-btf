@@ -1,15 +1,15 @@
 \chapter{Conclusions and Future Work}
 \label{chapter:conclusions}
- Bidirectional Texture Functions becoming more and more popular for the realistic rendering.
-Until now lots of research has been done in this field. 
-However, BTFs are still rarely used in the graphic applications, 
-due to  sophisticated measurement of BTFs and the large size of the acquired data.
+ Bidirectional Texture Functions are becoming more and more popular for realistic rendering
+and a lot of research has been done in this field. 
+However, BTFs are still rarely used in the real-time applications, 
+due to sophisticated measurement process and the large size of the acquired data.
 Thus, BTFs are still staying as the state of the art in computer graphics. 
 
 
 \section{Summary}
 In this work we showed that the Bidirectional Texture Function is a powerful texture representation and 
-that the real-time frame rate can be achieved during rendering.
+that real-time rates can be achieved.
 We looked into different compression methods available for BTFs and decided to work with PCA.
 We came up with a flexible PCA compression method based on previous works.
 We perform PCA on the chosen number of neighbour camera directions.
@@ -27,8 +27,7 @@ Finally, visual quality, memory usage and computational effort can be be balance
 \label{section:future_work}
 
 Based on our results several directions for the future work can be made.
-First of all, improvement can be made in regards of the scenes that involve several BTFs.
-The multiple streaming of BTFs can be implemented. We showed that we can render 3 BTFs at the same time with real-time frame rate.
+First of all, multiple streaming of BTFs can be implemented.
 Secondly, several optimizations of the BTF shader performance can be made.
 For instance, it is possible to reduce some of the calculations such as computation of the interpolation weights. 
 They can be precomputed and stored in a cube-map \cite{haindl}.

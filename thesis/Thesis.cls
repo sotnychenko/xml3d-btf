@@ -252,7 +252,7 @@
       \bigskip 
       {\large begutachtet von / reviewers \par}
       {\LARGE Prof. Dr. Philipp Slusallek \par}
-      {\LARGE ... \par}
+      {\LARGE Prof. Dr. Karol Myszkowski \par}
       
       %\vfill
       %{\large A thesis submitted in partial fulfillment for the \par}
