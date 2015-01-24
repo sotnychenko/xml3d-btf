@@ -1,28 +1,23 @@
 \chapter{Conclusions and Future Work}
 \label{chapter:conclusions}
- Bidirectional Texture Functions are becoming more and more popular for realistic rendering
-and a lot of research has been done in this field. 
-However, BTFs are still rarely used in the real-time applications, 
-due to sophisticated measurement process and the large size of the acquired data.
-Thus, BTFs are still staying as the state of the art in computer graphics. 
-
+ Bidirectional Texture Functions are currently the best texture representation for the materials 
+ that contain high frequencies both in the angular and spatial domain \cite{mueller-2003-compression}.
+ Thousands of images has to be taken to sample the appearance of such materials.
+ Due to huge sizes of acquired BTFs real-time rendering is impossible to achieve without suitable compression.
+ Thus, BTFs still staying in a state of the art in computer graphics. 
 
 \section{Summary}
-In this work we showed that the Bidirectional Texture Function is a powerful texture representation and 
-that real-time rates can be achieved.
-We looked into different compression methods available for BTFs and decided to work with PCA.
-We came up with a flexible PCA compression method based on previous works.
-We perform PCA on the chosen number of neighbour camera directions.
-This allows for achieving a compression ratio up to $1:100$, while having a small decompression error by adapting the number of principal components.
 
-We have built a WebGL framework for rendering 3D objects realistically using Bidirectional Texture Functions.
-To reduce the delay caused by the BTF data transmission from the server to the client we use WebSockets.
-By streaming the principal components we are able to show intermediate rendering results of the textured 3D object.
-The first previews of the rendering are immediately available for the user.
-
-Finally, visual quality, memory usage and computational effort can be be balanced  per-application by choosing the suitable parameters for the compression.
+ In this work we achieved real-time rendering of BTFs in a high quality.
+ Considering that we render BTFs in a browser, we managed to reduce the latency that is caused by the data transmission, i.e.
+ by streaming  principal components individually.
+ We are able to show immediately intermediate rendering results of the textured 3D object.
+ We showed experimentally that it is possible to improve the decompression error that was caused by floating point imprecisions.
+ The scaling of the compressed BTF data before converting it into the textures improved the decompression error approximately by $5\%$.
+ As a result this also improved the real-time frame rates and the compression ratio due to reduction in the number of components used.
 
 
+Finally, our method is flexible and allows for balancing between the visual quality, memory usage and computational effort.
 \section{Future work}
 \label{section:future_work}
 
