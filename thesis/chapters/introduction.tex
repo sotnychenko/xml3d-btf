@@ -17,7 +17,7 @@ Fortunately, many techniques exist to deal with the huge size of BTFs, i.e. comp
 
 
 In this thesis, we use \emph{WebGL} for real-time rendering of BTF in the Web.
-Even though 3-D graphics for the Web becoming more and more popular. BTFs are rarely used realistic rendering, due to their huge size and the overall computational effort needed for rendering,
+Even though 3-D graphics for the Web becoming more and more popular BTFs are rarely used for realistic rendering, due to their huge size and the overall computational effort needed for rendering,
 including decompression of the data and interpolation of camera and light directions.
 Such demanding computational effort is time consuming, especially for on mobile-devices.
 
@@ -25,7 +25,7 @@ And the problem which arises when rendering BTFs in a Browser is the transmissio
 Before rendering on the client side, the transmission of the data has to be finished.
 Even the transfer of a compressed BTF data can take a considerable amount of time. 
 The compressed BTF can be tens of megabytes in size.
-Because users are eager to see a result, especially on the Web, we use a streaming solution to deliver the data as quickly as possibly, while steadily increasing the resulting image.
+Because users are eager to see a result, especially on the Web, we use a streaming solution to deliver the data as quickly as possibly, while steadily increasing the quality of the resulting image.
  \emph{Web-Sockets} are the state of the art technique for streaming and are supported by most of today's browsers.
 With \emph{Web-Sockets}  a  full-duplex communication is available for the server and the client, which is faster than traditional HTTP-based methods. 
 This promises fast and reliable solution for real-time performance in \emph{WebGL}-based application.
@@ -33,7 +33,7 @@ This promises fast and reliable solution for real-time performance in \emph{WebG
 In this thesis we use a PCA for compression, which allows for a considerably good compression ratio with low decompression error.
 Also, it is well suited for real-time rendering and streaming.
 
-We implemented WebGL demo web-application and \emph{Web-Sockets} server for streaming purposes.
+We implemented the WebGL prototype and \emph{Web-Sockets} server for streaming purposes.
 
 
 
@@ -62,7 +62,7 @@ A trade-off has to be made between the rendering quality and compression rate de
 This method allows for real-time performance with realistic rendering quality. 
 Sattler performs PCA on each of the $n$ camera directions separately. We on the other hand, perform PCA on $k$ neighbour camera directions at once.
 In Haindl's review \cite{haindl} PCA based methods achieve better or at least equal reconstruction results than most other methods.
-Compression rates of PCA methods are not as high as those of other methods. However, those methods, which produce better compression rates, have worse quality than PCA based methods.
+Compression rates of PCA methods are not as high as those of other methods. However, those methods, which produce better compression rates, have worse visual quality than PCA based methods.
 
 
 

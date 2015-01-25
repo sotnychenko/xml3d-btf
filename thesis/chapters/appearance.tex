@@ -145,7 +145,7 @@ It is quite difficult to create a mathematical model for a BRDF that satisfies r
 energy conservation and at the same time produces realistic images.
  However, most BRDF models do not satisfy these conditions and still get plausible rendering results.
 For instance, the Phong model \cite{Phong} is the most used shading model in computer graphics. 
-The traditional Phong model satisfy neither energy conservation nor reciprocity, but can still render many materials realistically plausible.
+The traditional Phong model satisfies neither energy conservation nor reciprocity, but can still render many materials realistically plausible.
 Usually, such materials are of opaque and flat nature, for example plastic materials.
 The Phong model is an empirical model and is designed to fit the original function, often based on simple formulas which were derived from observations.
 
@@ -190,7 +190,7 @@ $SLF(x,\theta_{o} ,\phi_{o})$.
 
  If we fix camera directions for BTF, we end up with SRF(Surface Reflectance Field).
  SRF is another very popular variant of image-based rendering and is also a subset of BTF. 
- In this case many images are taken under varying light directions with fixed view point\cite{star2004}. 
+ In this case many images are taken under varying light directions with fixed camera direction\cite{star2004}. 
  For instance, Debevec et al. \cite{debevec} recorded the appearance of human face while a
 light source was rotating around the face. Rendering the human face realistically is always a struggle in computer graphics.
 Due to complex reflectance characteristics of the human face, common texture mapping usually fails under varying illumination.

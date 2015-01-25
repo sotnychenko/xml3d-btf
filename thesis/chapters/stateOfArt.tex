@@ -21,7 +21,7 @@ Digital cameras are used as capturing devices. Depending on the setup the number
  If there is only one camera \cite{star2004,statistical_acq,dana}, it usually moves on a robotic arm or rail-trail system around the hemisphere above the sample\cite{star2004}. 
  The advantage of this approach is that it is less expensive and can suit low-budget applications.
 The disadvantage however is the positioning errors that can arise, which influence the overall measurement error. 
-Depending on the application light sources can be fixed or moveable as a result.
+Depending on the application light sources can be fixed or moveable.
 
 There are approaches which do not involve camera and light source movement at all.
 Schwartz et al. \cite{schwartz} developed a novel measurement system which uses a dense array of 151 cameras, which are uniformly placed on a hemispherical structure.
@@ -97,7 +97,7 @@ This procedure resulted in a set of images, which can be seen as a subset of a B
 Dana  \emph{et. al.} \emph{CUReT} database is publicly available \cite{curetDataBase}.
 For each measured surface Dana  \emph{et. al.} used 205 different combinations of camera and light directions, which resulted in relatively sparse angular resolution.
 These datasets are not rectified, but  the authors provide image coordinates to enable rectification. 
- Because of this limitations such BTF dataset are usually used for computer vision purposes, i.e. texture classification  \cite{haindl_visual}.
+ Because of these limitations such BTF dataset are usually used for computer vision purposes, i.e. texture classification  \cite{haindl_visual}.
 
 Based on this BTF measurement system,  Bonn University created their own measuring system \cite{sattler-2003-efficient}.
  The main difference of this system is that the camera moves on a semi-circle rail around the material sample.
@@ -105,10 +105,10 @@ Such a setup provides spatially rectificated and mutually registered data, with 
 Datasets of the Bonn University \cite{btfBonn} are publicly available and are used in this thesis.
 
 
- Consider Figure \ref{fig:exampleBTF}, which illustrates one of the sampled materials from the Bonn database.
+ Consider Figure \ref{fig:exampleBTF}, which illustrates sampled materials from the Bonn database.
 The measured surface is being fixed all the time on the sampler holder as shown in Figure \ref{fig:acquisition_example}. 
 For each light position, a camera takes a shot of the material while moving from point to point on the hemisphere.
-Bonn University datasets have the same trajectory for camera and light positions, i.e. 81 positions on the hemisphere, which resulted in $81\times81=6561$ total number of acquired images.
+Bonn University datasets have the same trajectory for camera and light positions, i.e. 81 positions on the hemisphere, which resulted in $81\times81=6561$ number of acquired images.
 After that the sample images were rectificated and registered, resulting in a set of images with a spatial resolution of $256\times256$.
 Typically, the size of one uncompressed BTF is around $1.2$ Gb.
 
@@ -139,7 +139,7 @@ Basically, $BTF_{Texture}$ is used for compression methods that do their analysi
 
  ABRDF representation is a set of ABRDFs, one ABRDF for each sample position of the material plane. 
  ABRDF was defined in Chapter \ref{section:brdf}. In this case it is called \emph{apparent}, 
- because BTF includes effects such as self-occlusions and sub-surface scattering which violate two basic properties of a BRDF, i.e. i.e. \emph{energy conservation} and \emph{reciprocity}.
+ because BTF includes effects such as self-occlusions and sub-surface scattering which violate two basic properties of a BRDF, i.e. \emph{energy conservation} and \emph{reciprocity}.
  
  {\centering $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,BTF_{ABRDF}=\left \{P_{(x) } \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\mid  (x)\in I_{(\theta_{i} ,\phi_{i},\theta_{o} ,\phi_{o})}\subset \mathbb{N}^{2}\right \}$ \\}
  
@@ -193,14 +193,14 @@ However, PTM requires to compute specular and diffuse effects separately.
 The PTM model assumes that the input surface is either diffuse or their specular contribution has been separated beforehand.
 For BTFs it can be difficult to separate specular highlights \cite{haindl}.
 
-Haindl  \emph{et. al.} \cite{haindl} applied PTM on reflectance fields (RF).
+Haindl  \emph{et. al.} \cite{haindl} applied PTM on Reflectance Fields (RF).
 General formula looks the following way (PTM RF):
 
 {\centering$R_{o}(r,i)\approx a_{0}(r)u_{x}^2+a_{1}(r)u_{y}^2+a_{2}(r)u_{x}u_{y}+a_{3}(r)u_{x}+a_{4}(r)u_{y}+a_{5}(r)$\\}
 
  where $R_{o}$ is the approximated RF for a fixed camera direction $o$ and $u_{x},u_{y}$ are projections of the normalized light vector into the local coordinate system $r=(x,y)$.
  The set of all possible $R_{o}$ is the number of all camera positions, i.e. $n_{o}$. 
- Coefficients $a_{p}$ are fitted by the use of \emph{singular value decomposition} SVD for each $R_{o}$ and parameters are stored as a spatial map referred to as a PTM.
+ Coefficients $a_{p}$ are fitted by the use of \emph{singular value decomposition} (SVD) for each $R_{o}$ and parameters are stored as a spatial map referred to as a PTM.
  
   This method enables fast rendering and is generally suited for smooth material surfaces.
   However, Malzbender  \emph{et. al.} \cite{PTM} claim that this method produce considerable errors for high grazing angles. 
@@ -240,7 +240,7 @@ PCA is a popular approach for compressing BTF.
 Firstly, PCA allows for a strong correspondence between the number of components and the decompression error.
  The correspondence lies in the amount of components used.
  The more components are used for the better decompression error, and vise-verse, a smaller number of components gives better compression ratio, but worse decompression error.
- This allows for an easy  regulation if the trade-off between rendering quality and  compression ratio.
+ This allows for an easy  regulation of the trade-off between rendering quality and  compression ratio.
 Secondly, a reasonable compression ratio along with a low decompression error can be achieved, e.g. a compression ratio of $1:100$ with an average decompression error of 2\%- 4\% \cite{schneider2004,haindl}.
 Thirdly, PCA is suitable for real-time decompression on average GPUs \cite{schneider2004,haindl}. 
 It is suitable, because decompression of a single pixel does not depend on other pixels.

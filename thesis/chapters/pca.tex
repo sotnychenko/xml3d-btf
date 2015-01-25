@@ -5,10 +5,10 @@
 In this chapter we explain the derivation of PCA and the algorithm for compressing and decompressing the BTF.
 We have chosen PCA for BTF compression, which belong to statistical methods, see Chapter \ref{section:stat_methods}.
 PCA compression method allows for easy regulation of trade-off between rendering quality and compression ratio.
-While probabilistic methods have better compression ratio, however they are generally suited for flat materials \cite{haindl}.
+While probabilistic methods have better compression ratio they are generally suited for flat materials \cite{haindl}.
 Analytical methods can produce errors at gazing angles and generally have bigger decompression error than PCA \cite{haindl}.
 Also, the PCA is suitable for the streaming very well, because the components are sorted in the order of the importance.
-This means there is no need to do additional analysis to decide in which order to send the components, as it was done by Schwartz \emph{et. al.} \cite{webglbtfstreaming}.
+This means there is no need to do additional analysis to decide in which order to send the components.
 Based on the above reasons, we chose PCA over other methods.
 
 
@@ -80,7 +80,7 @@ For any real matrix $X_{c}$ there exists a decomposition \cite{svd}:
 
 {\centering $X_{c}=U\Sigma V^{T}$ \\}
 
-where $U$ and $V$ are orthogonal matrices and $S$ is a diagonal matrix consisting only of singular values.
+where $U$ and $V$ are orthogonal matrices and $\Sigma$ is a diagonal matrix consisting only of singular values.
 The diagonal values of $\Sigma$ are the square roots of the eigenvalues of $X_{c}X_{c}^T$ \cite{Lecture12A}.
 
 
@@ -166,12 +166,12 @@ The algorithm involves finding closest directions and then applying barycentric 
 Depending on the material sampling, uniform or non-uniform, different strategies can be applied for finding the closest directions for an input angle.
 One of the strategies is to compute it  each time or use a precomputed cubemap \cite{haindl}.
 
-The Bonn database \cite{btfBonn} provides data with uniform sampling per longitude. Depending on the longitude position, different quantization step is applied for latitude.
-For areas closer to the bottom of the hemisphere quantisation step for latitude gets increased.
+The Bonn database \cite{btfBonn} provides data with uniform sampling for latitude. Depending on the latitude position, different quantization step is applied for longitude.
+For areas closer to the bottom of the hemisphere quantisation step for longitude gets smaller.
 This is done to have relatively equal distance between the directions for any longitude position.
 
 
- Assume, a set of quantisation steps $S=\left \{ (\Delta \theta*n , \Delta \phi_n ) \mid n \in M \subseteq \mathbb{N} \right \}$, where $M$ specifies the number of steps.
+ Assume, a set of quantisation steps $S=\left \{ (\Delta \theta*n , \Delta \phi_n ) \mid n=0..M \right \}$, where $M$ is the number of quantization steps.
 For $\theta=0^{\circ}$ only one image is taken, i.e for $(0^{\circ},0^{\circ})$ direction.
   
 First, we find the four closest directions, and then decrease it to three closest directions.
@@ -198,15 +198,15 @@ The resulting four closest directions to the direction $P$ are: $A=(\theta_{L},\
  \label{fig:triangle}
 \end{figure} 
 
-We, then reduce to the three closest directions, so less weights are to be computed.
+We, then reduce to the three closest directions, so less interpolation weights are to be computed.
 
 One possible way to find the closest three directions is to compute the distance between $P$ and all other four directions and to discard the furthest one.
 However, this is computational heavy for real-time applications.
 The less computational demanding way is to approximately find triangle to which $P$ belongs, i.e. $ABC$ or $CBD$.
-The following method produces unnoticeable differences of visual results compared to the method which tests if the point $P$ belong to $ABC$ or $CBD$.
+The following method produces unnoticeable differences of visual results compared to the method which tests if the point $P$ belongs to $ABC$ or $CBD$.
 
 
-We compute to which direction $P$ is closer,i.e. whether to $A$ or $D$. The distance is computed as follows:
+We compute to which direction $P$ is closer, i.e. whether to $A$ or $D$. The distance is computed as follows:
 
 {\centering$d=\sqrt{(x-x^{'})^2+(y-y^{'})^2+(z-z^{'})^2}=
 \sqrt{r^2+r^{'2}-2rr'({\color{blue} sin(\theta)sin(\theta^{'})}{\color{magenta}cos(\phi)cos(\phi^{'})}+{\color{blue} sin(\theta)sin(\theta^{'})}{\color{magenta} sin(\phi)sin(\phi^{'})}+cos(\theta)cos(\theta^{'}))}=
@@ -222,7 +222,7 @@ If $P$ is closer to $A$, the resulting three directions are $A$, $B$, $C$.
 If $P$ closer to $D$ then $B$, $C$, $D$.
 
 If the input direction $P$ is beyond the measuring directions, i.e. $\theta_p>\Delta \theta*n$ for any $n$.
-We take the two closer measured directions, i.e.  $A=(\theta_{L},\phi_{L}^1)$ and $B=(\theta_{L},\phi_{U}^1)$ and perform linear interpolation between these two directions.
+We take the two closer measured directions, i.e.  $C=(\theta_{U},\phi_{L}^2)$ and $D=(\theta_{U},\phi_{U}^2)$ and perform linear interpolation between these two directions.
 
 
 \subsection{Barycentric Coordinates}
