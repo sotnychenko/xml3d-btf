@@ -9,12 +9,14 @@
 \section{Summary}
 
  In this work we achieved the realistic and real-time rendering for a scene with several BTFs.
-The real-time rendering is also possible on the mobile devices.
+We showed that real-time rendering is possible even on the mobile devices.
+With constantly improving hardware BTFs have a bright future in computer graphics.
+
  Considering that we render BTFs in a browser, we managed to reduce the latency that is caused by the data transmission, i.e.
  by streaming  principal components individually.
- We showed experimentally that it is possible to improve the decompression error that was caused by floating point imprecisions.
- The scaling of the compressed BTF data before converting it into the textures improved the decompression error approximately by $5\%$.
- As a result this also improved the real-time frame rates and the compression ratio due to reduction in the number of components used.
+ We managed to improve the decompression error that is caused by floating point imprecisions.
+ The scaling of the compressed BTF data before converting it into the textures decreased the decompression error approximately by $5\%$.
+ As a result this also improved the real-time frame rate and the compression ratio due to reduction in the number of used components.
  Last but not least, our method produces better decompression errors compared to other implemented PCA methods \cite{haindl}.
 
 

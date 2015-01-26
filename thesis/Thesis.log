@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.8.27)  25 JAN 2015 17:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.8.27)  26 JAN 2015 05:16
 entering extended mode
-**C:/Users/Alex/Desktop/thesis/mine/Thesis.tex
-(C:/Users/Alex/Desktop/thesis/mine/Thesis.tex
+**E:/work/xml3d-btf/thesis/Thesis.tex
+(E:/work/xml3d-btf/thesis/Thesis.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(C:\Users\Alex\Desktop\thesis\mine\Thesis.cls
+(E:\work\xml3d-btf\thesis\Thesis.cls
 Document Class: Thesis 2007/22/02 v1.0 LaTeX document class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
 Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
@@ -756,7 +756,7 @@ LaTeX Info: Redefining \addtolength on input line 77.
 )
 \c@@todonotes@numberoftodonotes=\count158
 )
-(C:\Users\Alex\Desktop\thesis\mine\packages/algorithm2e.sty
+(E:\work\xml3d-btf\thesis\packages/algorithm2e.sty
 
 LaTeX Warning: You have requested package `packages/algorithm2e',
                but the package provides `algorithm2e'.
@@ -884,7 +884,7 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-(C:\Users\Alex\Desktop\thesis\mine\Thesis.aux
+(E:\work\xml3d-btf\thesis\Thesis.aux
 
 LaTeX Warning: Label `chapter:implementation' multiply defined.
 
@@ -954,8 +954,7 @@ LaTeX Info: Redefining \ref on input line 34.
 LaTeX Info: Redefining \pageref on input line 34.
 LaTeX Info: Redefining \nameref on input line 34.
 
-(C:\Users\Alex\Desktop\thesis\mine\Thesis.out)
-(C:\Users\Alex\Desktop\thesis\mine\Thesis.out)
+(E:\work\xml3d-btf\thesis\Thesis.out) (E:\work\xml3d-btf\thesis\Thesis.out)
 \@outlinefile=\write4
 
 ABD: EveryShipout initializing macros
@@ -982,21 +981,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ------------------------------------------------------------------------------
  Abstract Page
 ------------------------------------------------------------------------------
-(C:\Users\Alex\Desktop\thesis\mine\chapters/abstract.tex) [5] [6
+(E:\work\xml3d-btf\thesis\chapters/abstract.tex) [5] [6
 
 ]
 ------------------------------------------------------------------------------
  Acknowledgements
 ------------------------------------------------------------------------------
-(C:\Users\Alex\Desktop\thesis\mine\acknowledgements.tex) [7] [8
+(E:\work\xml3d-btf\thesis\acknowledgements.tex) [7] [8
 
 ]
-(C:\Users\Alex\Desktop\thesis\mine\Thesis.toc [9
+(E:\work\xml3d-btf\thesis\Thesis.toc [9
 
 ])
 \tf@toc=\write5
  [10]
-(C:\Users\Alex\Desktop\thesis\mine\Thesis.lof)
+(E:\work\xml3d-btf\thesis\Thesis.lof)
 \tf@lof=\write6
  [11
 
@@ -1004,15 +1003,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-(C:\Users\Alex\Desktop\thesis\mine\chapters/introduction.tex
+(E:\work\xml3d-btf\thesis\chapters/introduction.tex
 Chapter 1.
 ------------------------------------------------------------------------------
  1 Introduction
 ------------------------------------------------------------------------------
 [1
 
-] [2]) [3] (C:\Users\Alex\Desktop\thesis\mine\chapters/appearance.tex
-[4
+] [2]) [3] (E:\work\xml3d-btf\thesis\chapters/appearance.tex [4
 
 
 ]
@@ -1026,14 +1024,14 @@ File: figures/light.png Graphic file (type png)
 <use figures/light.png>
 Package pdftex.def Info: figures/light.png used on input line 45.
 (pdftex.def)             Requested size: 417.47307pt x 224.57283pt.
- [6 <C:/Users/Alex/Desktop/thesis/mine/figures/light.png>]
+ [6 <E:/work/xml3d-btf/thesis/figures/light.png>]
 Overfull \hbox (1.50969pt too wide) in paragraph at lines 75--76
 []\OT1/cmr/m/n/10.95 After men-tioned as-sump-tions we get a 8-D bidi-rec-tiona
 l scattering-surface re-flectance
  []
 
-[7] [8] [9] [10]) [11]
-(C:\Users\Alex\Desktop\thesis\mine\chapters/stateOfArt.tex [12
+[7] [8] [9] [10]) [11] (E:\work\xml3d-btf\thesis\chapters/stateOfArt.tex
+[12
 
 
 ]
@@ -1047,8 +1045,8 @@ File: figures/acquisition.jpg Graphic file (type jpg)
 <use figures/acquisition.jpg>
 Package pdftex.def Info: figures/acquisition.jpg used on input line 41.
 (pdftex.def)             Requested size: 417.47307pt x 240.13428pt.
- [14 <C:/Users/Alex/Desktop/thesis/mine/figures/acquisition.jpg>] <figures/exam
-pleBTF.png, id=464, 304.13625pt x 121.45375pt>
+ [14 <E:/work/xml3d-btf/thesis/figures/acquisition.jpg>] <figures/exampleBTF.pn
+g, id=464, 304.13625pt x 121.45375pt>
 File: figures/exampleBTF.png Graphic file (type png)
 
 <use figures/exampleBTF.png>
@@ -1058,9 +1056,8 @@ Package pdftex.def Info: figures/exampleBTF.png used on input line 80.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15] [16 <C:/Users/Alex/Desktop/thesis/mine/figures/exampleBTF.png>] [17]
-[18] [19] [20]) [21] (C:\Users\Alex\Desktop\thesis\mine\chapters/pca.tex
-[22
+[15] [16 <E:/work/xml3d-btf/thesis/figures/exampleBTF.png>] [17] [18] [19]
+[20]) [21] (E:\work\xml3d-btf\thesis\chapters/pca.tex [22
 
 
 ]
@@ -1093,8 +1090,8 @@ Overfull \hbox (22.02518pt too wide) in paragraph at lines 211--213
  $[] \OT1/cmr/m/n/10.95 =$ 
  []
 
-[28 <C:/Users/Alex/Desktop/thesis/mine/figures/triangle.png>]) [29]
-(C:\Users\Alex\Desktop\thesis\mine\chapters/implementation.tex [30
+[28 <E:/work/xml3d-btf/thesis/figures/triangle.png>]) [29]
+(E:\work\xml3d-btf\thesis\chapters/implementation.tex [30
 
 
 ]
@@ -1108,7 +1105,7 @@ File: figures/overview.png Graphic file (type png)
 <use figures/overview.png>
 Package pdftex.def Info: figures/overview.png used on input line 14.
 (pdftex.def)             Requested size: 417.47307pt x 257.69304pt.
- [31 <C:/Users/Alex/Desktop/thesis/mine/figures/overview.png>]
+ [31 <E:/work/xml3d-btf/thesis/figures/overview.png>]
 Overfull \hbox (8.4263pt too wide) in paragraph at lines 65--69
 []\OT1/cmr/m/n/10.95 where M is the ma-trix $\OML/cmm/m/it/10.95 U$ \OT1/cmr/m/
 n/10.95 or $\OML/cmm/m/it/10.95 V$\OT1/cmr/m/n/10.95 . The term $\OML/cmm/m/it/
@@ -1125,8 +1122,8 @@ File: figures/shader.png Graphic file (type png)
 <use figures/shader.png>
 Package pdftex.def Info: figures/shader.png used on input line 138.
 (pdftex.def)             Requested size: 417.47307pt x 144.37495pt.
- [34 <C:/Users/Alex/Desktop/thesis/mine/figures/shader.png>]) [35] (C:\Users\Al
-ex\Desktop\thesis\mine\chapters/evaluation.tex [36
+ [34 <E:/work/xml3d-btf/thesis/figures/shader.png>])
+[35] (E:\work\xml3d-btf\thesis\chapters/evaluation.tex [36
 
 
 ]
@@ -1152,7 +1149,7 @@ Overfull \hbox (2.328pt too wide) in paragraph at lines 42--49
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[37] [38 <C:/Users/Alex/Desktop/thesis/mine/figures/differ.png>]
+[37] [38 <E:/work/xml3d-btf/thesis/figures/differ.png>]
 <figures/streampreview.png, id=729, 3327.43124pt x 1490.56876pt>
 File: figures/streampreview.png Graphic file (type png)
 
@@ -1166,16 +1163,16 @@ File: figures/3BTFs.png Graphic file (type png)
 Package pdftex.def Info: figures/3BTFs.png used on input line 101.
 (pdftex.def)             Requested size: 271.35493pt x 191.35017pt.
 
-[39 <C:/Users/Alex/Desktop/thesis/mine/figures/streampreview.png> <C:/Users/Ale
-x/Desktop/thesis/mine/figures/3BTFs.png>]
+[39 <E:/work/xml3d-btf/thesis/figures/streampreview.png> <E:/work/xml3d-btf/the
+sis/figures/3BTFs.png>]
 <figures/phongVsBTF.png, id=739, 1440.13031pt x 1699.09781pt>
 File: figures/phongVsBTF.png Graphic file (type png)
 
 <use figures/phongVsBTF.png>
 Package pdftex.def Info: figures/phongVsBTF.png used on input line 130.
 (pdftex.def)             Requested size: 304.75356pt x 359.54332pt.
-) [40 <C:/Users/Alex/Desktop/thesis/mine/figures/phongVsBTF.png>] (C:\Users\Ale
-x\Desktop\thesis\mine\chapters/conclusions.tex
+) [40 <E:/work/xml3d-btf/thesis/figures/phongVsBTF.png>] (E:\work\xml3d-btf\the
+sis\chapters/conclusions.tex
 Chapter 7.
 ------------------------------------------------------------------------------
  7 Conclusions and Future Work
@@ -1183,7 +1180,7 @@ Chapter 7.
 [41
 
 
-]) [42] (C:\Users\Alex\Desktop\thesis\mine\Thesis.bbl
+]) [42] (E:\work\xml3d-btf\thesis\Thesis.bbl
 Missing character: There is no Â in font cmr10!
 Missing character: There is no ® in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -1205,11 +1202,11 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
-) [45]
-[46]
+) [45] [46]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 171.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 171.
- (C:\Users\Alex\Desktop\thesis\mine\Thesis.aux)
+
+(E:\work\xml3d-btf\thesis\Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 171.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 171.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
@@ -1222,12 +1219,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 171.
  ) 
 Here is how much of TeX's memory you used:
  24443 strings out of 493921
- 419251 string characters out of 3147285
- 477928 words of memory out of 3000000
+ 418882 string characters out of 3147285
+ 477927 words of memory out of 3000000
  27134 multiletter control sequences out of 15000+200000
  15526 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 62i,14n,75p,496b,499s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,14n,75p,487b,499s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\t
 crm1095.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/P
@@ -1249,7 +1246,7 @@ onts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on Thesis.pdf (58 pages, 20616365 bytes).
+Output written on Thesis.pdf (58 pages, 20616430 bytes).
 PDF statistics:
  895 PDF objects out of 1000 (max. 8388607)
  167 named destinations out of 1000 (max. 500000)
