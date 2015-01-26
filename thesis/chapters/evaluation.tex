@@ -1,6 +1,6 @@
 \chapter{Evaluation}
 \label{chapter:Evaluation}
-In this chapter we will evaluate the presented solution in regard to the decompression error, compression ratio and image quality and real-time performance during the streaming.
+In this chapter we will evaluate the presented solution in regard to the decompression error, compression ratio, image quality and real-time performance during the streaming.
 
 
 \section{Compression}
@@ -9,7 +9,7 @@ In this chapter we will evaluate the presented solution in regard to the decompr
 
 We evaluate our compression approach using the Bonn's BTF Database \cite{btfBonn} and compare the results to other related PCA methods \cite{haindl}.
 
-We tested different configurations for the BTF compression and decided that the optimal configuration for our method is when $k=3$ and $C=8$, 
+We tested different configurations for the BTF compression and found that the optimal configuration for our method is when $k=3$ and $C=8$, 
 where $k$ is the number of neighbour directions and $C$ is the number of principal components. (See Chapter \ref{section:algorithm_step}).
 Figure \ref{fig:compression_example} shows an example of the wool material decompressed with various number of components. The Mean Average Error (MAE) in CIELAB color space is computed for each of them.
 The CIELAB metrics accounts for the human visual sensitivity, i.e. is consistent with human perception \cite{cielab}.
@@ -32,8 +32,8 @@ MAE is calculated for each of the channels separately and then the final result 
 
 
  Figure \ref{fig:compression_example} shows that the decompression error is not significantly improved for $16$ or even $32$ components.
-4 Components on the other hand result in a blurred image. This shows that our choice for 8 components is reasonable.
- Haindl \cite{haindl} also claims that $8$ components is the optimal number of components for the PCA RF method, which is related to our method.
+4 Components on the other hand result in a blurred image. This justifies our choice for 8 components.
+ Haindl \cite{haindl} also shows that $8$ components is the optimal number of components for the PCA RF method, which is related to our method.
 
 
 
@@ -60,11 +60,11 @@ wool & 3                      & 32                     & 2.22                   
  The bigger the RMSE the bigger the variance of the errors. We can see that in our case the RMSE is close to the MAE, which means that the variance of the errors is relatively small.
  
 In the first row of the  Table \ref{table:mytable} where $k=1$ our method becomes equal to the PCA RF \cite{haindl} method.
-Haindl \cite{haindl} claims to have the MAE equal to $3.16$ in CIELAB color space for the same sample.
+Haindl \cite{haindl} has a MAE equal to $3.16$ in CIELAB color space for the same sample.
  Our method produces better result, i.e. $2.14$. 
  The second row shows that for  $k=3$ MAE stays practically the same. 
  However, the compression ratio improves by a factor of three.
- We can see that even for $32$ components the decompression errors improves only insignificantly, but the compression ratio becomes worse.
+ We can see that even for $32$ components decompression errors improve only insignificantly, but the compression ratio becomes worse.
  If we use $k>3$, more components would be necessary to reduce decompression errors.
  For intance, our method becomes equal to the PCA BTF \cite{haindl} method if $k=81$ (all camera directions). 
  In this case approximately $41$ components are necessary \cite{haindl}.
@@ -109,12 +109,12 @@ The parameters for the compression are $k=3$ and $C=8$.
 \label{chapter:implementation}
 
 Rendering starts as soon as the first component transfers to the client side.
- The overall appearance of the the material is already visible even with the first the component, which has an average size of about $0.7$Mb.
+ The overall appearance of the the material is already visible even with the first component, which has an average size of about $0.7$ Mb.
 With further components the overall quality of the image improves, i.e. specularities are increasing, small micro-structures become more visible and emphasized.
-On a desktop computer with a NVIDIA GeForce GTX 480 graphics card 3 BTFs can be rendered at 60 frames per second.
+On a desktop computer with an NVIDIA GeForce GTX 480 graphics card 3 BTFs can be rendered at 60 frames per second.
 Figure \ref{fig:3BTFs} shows an example of this.
 
-On a Sony Xperia SL 15 frames per second are achieved on average for one BTF at a time.
+On a mobile phone Sony Xperia SL, 15 frames per second on average are achieved for one BTF at a time.
 
 
 \section{Comparison with the Phong Shader}

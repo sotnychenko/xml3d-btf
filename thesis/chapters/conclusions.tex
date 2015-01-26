@@ -1,15 +1,15 @@
 \chapter{Conclusions and Future Work}
 \label{chapter:conclusions}
- Bidirectional Texture Functions are currently the best texture representation for the materials 
- that contain high frequencies both in the angular and spatial domain \cite{mueller-2003-compression}.
- Thousands of images has to be taken to sample the appearance of such materials.
- Due to huge sizes of acquired BTFs real-time rendering is impossible to achieve without suitable compression.
+ Bidirectional Texture Functions are currently the best texture representation for materials 
+ that contain high frequencies in both the angular and spatial domain \cite{mueller-2003-compression}.
+ Thousands of images have to be taken to sample the appearance of such materials.
+ to the huge size of an acquired BTF real-time rendering is impossible to achieve without suitable compression.
  Thus, BTFs are still rarely used and staying in a state of the art in computer graphics. 
 
-\section{Summary}
+\section{Conclusions}
 
  In this work we achieved the realistic and real-time rendering for a scene with several BTFs.
-We showed that real-time rendering is possible even on the mobile devices.
+We showed that real-time rendering is possible even on mobile devices.
 With constantly improving hardware BTFs have a bright future in computer graphics.
 
  Considering that we render BTFs in a browser, we managed to reduce the latency that is caused by the data transmission, i.e.
@@ -24,13 +24,10 @@ Finally, our method is flexible and allows for balancing between the visual qual
 \section{Future work}
 \label{section:future_work}
 
-Based on our results several directions for the future work can be made.
-First of all, multiple streaming of BTFs can be implemented.
-Secondly, several optimizations of the BTF shader performance can be made.
-For instance, it is possible to reduce some of the calculations such as computation of the interpolation weights. 
-They can be precomputed and stored in a cube-map \cite{haindl}.
+Based on our results several directions for future work are possible.
+First of all, several optimizations of the BTF‘s performance.
+For instance, to reduce some of the calculations such as computation of the interpolation weights a precomputed cube map can be used \cite{haindl}.
 Other calculations such as computation of the bidirectional normals can be precomputed and stored along with a 3D mesh.
 
-Last but not least, there is a room for further compression.
- For instance, it can be achieved by compressing the PCA parameters with wavelet compression \cite{webglbtfstreaming} or with entropy encoding \cite{gpu_gems}. 
-However, the decompression cost will grow, but it can be worth if further memory savings are necessary. 
+Furthermore, there is room for further compression.
+ For instance, PCA parameters can be further compressed using wavelet compression \cite{webglbtfstreaming} or entropy encoding \cite{gpu_gems}, if further memory savings are necessary. 

@@ -47,6 +47,6 @@
 \contentsline {section}{\numberline {6.2}Real-time performance}{39}{section.56}
 \contentsline {section}{\numberline {6.3}Comparison with the Phong Shader}{40}{section.59}
 \contentsline {chapter}{\numberline {7}Conclusions and Future Work}{41}{chapter.61}
-\contentsline {section}{\numberline {7.1}Summary}{41}{section.62}
+\contentsline {section}{\numberline {7.1}Conclusions}{41}{section.62}
 \contentsline {section}{\numberline {7.2}Future work}{42}{section.63}
 \contentsline {chapter}{Bibliography}{43}{chapter*.64}

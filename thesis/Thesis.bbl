@@ -1,9 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{binaryjs}
-Binaryjs library for realtime binary streaming.
-\newblock \url{http://binaryjs.com/}, note = {Accessed on \today}.
-
 \bibitem{btfBonn}
 Btf database bonn 2003.
 \newblock \url{http://cg.cs.uni-bonn.de/en/projects/btfdbb/download/ubo2003/}.
@@ -27,11 +23,6 @@ Node.js websocket server implementation.
 The opengl es® shading language 2013.
 \newblock
   \url{https://www.khronos.org/registry/gles/specs/3.0/GLSL_ES_Specification_3.00.4.pdf}.
-\newblock Accessed on \today.
-
-\bibitem{pngreader}
-Pure javascript png decoder.
-\newblock \url{https://github.com/arian/pngjs}.
 \newblock Accessed on \today.
 
 \bibitem{Bishop}
@@ -129,12 +120,6 @@ Michal Havl{\'\i}{\v c}ek.
   2012. {\v C}esk{\'e} vysok{\'e} u{\v c}en{\'\i} technick{\'e} v Praze, {\v
   C}esk{\'e} vysok{\'e} u{\v c}en{\'\i} technick{\'e} v Praze.
 
-\bibitem{vectorquantization}
-V.~Havran, J.~Filip, and K.~Myszkowski.
-\newblock Bidirectional texture function compression based on multi-level
-  vector quantization.
-\newblock {\em Computer Graphics Forum}, 29(1):175--190, jan 2010.
-
 \bibitem{xflow}
 Felix Klein, Kristian Sons, Dmitri Rubinstein, and Philipp Slusallek.
 \newblock Xml3d and xflow: Combining declarative 3d for the web with generic
@@ -159,6 +144,11 @@ Tom Malzbender, Tom Malzbender, Dan Gelb, Dan Gelb, Hans Wolters, and Hans
 \newblock Polynomial texture maps.
 \newblock In {\em In Computer Graphics, SIGGRAPH 2001 Proceedings}, pages
   519--528, 2001.
+
+\bibitem{MatusikPBM03}
+Wojciech Matusik, Hanspeter Pfister, Matthew Brand, and Leonard McMillan.
+\newblock A data-driven reflectance model.
+\newblock {\em ACM Trans. Graph.}, 22(3):759--769, 2003.
 
 \bibitem{mueller-2003-compression}
 Gero M{\"u}ller, Jan Meseth, and Reinhard Klein.
