@@ -35,7 +35,7 @@ For instance, an opaque surface such as wool will reflect light differently than
 \section{General Scattering Function}
 \label{section:grf}
  
-To define the general scattering function(GSF) imagine the light-wave hitting the surface at time $t_{i}$ and position $x_{i}$ and with wavelength $\lambda_{i}$\cite{star2004}.
+To define the general scattering function(GSF) imagine the light-wave hitting the surface at time $t_{i}$ and position $x_{i}$ and with wavelength $\lambda_{i}$ \cite{star2004}.
  With a given local coordinate system at a surface point, the incoming direction of light can be defined as $(\theta_{i} ,\phi_{i})$.
  Light travels inside the material and exits the surface at position $x_{o}$ and time $t_{o}$, with a possibly changed wavelength $\lambda_{o}$ in the outgoing direction $(\theta_{o} ,\phi_{o})$.
  Figure  \ref{fig:light_example} illustrates the process.
@@ -57,14 +57,14 @@ $GSF(t_{i},t_{o},x_{i},x_{0,}\theta_{i} ,\phi_{i},\theta_{o},\phi_{o},\lambda_{i
  \end{center}
 in which  spatial positions $x_{i,o}$ are 2-D variables.
 This function describes light interaction for each surface point for any incoming light and outgoing direction at certain time.
-This function comprises 12 parameters Also, note that we neglected light transmittance, which would even further complicate the function.
+This function comprises 12 parameters. Also, note that we neglected light transmittance, which would even further complicate the function.
 
 
 
 
 \section{Bidirectional Scattering-Surface Reflectance Distribution Function}
 \label{section:BSSRDF}
- Since the measurement, modeling and rendering of a 12-D GSF function is currently not practical, additional assumptions have to be made to simplify the function \cite{star2004}.
+ Since the measurement, modeling and rendering of a 12-D GSF function is currently not practical, additional assumptions have to be made to simplify the function \cite{star2004}
 
 
 \begin{itemize}
@@ -153,7 +153,7 @@ Many existing BRDFs, such as Phong, are imperial models that are often based on 
 In contrast to analytic BRDF models, BRDFs can be also represented and modeled as a set of measurements \cite{MatusikPBM03}.
 Measurements result in a set of images. Each acquired image represents a set of BRDFs.
 Each pixel of the image is treated as a separate BRDF measurement.
-The concept of modeling and measurement of the BRDF is related to the BTF, because BTFs can be treated as set of ABRDFs. (See Chapter \ref{chapter:abrdf_repr}.)
+The concept of modeling and measurement of the BRDF is related to the BTF, because BTFs can be treated as a set of ABRDFs. (See Chapter \ref{chapter:abrdf_repr}.)
 
 
 \section{Spatially Varying Bidirectional Reflectance Distribution Function}
@@ -174,7 +174,7 @@ On the other side, the spatial dependence of a SVBRDF describes variations in th
  
 A SVBRDF represents structures at micro-scale level, which corresponds to near flat opaque materials. On the other side, a BTF captures structure both at macro and micro scales.
  That means that the BTF takes into account influences from local neighbourhood structures. Even though measurement, compression and rendering are more efficient for the SVBRDF, 
-  BTFs can produce better visual results. \cite{haindl_visual}
+  BTFs can produce better visual results \cite{haindl_visual}.
  
  
 \section{Surface Light Field and Surface Reflectance Field}
@@ -187,7 +187,7 @@ $SLF(x,\theta_{o} ,\phi_{o})$.
  \end{center}
  
  SLF model is a simple a textural model and is a subset of a BTF. 
- SLF is used when illumination direction is not varying in the scene, but the view direction varies.
+ SLF is used when illumination direction is not varying in the scene, but the camera direction varies.
 This model is favoured for its greater computational efficiency in such cases.
 
 

@@ -3,7 +3,7 @@
  Bidirectional Texture Functions are currently the best texture representation for materials 
  that contain high frequencies in both the angular and spatial domain \cite{mueller-2003-compression}.
  Thousands of images have to be taken to sample the appearance of such materials.
- to the huge size of an acquired BTF real-time rendering is impossible to achieve without suitable compression.
+ Due to the huge size of an acquired BTF real-time rendering is impossible to achieve without suitable compression.
  Thus, BTFs are still rarely used and staying in a state of the art in computer graphics. 
 
 \section{Conclusions}
@@ -26,8 +26,8 @@ Finally, our method is flexible and allows for balancing between the visual qual
 
 Based on our results several directions for future work are possible.
 First of all, several optimizations of the BTF‘s performance.
-For instance, to reduce some of the calculations such as computation of the interpolation weights a precomputed cube map can be used \cite{haindl}.
-Other calculations such as computation of the bidirectional normals can be precomputed and stored along with a 3D mesh.
+For instance, to reduce some of the calculations such as computation of the interpolation weights, a precomputed cube-map can be used \cite{haindl}.
+Other calculations such as computation of the binormals can be precomputed and stored along with a 3D mesh.
 
 Furthermore, there is room for further compression.
  For instance, PCA parameters can be further compressed using wavelet compression \cite{webglbtfstreaming} or entropy encoding \cite{gpu_gems}, if further memory savings are necessary. 
