@@ -11618,8 +11618,8 @@ Xflow.SamplerConfig = function(){
 };
 Xflow.SamplerConfig.prototype.setDefaults = function() {
     // FIXME Generate this from the spec ?
-    this.minFilter = Xflow.TEX_FILTER_TYPE.LINEAR;
-    this.magFilter = Xflow.TEX_FILTER_TYPE.LINEAR;
+    this.minFilter = Xflow.TEX_FILTER_TYPE.NEAREST;
+    this.magFilter = Xflow.TEX_FILTER_TYPE.NEAREST;
     this.mipFilter = Xflow.TEX_FILTER_TYPE.NEAREST;
     this.wrapS = Xflow.TEX_WRAP_TYPE.CLAMP;
     this.wrapT = Xflow.TEX_WRAP_TYPE.CLAMP;

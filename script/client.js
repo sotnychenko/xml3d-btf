@@ -16,10 +16,6 @@ $(window).bind("load", function() {
 	 iterComp = document.getElementById("iterCompId");
      texName =  document.getElementById("texNameId").name; 
 	 endStream = false;
-	 var texData = new Uint8Array(3);
-	 for(var i =0; i<texData.length; i++) texData[i]=128;
-	     document.getElementById("texDataId").setScriptValue(texData);
-	
      client.send(file,{name: texName, numComp: 'R' }); 
     });
 	
@@ -86,6 +82,7 @@ $(window).bind("load", function() {
 		 
        };  
 	   }  
+	  
        if(curComp<numComp-1) client.send(file,{name: texName, numComp: curComp+1 }); 
 
       });

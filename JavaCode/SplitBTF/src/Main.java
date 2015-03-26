@@ -15,15 +15,15 @@ import javax.imageio.ImageIO;
 
 
 public class Main {
-  public static final String inFileName = "D:\\btfs\\corduroy\\3_8\\";
-  public static final String outFileName = "D:\\btfs\\SplitVersions\\corduroy\\3_8\\";
+  public static final String inFileName = "C:\\Program Files (x86)\\Zend\\Apache2\\htdocs\\final\\";
+  public static final String outFileName = "C:\\Program Files (x86)\\Zend\\Apache2\\htdocs\\final\\stream\\";
   static int texSize = 2048;
-  static int RSize = 256;
+  static int RSize = 512;
   static int imageSize = 256;
   static int numComp = 8;
-  static int blockSize = 3; 
-  static int numDirections = 81; 
-  static int numParts = numDirections/blockSize; 
+  static int blockSize = 7; 
+  static int numDirections = 151; 
+  static int numParts = (int)Math.round((float)numDirections/blockSize); 
   static int resultSizeW = imageSize/2;
   static int resultSizeH = (imageSize/2)*numParts;
   

@@ -69,6 +69,8 @@ XML3D.shaders.register("btf", {
         "uniform mat4 viewMatrix;",
         "uniform sampler2D textureL;",
         "uniform sampler2D textureR;",
+		"uniform sampler2D mapDirections;",
+        "uniform sampler2D mapInterp;",
         "uniform float numDirections;",
         "uniform float blockSize;",
         "uniform float numComp;",
@@ -76,12 +78,7 @@ XML3D.shaders.register("btf", {
 		"uniform float LSize;",
 		"uniform float RSize;",
 		"uniform float ambient;",
-        "uniform float steps[numSteps];",
-		
-        "vec2 vertexA;",
-        "vec2 vertexB;",
-        "vec2 vertexC;",
-	
+
 		
 	    "float composeSigma(vec2 s){", 	
 	    "return (s[0]*255.0)*10.0 + (s[1]*255.0)*0.1;",
@@ -98,10 +95,11 @@ XML3D.shaders.register("btf", {
         "     float comp = numComp/4.0;",
         "     float j = floor(fract(fragTexCoord[0])*(imageSize-1.0)+.5);",
         "     float i = floor(fract(fragTexCoord[1])*(imageSize-1.0)+.5);",
-        "     float indexL = (blockN)*(imageSize*imageSize)*(comp)+ (i*imageSize+j)*(comp)-1.0;",
+        "     float indexL = ((blockN)*(imageSize*imageSize)+ (i*imageSize+j))*(comp)-1.0;",
 		"     float temp = imageN*3.0*(comp)-1.0;",
 		"     vec3 indexR = vec3(temp,temp+comp,temp+2.0*comp);",
-		"     float indexS =floor((comp)*3.0*numFrames*(numDirections/blockSize)+(blockN*numComp)/2.0 - 0.5);",
+		"     float lastBlock = floor(numDirections/blockSize - floor(numDirections/blockSize) +0.5);",
+		"     float indexS =floor((comp)*3.0*numFrames*(floor(numDirections/blockSize)+lastBlock)+(blockN*numComp)/2.0 - 0.5);",
 		"     vec4 s=vec4(1.0);",
 		"     float x,y;", 
         "     for(int k=0; k< numOfIter; k++) {", // 8/4 - 8 stands for number of components
@@ -150,145 +148,46 @@ XML3D.shaders.register("btf", {
 		"return color;",
         "}",
 		
-		//getIndexOffset
-        "float getIndexOffset(vec2 dir){",
-		"      if(dir[0] == 0.0) return 0.0;",
-		"      if(dir[1] == 360.0) dir[1]=0.0;",
-		"      float offset = 0.0;",
-		"      float twoPi = 360.0;",
-		"      for (int i=0; i<numSteps/2; i++) {",
-	    "          if(steps[2*i]==dir[0]){ offset += dir[1] / steps[2*i+1] + 1.0; break;}",
-		"	       offset+= twoPi /steps[2*i+1];",
-		"	   }",
-		"return floor(offset);",
-		"}",
-		
-		//getNeighboursTetta
-		"vec2 getBound(float angle,float step){",
-		"     angle=max(0.0,angle);",
-		"     float partNum = floor(angle/step);",
-		"     float lowerBound = step*partNum;",
-	    "return vec2(lowerBound,lowerBound+step);",
-        "}",
-			
-		//getValue
-		"float getValue(int pos){",
-		"      if(pos==1) return steps[1];",
-		"      if(pos==3) return steps[3];",
-		"      if(pos==5) return steps[5];",
-		"      if(pos==7) return steps[7];",
-		"      if(pos==9) return steps[9];",
-		"return -1.0;",
-		"}",
-		
-		//getNeighboursPhi
-        "vec2 getNeighboursPhi(float phi, int pos){",
-        "     if (pos<0) return vec2(0.0);",
-		"     float phiStep = getValue(pos);",
-		"return getBound(phi,phiStep);",	
-        "}",
-		
-         //determinant
-		"float determinant(mat3 m) {",
-        "return  m[0][0]*( m[1][1]*m[2][2] - m[2][1]*m[1][2])",
-        "      - m[1][0]*( m[0][1]*m[2][2] - m[2][1]*m[0][2])",
-        "      + m[2][0]*( m[0][1]*m[1][2] - m[1][1]*m[0][2]);",
-        "}",
-	 
-		 //getInterpWeights
-		"vec3 getInterpWeights(vec3 P,vec3 P1, vec3 P2, vec3 P3){",
-		"     float V1 = abs(determinant(mat3(P,P2,P3)));",
-		"     float V2 = abs(determinant(mat3(P,P3,P1)));",
-		"     float V3 = abs(determinant(mat3(P,P1,P2)));",
-		"return vec3(V1, V2, V3) / (V1 + V2 + V3);",
-		"}",
-		  
-		 //sphericalToVector
-		"vec3 sphericalToVector(vec2 coord){",
-        "     float tetta = RADIAN*coord[0];",
-	    "     float phi   = RADIAN*coord[1];",
-        "     float x = cos(phi)*sin(tetta);",
-        "     float y = sin(phi)*sin(tetta);",
-        "     float z = cos(tetta);",
-        "return vec3(x,y,z);",
-        "}",
-
-		 // GetTriangle	 
-		"void getTriangle(vec2 P){",
-		"     vertexC = vec2(-1.0);",
-	    "     P-=EPS;",
-	    "     vec2 NeighboursTetta = getBound(P[0],steps[0]);",
-	    "     int index= int(floor(NeighboursTetta.x/steps[0])*2.0-1.0);",
-	    "     bool bottom = false;",
-	    "     vec2 NeighboursPhiUpper =  getNeighboursPhi(P[1],index);",
-	    "     vec2 NeighboursPhiBottom;",
-	    "     if(index<numSteps-2) NeighboursPhiBottom=getNeighboursPhi(P[1],index+2);",
-	    "     else  bottom = true;",
-	    "     if(index==-1){", // upper triangle 
-		"        vertexA = vec2(0.0,0.0);",
-		"        vertexB = vec2(NeighboursTetta[1],NeighboursPhiBottom[0]);",
-		"        vertexC = vec2(NeighboursTetta[1],NeighboursPhiBottom[1]);",
-        "        return;",		  
-	    "     }",		
-	    "     vertexA = vec2(NeighboursTetta[0],NeighboursPhiUpper[0]);",
-	    "     vertexB = vec2(NeighboursTetta[0],NeighboursPhiUpper[1]);",
-		"     if(bottom) return;",	
-	    "     vec2 D = vec2(NeighboursTetta[1],NeighboursPhiBottom[1]);",
-        "     float tetta1 = RADIAN*vertexA[0];",
-	    "     float phi1   = RADIAN*vertexA[1];",
-	    "     float tetta2 = RADIAN*P[0];",
-	    "     float phi2   = RADIAN*P[1];",
-        "     float dist1  = cos(tetta1)*cos(tetta2)+sin(tetta1)*sin(tetta2)*cos(phi1-phi2);",
-        "     tetta1 = RADIAN*D[0];",
-	    "     phi1   = RADIAN*D[1];",
-        "     float dist2 = cos(tetta1)*cos(tetta2)+sin(tetta1)*sin(tetta2)*cos(phi1-phi2);",
-	    "     if(dist1>=dist2) {vertexC=vec2(NeighboursTetta[1],NeighboursPhiBottom[0]);}",
-     	"     else",
-	    "         {vertexA=vec2(NeighboursTetta[1],NeighboursPhiBottom[0]);vertexC=D;}",		
-		"return;",
-        "}",
-		
-		// lerp	 
-		"vec2 lerp(float p, float v1, float v2) {",
-	    "return  vec2(abs(v2-p),abs(v1-p))/abs(v2-v1); ",
-	    "}",
-		
-		//getCoef
-        "vec3 getCoef(vec2 P){",
-        "     vec3 coef=vec3(0.0);",
-		"     if (vertexC[0]!=-1.0){",
-		"     coef = getInterpWeights(sphericalToVector(P),",
-		"		                      sphericalToVector(vertexA),",
-		"		                      sphericalToVector(vertexB),",
-		"                             sphericalToVector(vertexC));",								   
-		"     }",
-		"     else{",		 
-	    "          coef.xy = lerp(P[1],vertexA[1],vertexB[1]).xy;",			 
-		"     }",
-		"return coef;",
-		"}",
-		
         //computeAngles
-	    "vec2 computeAngles(vec3 vector,vec3 normal,vec3 X, vec3 Y){",
+	    "vec3 computeDirections(vec2 xy){",
+
+		"xy +=1.0;",
+		"xy /=2.0;",
+		"xy*=512.0;",
+		"xy = (floor(xy)+0.5)/512.0;",
+	    "       vec3  result =texture2D(mapDirections,xy).rgb;",
+		"return vec3(result);",
+	    "}",
+		 "vec3 computeInterp(vec2 xy){",
+		
+		"xy +=1.0;",
+		"xy /=2.0;",
+		"xy*=512.0;",
+	    "xy = (floor(xy)+0.5)/512.0;",
+	   
+	    "       vec3  result =texture2D(mapInterp,xy).rgb;",
+		"return vec3(result);",
+	    "}",
+		 "vec2 computeAngles(vec3 vector,vec3 normal,vec3 X, vec3 Y){",
 	    "     float x = dot(vector,X);",
 	    "     float y = dot(vector,Y);",	
-	    "     float tetta = acos(clamp(dot(vector,normal),0.0,1.0))*degree;",
-	    "     float phi = atan(y,x+EPS)*degree;",
-	    "     if(phi<0.0) phi+=360.0;",
-	    "return vec2(tetta,phi);",
+        "     float z = dot(vector,normal);",
+        " vec3 prj= normalize(vec3(x,y,z));",		
+	    "return prj.xy;",
 	    "}",
 	 
 		//getColor
-	    "vec4 getColor(vec2 camDir,vec3 coef){",
-	    "     float camViewIndex = numDirections*getIndexOffset(camDir);",
-		"     vec4 resultColor  = vec4(0.0,0.0,0.0,1.0);",
-		"     resultColor.xyz+=coef[0]*decompressTexture( camViewIndex+getIndexOffset(vertexA)).xyz;",
-        "     resultColor.xyz+=coef[1]*decompressTexture( camViewIndex+getIndexOffset(vertexB)).xyz;",
-        "     resultColor.xyz+=coef[2]*decompressTexture( camViewIndex+getIndexOffset(vertexC)).xyz;",
+	    "vec3 getColor(vec3 camDir,float lightIndex,vec3 coef){",
+		" vec3 resultColor = vec3(0.0);",
+		
+		"     resultColor.xyz+=coef.r*decompressTexture( (camDir.r-1.0)*numDirections+(lightIndex-1.0)).xyz;",
+        "     resultColor.xyz+=coef.g*decompressTexture( (camDir.g-1.0)*numDirections+(lightIndex-1.0)).xyz;",
+        "     resultColor.xyz+=coef.b*decompressTexture( (camDir.b-1.0)*numDirections+(lightIndex-1.0)).xyz;",
+			
 		"return resultColor;",
 	    "}",
 		
-	
+		  
         "void main(void){",
 	
 		"	 vec2 camDir = vec2(0.0,0.0);",
@@ -309,20 +208,24 @@ XML3D.shaders.register("btf", {
         "    b = cross(fragNormal, x);",
         "    b = normalize(b);",
 		
-        "    lightDir =computeAngles(fragLightVector,fragNormal,t,b);",
-        "    camDir =computeAngles(fragEyeVector,fragNormal,t,b);",
-        "    getTriangle(camDir);",	
-	    "    vec3 coefCam = getCoef(camDir);",
-	    "    vec2 camVerA = vertexA;",
-	    "    vec2 camVerB = vertexB;",
-	    "    vec2 camVerC = vertexC;",
+		" vec2 eyeVec = computeAngles(fragEyeVector,fragNormal,t,b);",
 		
-	    "    getTriangle(lightDir);",
-	    "    vec3 coef = getCoef(lightDir);",
+		" vec2 lightVec= computeAngles(fragLightVector,fragNormal,t,b);",
+		"    vec3 cameraIndex =computeDirections(eyeVec);",
+        "    vec3 lightIndex =computeDirections(lightVec);",
+        "    vec3 cameraInterp =computeInterp(eyeVec);",
+        "    vec3 lightInterp =computeInterp(lightVec);",
+		
+
+ 
 	
-	    "    resultColor.xyz+=coefCam[0]*getColor(camVerA,coef).xyz;",
-        "    resultColor.xyz+=coefCam[1]*getColor(camVerB,coef).xyz;",
-        "    resultColor.xyz+=coefCam[2]*getColor(camVerC,coef).xyz;",	   
+	    " cameraIndex*=255.0;",
+		" lightIndex*=255.0;",
+        
+        "     resultColor.xyz+=lightInterp.r*getColor(cameraIndex, lightIndex.r,cameraInterp);",
+        "    resultColor.xyz+=lightInterp.g*getColor(cameraIndex, lightIndex.g,cameraInterp);",
+        "    resultColor.xyz+=lightInterp.b*getColor(cameraIndex, lightIndex.b,cameraInterp);",
+					
 		"    resultColor.xyz*=clamp((atten+ambient),0.0,1.0);",
 
 		
@@ -349,12 +252,13 @@ XML3D.shaders.register("btf", {
 		imageSize       : 0.0,
 		LSize           : 0.0,
 		RSize           : 0.0,
-		ambient         : 0.0,
-		steps           : [],
+		ambient         : 0.0
     },
     samplers: {
 		textureR : null,
-		textureL : null
+		textureL : null,
+		mapDirections : null,
+		mapInterp : null
     },
 	attributes: {
         normal : {

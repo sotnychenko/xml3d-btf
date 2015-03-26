@@ -64,11 +64,17 @@
 						<float name="LSize" id="LSizeId">0</float>	
 						<float name="RSize" id="RSizeId">0</float>	
 						<float name="ambient" id="ambientId">0.45</float>	
-						<float name="steps" id="stepId">15.0 60.0 30.0 30.0 45.0 20.0 60.0 18.0 75.0 15.0</float>	
+						
 						
 						<int   name="wool/3_8" id="texNameId" >0</int>
+						<texture name="mapDirections"  >
+                            <img id="mapDirectionsId" src="./mapDirections.png"/>
+                        </texture>	
+						<texture name="mapInterp">
+                            <img id="mapInterpId" src="./mapInterp.png"/>
+                        </texture>	
 						
-          	        <data id="buffeData" compute="texData=xflow.updateTexture(texData,imageBuffer,iterComp,texSize,numCompBuffer)">					
+          	       <data id="buffeData" compute="textureL=xflow.updateTexture(texData,imageBuffer,iterComp,texSize,numCompBuffer)">					
                     <int name="texData" id="texDataId" >0</int>					
 				    <int name="iterComp" id="iterCompId">-1</int>
 					<int name="texSize" id="texSizeId" >1</int>
@@ -76,10 +82,7 @@
 					<int name="numCompBuffer" id="numCompBufferId" >0</int> 
 				     </data>							  
 				
-				    <texture name="textureR"  wrapS="repeat" wrapT="repeat"> <img id="texRId"/>  </texture> 
-
-						
-                   <data  src ="#buffeData" compute="textureL=xflow.createTexture(texData)"> </data>									 
+				    <texture name="textureR"  wrapS="repeat" wrapT="repeat"> <img id="texRId"/>  </texture>							 
                    </shader>
 				   
 					<shader id="material0-fx2" script="urn:xml3d:shader:phong" >						

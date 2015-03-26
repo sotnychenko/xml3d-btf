@@ -10,33 +10,41 @@ import java.util.Locale;
 import java.util.Scanner;
 import javax.imageio.ImageIO;
 
+
 import org.jblas.FloatMatrix;
 import org.jblas.Singular;
 
 
 
+
+
+
+
+
 public class Main {
-  public static final String inFileName = "E:\\work\\workspace\\convertToBigTexture\\WOOLdatabase\\MANYFILES\\";
+  public static final String inFileName = "C:\\sotnychenko\\BonnBtf\\work\\bonn\\matlab\\Buddha\\";
   public static final String sigma = "sigma.txt";
 
 static int imageSize = 256;
-static int numV = 81;
-static int blockSize = 3;
+static int numV = 151;
+static int blockSize = 5;
 static int numFrames = numV*blockSize;
 static int numComp = 8;
-static int Lsize = 2048;
-static int Rsize = 256;
+static int Lsize = 2048*2;
+static int Rsize = 512;
+static int lastBlock = numV - (numV/blockSize) * blockSize;
 
   public static void main(String[] args) throws IOException {
     
     if(numComp%4 != 0) {System.out.println("number of components not divisible by 4!"); return;}
-    if(numV%blockSize != 0) {System.out.println("wrong blockSize, it should divide numV!"); return;}
-	  
-
-	FloatMatrix A = new FloatMatrix(imageSize*imageSize,numFrames*3);
+  
+    
+    System.out.println("last block Size"+lastBlock);
+    int addLast = 0;
+	if(lastBlock>0) addLast =1;
 	
-	int LsizeComp = (int) Math.ceil(Math.sqrt((float) (imageSize*imageSize*(numComp/4)*(numV/blockSize))));
-	int RsizeComp = (int) Math.ceil(Math.sqrt((float) (numFrames*3*(numComp/4)*(numV/blockSize))));
+	int LsizeComp = (int) Math.ceil(Math.sqrt((float) (imageSize*imageSize*(numComp/4)*(numV/blockSize+addLast))));
+	int RsizeComp = (int) Math.ceil(Math.sqrt((float) (numFrames*3*(numComp/4)*(numV/blockSize+addLast))));
 	
 	System.out.println("LsizeComp "+LsizeComp);
 	System.out.println("RsizeComp "+RsizeComp);
@@ -59,13 +67,45 @@ static int Rsize = 256;
 	 yourFile=null;
 	 
 		for(int i=0; i< numV/blockSize; i++)
-		{
-			readImages(A,i);
-			A=A.div(255.0f);
-			FloatMatrix result[] = doSVD(A,numFrames*3,numComp);
+		{  
+			
+		
 
+			FloatMatrix A = new FloatMatrix(imageSize*imageSize,numFrames*3);
+			
+           
+		
+			
+			readImages(A,i,blockSize);
+			// System.out.println("myarray"+myarray[0].length);
+		
+			System.gc();
+		
+			
+			A.div(255.0f);
+			 // System.out.println("...done");
+			FloatMatrix[] result = doSVD(A,numFrames*3,numComp);
+			A=null;
+			System.gc();
 			imageL=writeComprData(imageL,result[0],i);
 			imageR=writeComprData(imageR,result[1],i);
+			
+			System.gc();
+			
+		}
+		if(addLast>0)
+		
+		{
+				FloatMatrix A = new FloatMatrix(imageSize*imageSize,numFrames*3);
+			 
+			readImages(A,numV/blockSize,lastBlock);
+			A=A.div(255.0f);
+			System.gc();
+			FloatMatrix result[] = doSVD(A,numFrames*3,numComp);
+			A=null;
+			System.gc();
+			imageL=writeComprData(imageL,result[0],numV/blockSize);
+			imageR=writeComprData(imageR,result[1],numV/blockSize);
 			
 			System.gc();
 		//	if(i==0) break;
@@ -77,7 +117,7 @@ static int Rsize = 256;
 		  @SuppressWarnings("resource")
 		  Scanner scanner = new Scanner(new File("sigma.txt"));
 		  scanner.useLocale(Locale.US);
-	      float[] sigma = new float[numComp*numV/blockSize];
+	      float[] sigma = new float[numComp*(numV/blockSize+lastBlock)];
 	      int i=0;
 		  while(scanner.hasNextFloat()){
 			  sigma[i++]=scanner.nextFloat();	
@@ -87,7 +127,7 @@ static int Rsize = 256;
 		  decimalSymbol.setDecimalSeparator('.');
 		  DecimalFormat formatter = new DecimalFormat("000.0",decimalSymbol); 
 		  DecimalFormat formatter2 = new DecimalFormat("0000",decimalSymbol); 
-		  int dstOffset = ((numComp/4)*3*numFrames*(numV/blockSize));
+		  int dstOffset = (numComp/4)*3*numFrames*(numV/blockSize+addLast);
 		  int index=0;
 		  for( i=0; i <sigma.length; i+=2)
 			  
@@ -123,19 +163,26 @@ static int Rsize = 256;
  }
        
 }
-  static void readImages(FloatMatrix A,int offset)
+  static void readImages(FloatMatrix A,int offset, int size)
   {      
+	  
+		
+	
+		
 	      File file = new File(inFileName);
 	      String[] tempNames = file.list();
-	      int size = numFrames/numV;
+	      
 	      String[] names = new String[size];
 	      int index =0;
-	      for(int i=size*offset;i< size*(offset+1); i++) names[index++]=tempNames[i];
+	      for(int i=blockSize*offset;i< blockSize*offset+size; i++) 
+	    	         names[index++]=tempNames[i];
 	      
 		 BufferedImage originalImage = new BufferedImage(imageSize, imageSize, BufferedImage.TYPE_INT_RGB);
 		 int imgCount = 0;
 		 File fnew;
 		 int[] imageInByte;
+	
+		// float [][] myFloatMatrix = new float[A.rows][A.columns];
 		 System.out.println("alloc "+offset);
 	    for(String name : names)
 		{				
@@ -149,7 +196,7 @@ static int Rsize = 256;
 				 
 				   for(String image : imageList)
 					{
-					 
+					//  System.out.println("images"+image);
 					    fnew=new File(inFileName + name +"\\"+image);
 					    try {
 							originalImage = ImageIO.read(fnew);
@@ -166,13 +213,14 @@ static int Rsize = 256;
 						//   Color.RGBtoHSB(imageInByte[i]>> 16 & 0xFF,imageInByte[i]>> 8 & 0xFF,imageInByte[i]& 0xFF,hsv);
 						   float[] hsv = new float[]{ imageInByte[i]>> 16 & 0xFF,imageInByte[i]>> 8 & 0xFF,imageInByte[i]& 0xFF};
 						 
-						     A.put(i,imgCount, hsv[0] );
-					         A.put(i,imgCount+1, hsv[1] );
-					         A.put(i,imgCount+2, hsv[2]);
+						   A.put(i,imgCount,hsv[0]) ;
+						   A.put(i,imgCount+1,hsv[1]) ;
+						   A.put(i,imgCount+2,hsv[2]) ;
+						
 					      
 						  
 					    }
-					 
+					  
 					imageInByte=null;
 					imgCount+=3;
 
@@ -184,15 +232,15 @@ static int Rsize = 256;
 			   }
 
 		}
-	  
-	  
+	 
+	
   }
   static int[] writeComprData(int[] data,FloatMatrix A,int offset)
   {
 	   // A.print();
 		int index =0;
-		//System.out.println("length :"+A.length);
-		int dstOffset = offset*A.length/4;
+	//	System.out.println("length :"+A.length);
+		int dstOffset = offset*(A.length)/4;
 		for(int i = 0;i <A.rows;i++)
 			 for(int j=0; j<A.columns; j+=4)
 	    {   	/*	
@@ -221,6 +269,8 @@ static int Rsize = 256;
 			A.subiColumnVector(rowMeans);
 		   	
 			FloatMatrix[] B = Singular.sparseSVD(A);
+			A=null;
+			System.gc();
 			System.out.println("svd");
 			
 			 System.out.println("number of c"+ numComp);
