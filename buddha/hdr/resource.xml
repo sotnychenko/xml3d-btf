@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml3d>
+    <data xmlns="http://www.xml3d.org/2009/xml3d" id="buddha-mesh">
+        <data id="mesh-index">
+            <data src="#mesh8-geometry-mesh_shared"/>
+            <data filter="keep({index:index})" src="buddha.json"/>
+        </data>
+        <data id="mesh8-geometry-mesh_shared">
+            <data
+                filter="keep({position:position,texcoord:texcoord, normal:normal,tangent:tangent})" src="buddha.json"/>
+        </data>
+    </data>
+</xml3d>
