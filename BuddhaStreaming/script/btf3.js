@@ -121,7 +121,7 @@ XML3D.shaders.register("btf", {
 "vec2 result;",
 //"if (abs(floor(rgbeNormalized.g*255.0)-127.0)<0.01) rgbeNormalized.g = 127.0/255.0;",
 "result.x = (floor((rgbeNormalized.r)*255.0) +  (floor((rgbeNormalized.g)*255.0))*256.0)/65535.0;",
-"result.y =  (floor((rgbeNormalized.b)*255.0) +  floor((rgbeNormalized.a)*255.0)*256.0)/65535.0;",
+//"result.y =  (floor((rgbeNormalized.b)*255.0) +  floor((rgbeNormalized.a)*255.0)*256.0)/65535.0;",
 " return result;",
 "}",
 
@@ -211,7 +211,7 @@ XML3D.shaders.register("btf", {
        
 	    
 		"    }",
-		"return vec4(lde2rgb(color.xyz),1.0);",
+		"return vec4(lde2rgb(color.xyz),1.0);", // converting lde to rgb
         "}",
 		
         //computeAngles
