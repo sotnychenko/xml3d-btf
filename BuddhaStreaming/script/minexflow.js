@@ -38,7 +38,7 @@ Xflow.registerOperator("xflow.updateTexture", {
 	   index++;
 	    output.data[index]=127;
 	    index++;
-	     output.data[index]=0;
+	     output.data[index]=255;
 	    index++;
 	     output.data[index]=255; //-<alpha, if you change to 127, as it should be for blank values.
 	    index++;   
